@@ -1,0 +1,67 @@
+---
+title: Creating a blog using Gatsby and MDX
+author: Graham Hemsley
+image: ../assets/images/posts/tutorial/tutorial.png
+slug: /posts/gatsby-mdx-blog-tutorial
+tags:
+- name: Tutorials
+- name: Programming
+date: 2020-10-04
+---
+# Hello and welcome!
+
+Today we are going to have a go at creating a simple blog platform. We'll be using a few cool projects to help us including React, Strapi, NextJS, MomentJS, and Pure CSS. When we're done, we should end up with something quite like the blog you're reading right now. So let's have at it!
+
+# First things first
+
+Let's set up our dev environment. We will be needing a couple things to help us install the rest of the stuff for our project: Node.js, and Yarn.
+
+## Nodejs
+
+For those new to javascript development, NodeJS is a javascript interpreter that lets you run javascript in environments besides the browser, where javavscript usually lives. This allows fancy things like server-side applications, or for our use case, it's what lets NextJS perform cool tricks for us like server-side rendering and static page compilation. More on NextJS later. But for now, let's install NodeJS.
+
+### Installing NodeJS
+
+Head over to [nodejs.org](nodejs.org) then download and install the latest **LTS Release**. (Note: if you are reading this after the end of October 2020, consult Strapi's documentation to see what the current recommended node.js release is, as it may have changed. Install whatever Strapi recommends.)
+
+Once that's done, open your terminal and check to make sure it installed correctly using the command `node -v`. If it spits out a version number, everything should be fine.
+
+For the next step we need a tool called npm which should have been installed with Node.js. To check that npm installed correctly, type `npm -v` and hit enter, then look for the version number. If it shows up, you're good.
+
+## Yarn
+
+Yarn is a package management tool similar to NPM if you're familiar with that one already. It's what I like to use when possible so it's what we will be using this time. (When you write your own tutorial, you get to be the benevelent dictator and tell people to use whatever package manager you want! For now, just bear with me.)
+
+### Installing Yarn
+
+To install Yarn, we will head over to [its installation instructions page](https://classic.yarnpkg.com/en/docs/install). Choose an installation method that looks easiest for you but make sure you are following the correct instructions for your operating system: there is a dropdown box that lets us choose which environment to show instructions for. Follow those instructions then come on back 'round' to this guide, y'hear? (I am suddenly an American Southerner for some reason).
+
+Once it's installed, let's do another sanity check in our terminal using `yarn --version`. It's good to check our work continually before we get in over our heads in some broken dependency *hellscape*, don't you think? I really love the word 'hellscape'.
+
+# Second things second?
+
+Let's continue getting ready to code by installing the technologies we want to use. But first, let's set up our project folder.
+
+## Folder structure
+
+Our blog will be using a couple pretty big projects that have their own internal folder structure mostly defined already. Their folder structure will be generated automatically using some commands we will use that install those projects.
+
+### Creating the folders
+
+Navigate to where you want to put your project on your filesystem using your terminal. The `cd` command will be handy for you here! Then once you are in the folder you like, create your project folder with `mkdir 'strap-next-blog'` or whatever you want to name it. Once that's done, `cd` into that newly created folder. Then let's install Strapi first, and afterwards NextJS.
+
+## Strapi
+
+Now let's set up our "backend", ie. install Strapi! For those that don't know, Strapi is a fancy sort of headless content management system written in Javascript. It lets you create content types using a nice graphical interface, then it auto-generates an API for accessing that content that you can consume using practically any sort of frontend that you like. Very cool! We will see more of what that all means soon once it's installed. First, let's type some commands to get set up!
+
+```jsx
+import bagel
+const meal = (bagel) => {
+  useEffect(bagel)
+  return (
+    food.yum()
+  )
+}
+meal.eat()
+
+```
