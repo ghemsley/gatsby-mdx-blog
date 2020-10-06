@@ -12,7 +12,7 @@ module.exports = {
     siteURL: "https://grahamhemsley.com",
   },
   plugins: [
-    'gatsby-plugin-netlify-cache',
+    "gatsby-plugin-netlify-cache",
     "gatsby-transformer-sharp",
     `gatsby-plugin-sharp`,
     `gatsby-remark-images`,
@@ -51,6 +51,24 @@ module.exports = {
         //color: `tomato`,
         // Disable the loading spinner.
         showSpinner: false,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-gitalk`,
+      options: {
+        clientID: "ce414e2328c501a54daf",
+        clientSecret: "c1b0935b57add86832ed48a1ba421d291231e22a",
+        repo: "https://github.com/ghemsley/gatsby-mdx-blog",
+        owner: "ghemsley",
+        admin: ["ghemsley"],
+        language: "en",
+        perPage: 20,
+        flipMoveOptions: {
+          staggerDelayBy: 50,
+          appearAnimation: "elevator",
+          enterAnimation: "elevator",
+          leaveAnimation: "elevator",
+        },
       },
     },
     {

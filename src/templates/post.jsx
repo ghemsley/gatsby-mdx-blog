@@ -2,10 +2,19 @@ import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from "gatsby-image"
-import GitalkComponent from "gitalk/dist/gitalk-component"
+import Gitalk from "gatsby-plugin-gitalk"
 import "gitalk/dist/gitalk.css"
 
+
+
 export default function Post({ location, data }) {
+
+  let gitalkConfig = {
+    id: location.pathname,
+    title: data.mdx.frontmatter.title,
+    body: `Gitalk comments for post "${data.mdx.frontmatter.title}"`,
+  }
+
   return (
     <div className="blog-post-container">
       <h1 className="page-header">{data.mdx.frontmatter.title}</h1>
@@ -25,26 +34,7 @@ export default function Post({ location, data }) {
           <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </div>
       </div>
-      <GitalkComponent
-        options={{
-          clientID: "...",
-          clientSecret: "...",
-          repo: "...",
-          owner: "ghemsley",
-          admin: ["ghemsley"],
-          id: location.pathname,
-          title: data.mdx.frontmatter.title,
-          body: `Gitalk comments for post "${data.mdx.frontmatter.title}"`,
-          language: "en",
-          perPage: 20,
-          flipMoveOptions: {
-            staggerDelayBy: 50,
-            appearAnimation: "elevator",
-            enterAnimation: "elevator",
-            leaveAnimation: "elevator",
-          },
-        }}
-      />
+      <Gitalk options={gitalkConfig} />
     </div>
   )
 }
