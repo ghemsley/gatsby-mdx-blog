@@ -10,9 +10,22 @@ import "gitalk/dist/gitalk.css"
 export default function Post({ location, data }) {
 
   let gitalkConfig = {
+    clientID: "ce414e2328c501a54daf",
+    clientSecret: "c1b0935b57add86832ed48a1ba421d291231e22a",
+    repo: "gatsby-mdx-blog",
+    owner: "ghemsley",
+    admin: ["ghemsley"],
     id: location.pathname,
     title: data.mdx.frontmatter.title,
     body: `Gitalk comments for post "${data.mdx.frontmatter.title}"`,
+    language: "en",
+    perPage: 20,
+    flipMoveOptions: {
+      staggerDelayBy: 50,
+      appearAnimation: "elevator",
+      enterAnimation: "elevator",
+      leaveAnimation: "elevator",
+    },
   }
 
   return (

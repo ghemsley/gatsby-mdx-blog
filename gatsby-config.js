@@ -58,7 +58,7 @@ module.exports = {
       options: {
         clientID: "ce414e2328c501a54daf",
         clientSecret: "c1b0935b57add86832ed48a1ba421d291231e22a",
-        repo: "https://github.com/ghemsley/gatsby-mdx-blog",
+        repo: "gatsby-mdx-blog",
         owner: "ghemsley",
         admin: ["ghemsley"],
         language: "en",
