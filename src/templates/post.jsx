@@ -36,28 +36,30 @@ export default function Post({ location, data }) {
           <time className="blog-post-meta-date">
             {data.mdx.frontmatter.date}
           </time>
-          {data.mdx.frontmatter.tags.map((tag, i) => {
-            return (
-              <AniLink
-                fade
-                duration={0.25}
-                to={`/tags/${tag.name}`.toLowerCase()}
-                key={tag.name}
-                title={tag.name}
-              >
-                <div className="tag-link">
-                  <HiOutlineTag size="24" />
-                  {tag.name}
-                </div>
-              </AniLink>
-            )
-          })}
+          <div className="blog-post-tags-container">
+            {data.mdx.frontmatter.tags.map((tag, i) => {
+              return (
+                <AniLink
+                  fade
+                  duration={0.25}
+                  to={`/tags/${tag.name}`.toLowerCase()}
+                  key={tag.name}
+                  title={tag.name}
+                >
+                  <div className="tag-link">
+                    <HiOutlineTag size="24" />
+                    {tag.name}
+                  </div>
+                </AniLink>
+              )
+            })}
+          </div>
         </div>
         <h6 className="blog-post-time-to-read">{`This post should take around ${data.mdx.timeToRead} minutes to read`}</h6>
         <Img
           className="blog-post-image"
           fluid={data.mdx.frontmatter.image.childImageSharp.fluid}
-          title='Cover image'
+          title="Cover image"
         />
         <div className="blog-post-content">
           <MDXRenderer>{data.mdx.body}</MDXRenderer>

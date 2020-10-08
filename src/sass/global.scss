@@ -391,11 +391,18 @@ a:hover {
   border-bottom: 1px solid #666;
   color: #666;
   font-size: 1em;
-  margin-bottom: 1.5em;
+  margin-bottom: 0.5em;
   margin-top: 0.5em;
   padding-bottom: 0.25em;
   text-transform: uppercase;
   letter-spacing: 0.25em;
+}
+
+@media screen and (min-width: 1152px) {
+  .page-header {
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+  }
 }
 
 @media screen and (min-width: 1152px) {
@@ -456,10 +463,16 @@ a:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: flex-start;
+  align-items: flex-end;
   .tag-link {
     margin-top: 0px;
+  }
+}
+
+@media screen and (min-width: 1152px) {
+  .post-metadata {
+    align-items: flex-start;
   }
 }
 
@@ -661,6 +674,7 @@ a:hover {
 }
 
 .blog-post-meta-date {
+  margin-right: 0.5em;
   font-size: x-large;
 }
 
@@ -675,7 +689,13 @@ a:hover {
   font-weight: normal;
   font-size: 16px;
   margin-top: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+}
+
+@media screen and (min-width: 1152px) {
+  .blog-post-time-to-read {
+    margin-bottom: 2em;
+  }
 }
 
 .blog-post-image {
@@ -768,4 +788,22 @@ a:hover {
 
 .tags-list p {
   margin-bottom: 0px;
+}
+
+.blog-post-tags-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 0.5em;
+  a:first-child {
+    .tag-link {
+      margin-left: 0px;
+    }
+  }
+}
+
+@media screen and (min-width: 1152px) {
+  .blog-post-tags-container {
+    margin-top: 0px;
+  }
 }
