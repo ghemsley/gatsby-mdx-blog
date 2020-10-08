@@ -12,7 +12,7 @@ const Home = ({ location }) => {
         edges {
           node {
             id
-            excerpt(pruneLength: 260)
+            excerpt(pruneLength: 280)
             timeToRead
             slug
             frontmatter {
@@ -20,9 +20,8 @@ const Home = ({ location }) => {
               author
               image {
                 childImageSharp {
-                  fluid(maxWidth: 640) {
+                  fluid(maxWidth: 800) {
                     ...GatsbyImageSharpFluid_withWebp
-                    ...GatsbyImageSharpFluidLimitPresentationSize
                   }
                 }
               }

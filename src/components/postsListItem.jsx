@@ -1,6 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { HiOutlineTag } from "react-icons/hi"
 
 const PostsListItem = ({ post }) => {
   return (
@@ -10,7 +11,12 @@ const PostsListItem = ({ post }) => {
           <div>
             <div className="title-container">
               <div className="title-container-nested">
-                <AniLink fade duration={0.25} to={post.frontmatter.slug}>
+                <AniLink
+                  fade
+                  duration={0.25}
+                  to={post.frontmatter.slug}
+                  title={post.frontmatter.title}
+                >
                   <h2 className="post-title">{post.frontmatter.title}</h2>
                 </AniLink>
               </div>
@@ -18,8 +24,17 @@ const PostsListItem = ({ post }) => {
                 {post.frontmatter.tags &&
                   post.frontmatter.tags.map((tag, i) => {
                     return (
-                      <AniLink fade duration={0.25} to={`/tags/${tag.name}`.toLowerCase()} key={tag.name}>
-                        <p className="tag-link">{tag.name}</p>
+                      <AniLink
+                        fade
+                        duration={0.25}
+                        to={`/tags/${tag.name}`.toLowerCase()}
+                        key={tag.name}
+                        title={tag.name}
+                      >
+                        <div className="tag-link">
+                          <HiOutlineTag size="24" />
+                          {tag.name}
+                        </div>
                       </AniLink>
                     )
                   })}
@@ -28,7 +43,13 @@ const PostsListItem = ({ post }) => {
             <p className="date">
               Published {post.frontmatter.date}
               {" by "}
-              <AniLink fade duration={0.25} className="author-link" to={"/author"}>
+              <AniLink
+                fade
+                duration={0.25}
+                className="author-link"
+                to={"/author"}
+                title="author"
+              >
                 {post.frontmatter.author}
               </AniLink>
             </p>
@@ -40,11 +61,17 @@ const PostsListItem = ({ post }) => {
           <Img
             className="post-image"
             fluid={post.frontmatter.image.childImageSharp.fluid}
+            title="Cover image"
           />
         </AniLink>
       )}
       <div className="read-more-div">
-        <AniLink fade duration={0.25} to={post.frontmatter.slug}>
+        <AniLink
+          fade
+          duration={0.25}
+          to={post.frontmatter.slug}
+          title={post.frontmatter.title}
+        >
           <p className="read-more">Read more</p>
         </AniLink>
       </div>

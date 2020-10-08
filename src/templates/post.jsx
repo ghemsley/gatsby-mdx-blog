@@ -2,13 +2,13 @@ import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from "gatsby-image"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Gitalk from "gatsby-plugin-gitalk"
+import PostNavigator from "../components/postNavigator"
 import "gitalk/dist/gitalk.css"
-
-
+import { HiOutlineTag } from "react-icons/hi"
 
 export default function Post({ location, data }) {
-
   let gitalkConfig = {
     clientID: "ce414e2328c501a54daf",
     clientSecret: "c1b0935b57add86832ed48a1ba421d291231e22a",
@@ -32,20 +32,37 @@ export default function Post({ location, data }) {
     <div className="blog-post-container">
       <h1 className="page-header">{data.mdx.frontmatter.title}</h1>
       <div className="blog-post">
+        <div className="post-metadata">
+          <time className="blog-post-meta-date">
+            {data.mdx.frontmatter.date}
+          </time>
+          {data.mdx.frontmatter.tags.map((tag, i) => {
+            return (
+              <AniLink
+                fade
+                duration={0.25}
+                to={`/tags/${tag.name}`.toLowerCase()}
+                key={tag.name}
+                title={tag.name}
+              >
+                <div className="tag-link">
+                  <HiOutlineTag size="24" />
+                  {tag.name}
+                </div>
+              </AniLink>
+            )
+          })}
+        </div>
+        <h6 className="blog-post-time-to-read">{`This post should take around ${data.mdx.timeToRead} minutes to read`}</h6>
         <Img
-          className="post-image"
+          className="blog-post-image"
           fluid={data.mdx.frontmatter.image.childImageSharp.fluid}
+          title='Cover image'
         />
-        <h4 className="blog-post-header">
-          Published {data.mdx.frontmatter.date}
-        </h4>
-        <h5
-          className="blog-post-header"
-          style={{ fontWeight: "normal" }}
-        >{`This post should take around ${data.mdx.timeToRead} minutes to read`}</h5>
         <div className="blog-post-content">
           <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </div>
+        <PostNavigator data={data} location={location} />
       </div>
       <Gitalk options={gitalkConfig} />
     </div>
@@ -54,26 +71,50 @@ export default function Post({ location, data }) {
 
 export const pageQuery = graphql`
   query PostQuery($slug: String!) {
+    allMdx(
+      filter: { frontmatter: { slug: { regex: "/^/posts//i" } } }
+      sort: { order: ASC, fields: frontmatter___date }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            slug
+            title
+          }
+        }
+        next {
+          frontmatter {
+            slug
+            title
+          }
+        }
+        previous {
+          frontmatter {
+            slug
+            title
+          }
+        }
+      }
+    }
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         author
         date(formatString: "MMMM D, YYYY")
         image {
           childImageSharp {
-            fluid(maxWidth: 640) {
+            fluid(maxWidth: 1280) {
               ...GatsbyImageSharpFluid_withWebp
-              ...GatsbyImageSharpFluidLimitPresentationSize
             }
           }
         }
-        title
         slug
         tags {
           name
         }
+        title
       }
-      body
       timeToRead
+      body
     }
   }
 `

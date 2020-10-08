@@ -13,6 +13,8 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-netlify-cache",
+    `gatsby-plugin-preact`,
+    `gatsby-plugin-sass`,
     "gatsby-transformer-sharp",
     `gatsby-plugin-sharp`,
     `gatsby-remark-images`,
@@ -78,9 +80,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1024,
-              wrapperStyle: fluidResult =>
-                `flex:${_.round(fluidResult.aspectRatio, 2)};`,
+              maxWidth: 1000,
             },
           },
           {
@@ -161,9 +161,7 @@ module.exports = {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 1024,
-              wrapperStyle: fluidResult =>
-                `flex:${_.round(fluidResult.aspectRatio, 2)};`,
+              maxWidth: 1000,
             },
           },
           {

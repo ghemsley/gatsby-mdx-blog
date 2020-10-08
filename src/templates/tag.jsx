@@ -30,15 +30,14 @@ export const pageQuery = graphql`
           id
           slug
           timeToRead
-          excerpt(pruneLength: 260)
+          excerpt(pruneLength: 280)
           frontmatter {
             author
             date(formatString: "MMMM D, YYYY")
             image {
               childImageSharp {
-                fluid(maxWidth: 640) {
+                fluid(maxWidth: 800) {
                   ...GatsbyImageSharpFluid_withWebp
-                  ...GatsbyImageSharpFluidLimitPresentationSize
                 }
               }
             }

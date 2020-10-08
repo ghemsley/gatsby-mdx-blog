@@ -20,14 +20,14 @@ const Nav = () => {
       <nav className="nav">
         <ul style={{ margin: "0", padding: "0", listStyle: "none" }}>
           <li style={{ display: "inline-block" }} key={0}>
-            <AniLink fade duration={0.25} className="nav-button" to="/">
+            <AniLink fade duration={0.25} className="nav-button" to="/" title='home'>
               Home
             </AniLink>
           </li>
           {data.allFile.edges.map((page, i) => {
             return (
               <li style={{ display: "inline-block" }} key={page.node.name}>
-                <AniLink fade duration={0.25} to={`/${page.node.name}`} className="nav-button">
+                <AniLink fade duration={0.25} to={`/${page.node.name}`} className="nav-button" title={page.node.name}>
                   {page.node.name}
                 </AniLink>
               </li>

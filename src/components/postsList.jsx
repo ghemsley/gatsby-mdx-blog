@@ -2,7 +2,6 @@ import React from "react"
 import PostsListItem from "./postsListItem"
 
 const PostsList = ({ location, data }) => {
-  console.log(data)
   if (location.pathname === "/") {
     return (
       <>
