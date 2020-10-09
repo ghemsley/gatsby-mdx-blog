@@ -5,7 +5,6 @@ import Img from "gatsby-image"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import PostNavigator from "../components/postNavigator"
 import CommentBox from "../components/commentBox"
-import "gitalk/dist/gitalk.css"
 import { HiOutlineTag } from "react-icons/hi"
 
 export default function Post({ location, data }) {
