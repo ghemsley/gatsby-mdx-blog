@@ -794,4 +794,14 @@ a:hover {
   box-sizing: border-box;
 }
 
+/* line 693, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+ul {
+  margin-bottom: 0px;
+}
+
+/* line 697, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+.tags-list {
+  margin-bottom: 1em;
+}
+
 /*# sourceMappingURL=global.css.map */
