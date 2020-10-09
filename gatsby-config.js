@@ -9,7 +9,7 @@ module.exports = {
     title: "Blog",
     description: "Graham Hemsley's blog",
     author: "Graham Hemsley",
-    siteURL: "https://grahamhemsley.com",
+    siteURL: "https://www.grahamhemsley.com",
   },
   plugins: [
     "gatsby-plugin-netlify-cache",
@@ -59,7 +59,7 @@ module.exports = {
       resolve: `gatsby-plugin-gitalk`,
       options: {
         clientID: "ce414e2328c501a54daf",
-        clientSecret: "c1b0935b57add86832ed48a1ba421d291231e22a",
+        clientSecret: "21204f5bae2a49e414a5369edeb029133f9559c9",
         repo: "gatsby-mdx-blog",
         owner: "ghemsley",
         admin: ["ghemsley"],
