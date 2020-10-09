@@ -11,7 +11,7 @@ const TagsPage = ({
 }) => (
   <div>
     <div>
-      <h1 className="page-header">Tags</h1>
+      <h1 className="page-header" id='page-header'>Tags</h1>
       <ul>
         {tagsGroup.map(tag => (
           <li className="tags-list" key={tag.fieldValue}>

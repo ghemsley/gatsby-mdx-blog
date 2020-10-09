@@ -10,7 +10,7 @@ import { S9comment } from "gatsby-plugin-social9-comment"
 export default function Post({ location, data }) {
   return (
     <div className="blog-post-container">
-      <h1 className="page-header">{data.mdx.frontmatter.title}</h1>
+      <h1 className="page-header" id='page-header'>{data.mdx.frontmatter.title}</h1>
       <div className="blog-post">
         <div className="post-metadata">
           <time className="blog-post-meta-date">

@@ -1,5 +1,4 @@
 import React from "react"
-import AniLink from "gatsby-plugin-transition-link"
 import { CgChevronLeftO } from "react-icons/cg"
 import { CgChevronRightO } from "react-icons/cg"
 
@@ -13,10 +12,8 @@ const PostNavigator = ({ data, location }) => {
           return (
             <>
               {edge.previous && (
-                <AniLink
-                  fade
-                  duration={0.25}
-                  to={edge.previous.frontmatter.slug}
+                <a
+                  href={`${edge.previous.frontmatter.slug}`}
                   title={edge.previous.frontmatter.title}
                   className="post-navigator-previous tag-link"
                 >
@@ -24,13 +21,11 @@ const PostNavigator = ({ data, location }) => {
                     <CgChevronLeftO size={32} className="post-navigator-icon" />
                     <p>Previous post</p>
                   </div>
-                </AniLink>
+                </a>
               )}
               {edge.next && (
-                <AniLink
-                  fade
-                  duration={0.25}
-                  to={edge.next.frontmatter.slug}
+                <a
+                  href={`${edge.next.frontmatter.slug}`}
                   title={edge.next.frontmatter.title}
                   className="post-navigator-next tag-link"
                 >
@@ -41,7 +36,7 @@ const PostNavigator = ({ data, location }) => {
                       className="post-navigator-icon"
                     />
                   </div>
-                </AniLink>
+                </a>
               )}
             </>
           )

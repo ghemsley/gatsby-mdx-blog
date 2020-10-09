@@ -10,7 +10,7 @@ export default function Tag({ location, pageContext, data }) {
   } tagged with "${tag}"`
   return (
     <>
-      <h1 className='page-header'>{tagHeader}</h1>
+      <h1 className='page-header' id='page-header'>{tagHeader}</h1>
       <PostsList location={location} data={data} />
     </>
   )

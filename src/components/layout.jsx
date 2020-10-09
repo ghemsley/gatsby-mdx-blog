@@ -13,7 +13,13 @@ const Layout = ({ children }) => {
           <h1 className="site-title">Blog</h1>
           <h2 className="subtitle">
             By{" "}
-            <AniLink fade duration={0.25} to="/author" className="author" title='Author'>
+            <AniLink
+              fade
+              duration={0.25}
+              to="/author"
+              className="author"
+              title="Author"
+            >
               Graham Hemsley
             </AniLink>
           </h2>
