@@ -56,24 +56,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-gitalk`,
-      options: {
-        clientID: "ce414e2328c501a54daf",
-        clientSecret: "21204f5bae2a49e414a5369edeb029133f9559c9",
-        repo: "gatsby-mdx-blog",
-        owner: "ghemsley",
-        admin: ["ghemsley"],
-        language: "en",
-        perPage: 20,
-        flipMoveOptions: {
-          staggerDelayBy: 50,
-          appearAnimation: "elevator",
-          enterAnimation: "elevator",
-          leaveAnimation: "elevator",
-        },
-      },
-    },
-    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
