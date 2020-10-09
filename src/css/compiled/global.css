@@ -1,160 +1,19 @@
-@keyframes slideInFromLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromLeftHalf {
-  0% {
-    transform: translateX(-50%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromLeftQuarter {
-  0% {
-    transform: translateX(-25%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromTop {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromRight {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromRightHalf {
-  0% {
-    transform: translateX(50%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromRightQuarter {
-  0% {
-    transform: translateX(25%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromBottom {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromBottomDouble {
-  0% {
-    transform: translateY(200%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromBottomHalf {
-  0% {
-    transform: translateY(50%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromBottomQuarter {
-  0% {
-    transform: translateY(25%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInFromBottomTenth {
-  0% {
-    transform: translateY(10%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* line 142, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 1, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 html {
   background: #f1f1f1;
 }
 
-/* line 146, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 5, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 body {
   background: #f1f1f1;
 }
 
-/* line 150, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 9, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 ul {
   padding-left: 0px;
 }
 
-/* line 154, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 13, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .layout {
   display: flex;
   flex-flow: row wrap;
@@ -166,32 +25,21 @@ ul {
   box-sizing: border-box;
 }
 
-/* line 165, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 24, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .sidebar {
   box-sizing: border-box;
   background: #100e17;
   color: #fff;
   left: 0px;
   width: 100vw;
-  /*  background-image: url(../../assets/images/sidebar.jpg);
-  background-size: cover;
-  background-attachment: scroll;
-  background-position: center;
-  */
   z-index: 1;
   display: inline-block;
   overflow: hidden;
 }
 
 @media screen and (min-width: 1152px) {
-  /* line 183, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 36, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .sidebar {
-    /*   background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position-x: 70%;
-    background-position-y: 10%;
-    */
     position: fixed;
     top: 0px;
     bottom: 0px;
@@ -200,7 +48,7 @@ ul {
   }
 }
 
-/* line 199, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 45, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .header {
   margin: 1em;
   text-align: center;
@@ -209,7 +57,7 @@ ul {
 }
 
 @media screen and (min-width: 1152px) {
-  /* line 207, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 53, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .header {
     margin: 35vh 2em 0 2em;
     text-align: right;
@@ -217,7 +65,7 @@ ul {
   }
 }
 
-/* line 214, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 60, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .header::before {
   content: "";
   position: absolute;
@@ -232,13 +80,13 @@ ul {
 }
 
 @media screen and (min-width: 1152px) {
-  /* line 228, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 74, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .header::before {
     box-shadow: inset 0 0 60px 10px rgba(255, 255, 255, 0.35);
   }
 }
 
-/* line 233, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 79, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .content {
   padding: 1em;
   vertical-align: baseline;
@@ -247,7 +95,7 @@ ul {
 }
 
 @media screen and (min-width: 1152px) {
-  /* line 241, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 87, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .content {
     padding-left: 2em;
     padding-right: 2em;
@@ -257,19 +105,19 @@ ul {
   }
 }
 
-/* line 250, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 96, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .author {
   color: white;
   transition: all ease 250ms;
 }
 
-/* line 255, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 101, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .author:hover {
   text-shadow: 0px 0px 10px rgba(80, 180, 255, 0.5);
   transition: all ease 250ms;
 }
 
-/* line 260, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 106, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .site-title {
   font-size: 3em;
   margin: 0;
@@ -277,19 +125,19 @@ ul {
   z-index: 1;
 }
 
-/* line 267, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 113, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .subtitle {
   margin: 0;
   font-size: 1.5em;
   font-weight: normal;
 }
 
-/* line 273, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 119, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 li {
   margin: 0px;
 }
 
-/* line 278, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 124, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .nav ul {
   display: flex;
   flex-direction: row;
@@ -301,7 +149,7 @@ li {
   margin-left: -0.5em;
 }
 
-/* line 288, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 134, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .nav ul > li {
   margin-top: 0.5em;
   margin-left: 0.5em;
@@ -309,13 +157,13 @@ li {
 }
 
 @media screen and (min-width: 1152px) {
-  /* line 297, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 143, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .nav ul {
     justify-content: flex-end;
   }
 }
 
-/* line 303, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 149, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .nav-button {
   display: block;
   background: transparent;
@@ -336,34 +184,34 @@ li {
 }
 
 @media screen and (min-width: 1152px) {
-  /* line 323, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 169, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .nav-button {
     margin-left: 0px;
     margin-right: 0px;
   }
-  /* line 327, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 173, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .nav ul > li {
     margin-top: 1em;
     margin-left: 1em;
     margin-right: 0em;
   }
-  /* line 333, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 179, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .nav ul > li:first-child {
     margin-left: 0em;
   }
 }
 
-/* line 338, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 184, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .nav ul li:first-child .nav-button {
   margin-left: 0px;
 }
 
-/* line 342, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 188, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .nav ul li:last-child .nav-button {
   margin-right: 0px;
 }
 
-/* line 346, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 192, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .nav-button:hover {
   border: 2px solid #50b4ff !important;
   text-decoration: none;
@@ -371,37 +219,37 @@ li {
   box-shadow: 0 0 10px 2px rgba(80, 180, 255, 0.5);
 }
 
-/* line 353, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 199, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .search-form {
   margin-top: 1em;
 }
 
-/* line 356, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 202, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .submit-button {
   margin-left: 4px;
 }
 
-/* line 359, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 205, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .tags {
   font-size: 1.5em;
   text-transform: uppercase;
   margin-top: 1em;
 }
 
-/* line 365, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 211, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .blog,
 .author {
   transition: all ease 250ms;
 }
 
-/* line 370, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 216, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .blog:hover,
 .author:hover {
   color: #50b4ff !important;
   transition: all ease 250ms;
 }
 
-/* line 376, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 222, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 a,
 a :visited :active {
   color: #4090d0;
@@ -409,13 +257,13 @@ a :visited :active {
   transition: all ease 250ms;
 }
 
-/* line 383, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 229, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 a:hover {
   transition: all ease 250ms !important;
   color: #50b4ff;
 }
 
-/* line 388, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 234, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .page-header {
   border-bottom: 1px solid #666;
   color: #666;
@@ -428,7 +276,7 @@ a:hover {
 }
 
 @media screen and (min-width: 1152px) {
-  /* line 401, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 246, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .page-header {
     margin-bottom: 1.5em;
     margin-top: 1.5em;
@@ -436,14 +284,14 @@ a:hover {
 }
 
 @media screen and (min-width: 1152px) {
-  /* line 408, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 253, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .title-container {
     display: flex;
     flex-direction: row;
   }
 }
 
-/* line 414, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 259, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-title {
   color: #4a4a4a;
   word-wrap: normal;
@@ -457,13 +305,13 @@ a:hover {
   transition: all ease 250ms;
 }
 
-/* line 427, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 272, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-title:hover {
   color: #50b4ff;
   transition: all ease 250ms;
 }
 
-/* line 432, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 277, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post {
   max-width: 800px;
   background: #ffffff;
@@ -480,46 +328,46 @@ a:hover {
   border-radius: 4px;
 }
 
-/* line 450, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 294, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post:hover {
   transition: all ease 250ms;
   box-shadow: 0px 0px 16px 4px rgba(80, 180, 255, 0.5);
 }
 
-/* line 455, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 299, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-info {
   display: flex;
   flex-direction: row;
   vertical-align: middle;
 }
 
-/* line 461, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 305, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-metadata {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-end;
 }
 
-/* line 467, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 311, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-metadata .tag-link {
   margin-top: 0px;
 }
 
 @media screen and (min-width: 1152px) {
-  /* line 473, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 317, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .post-metadata {
     align-items: flex-start;
   }
 }
 
-/* line 478, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 322, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .posts-container {
   display: block;
 }
 
-/* line 482, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 326, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .author-image {
   max-width: 48px;
   max-height: 48px;
@@ -527,7 +375,7 @@ a:hover {
   vertical-align: middle;
 }
 
-/* line 489, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 333, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .author-image-div {
   display: block;
   text-align: right;
@@ -535,14 +383,14 @@ a:hover {
   margin-right: 0px;
 }
 
-/* line 496, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 340, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-header {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
 
-/* line 502, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 346, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-image {
   display: block;
   margin-bottom: 1em;
@@ -552,7 +400,7 @@ a:hover {
   box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.08), 1px 6px 10px rgba(39, 44, 49, 0.04);
 }
 
-/* line 512, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 356, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-preview {
   min-height: fit-content;
   height: 5em;
@@ -560,7 +408,7 @@ a:hover {
   margin-top: -5em;
 }
 
-/* line 519, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 363, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .read-more-div {
   position: relative;
   display: flex;
@@ -573,7 +421,7 @@ a:hover {
   background-image: linear-gradient(to bottom, transparent, white);
 }
 
-/* line 531, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 375, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .read-more {
   transition: all ease 250ms;
   margin-top: 5em;
@@ -588,29 +436,70 @@ a:hover {
   overflow: hidden;
 }
 
-/* line 545, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 389, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .read-more:hover {
   color: #50b4ff;
   transition: all ease 250ms;
 }
 
-/* line 550, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 394, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .title-container-nested {
   height: fit-content;
 }
 
-/* line 554, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
-.tag-container {
+/* line 398, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+.tag-container,
+.blog-post-tags-container {
   display: flex;
-  margin-top: 1em;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
-/* line 559, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
-.post .tag-container a:first-child .tag-link {
+@media screen and (max-width: 374px) {
+  /* line 408, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  .tag-container,
+  .blog-post-tags-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  /* line 412, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  .tag-container a,
+  .blog-post-tags-container a {
+    margin-left: 0.5em !important;
+    margin-top: 0.5em !important;
+  }
+}
+
+@media screen and (min-width: 1152px) {
+  /* line 420, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  .tag-container,
+  .blog-post-tags-container {
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+/* line 427, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+.tag-container a,
+.blog-post-tags-container a {
+  margin: 0px;
+  margin-left: 1em;
+  flex-basis: auto;
+  flex-grow: 0;
+  flex-shrink: 1;
+  width: fit-content;
+  height: fit-content;
+}
+
+/* line 438, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+.tag-container a:first-child,
+.blog-post-tags-container a:first-child {
   margin-left: 0px;
 }
 
-/* line 563, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 443, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .tag-link {
   display: flex;
   flex-direction: row;
@@ -618,44 +507,34 @@ a:hover {
   align-items: center;
   transition: all ease 250ms !important;
   background: #5080b0;
-  margin-top: 0.75em;
   margin-bottom: 0px;
   padding: 0.333em;
   padding-left: 0.5em;
   padding-right: 0.5em;
-  margin-left: 1em;
   color: white;
   max-width: fit-content;
   border-radius: 4px;
+  height: fit-content;
 }
 
-/* line 581, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 460, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .tag-link svg {
   margin-right: 4px;
 }
 
-/* line 585, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 464, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .tag-link:hover {
   color: white;
   background: #50b4ff !important;
   transition: all ease 250ms !important;
 }
 
-@media screen and (min-width: 1152px) {
-  /* line 592, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
-  .tag-link {
-    margin-bottom: 1em;
-    margin-left: 1em;
-    margin-right: 0px;
-  }
-}
-
-/* line 598, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 470, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .tag-link .tag-total-count {
   margin-left: 0.5em;
 }
 
-/* line 601, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 473, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .author-link {
   vertical-align: baseline;
   margin-top: auto;
@@ -663,19 +542,19 @@ a:hover {
   color: #5080b0;
 }
 
-/* line 608, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 480, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .date {
   margin-top: 1em;
 }
 
 @media screen and (min-width: 1152px) {
-  /* line 613, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 485, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .date {
     margin-top: 0px;
   }
 }
 
-/* line 618, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 490, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .date-string {
   margin-left: auto;
   margin-right: auto;
@@ -683,12 +562,12 @@ a:hover {
   text-align: center;
 }
 
-/* line 625, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 497, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .title {
   text-align: center;
 }
 
-/* line 629, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 501, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .gatsby-highlight-code-line {
   background-color: #ddeeff;
   display: block;
@@ -699,7 +578,7 @@ a:hover {
   border-left: 0.25em solid #afdcff;
 }
 
-/* line 638, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 510, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .gatsby-highlight {
   background-color: #f1f1f1;
   border-radius: 0.3em;
@@ -708,7 +587,7 @@ a:hover {
   overflow: auto;
 }
 
-/* line 646, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 518, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .gatsby-highlight pre[class*="language-"] {
   background-color: transparent;
   margin: 0;
@@ -718,12 +597,12 @@ a:hover {
   min-width: 100%;
 }
 
-/* line 655, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 527, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .gatsby-highlight pre[class*="language-"].line-numbers {
   padding-left: 1.4em !important;
 }
 
-/* line 659, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 531, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .command-line-prompt > span:before {
   color: #999;
   content: " ";
@@ -731,36 +610,36 @@ a:hover {
   padding-right: 0.8em;
 }
 
-/* line 666, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 538, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .command-line-prompt > span[data-user]:before {
   content: "[" attr(data-user) "@" attr(data-host) "] $";
 }
 
-/* line 670, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 542, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .gatsby-highlight code {
   padding-left: 1em !important;
 }
 
-/* line 674, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 546, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .tags-list {
   list-style: none;
 }
 
-/* line 678, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 550, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .blog-post-meta-date {
   margin-right: 0.5em;
   font-size: x-large;
 }
 
 @media screen and (min-width: 1152px) {
-  /* line 684, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 556, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .blog-post {
     margin-left: 1em;
     margin-right: 1em;
   }
 }
 
-/* line 690, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 562, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .blog-post-time-to-read {
   font-weight: normal;
   font-size: 16px;
@@ -769,13 +648,13 @@ a:hover {
 }
 
 @media screen and (min-width: 1152px) {
-  /* line 698, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 570, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .blog-post-time-to-read {
     margin-bottom: 2em;
   }
 }
 
-/* line 703, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 575, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .blog-post-image {
   display: block;
   margin-bottom: 1em;
@@ -786,7 +665,7 @@ a:hover {
   box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.08), 1px 6px 10px rgba(39, 44, 49, 0.04);
 }
 
-/* line 714, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 586, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .social-links {
   display: flex;
   flex-direction: row;
@@ -800,7 +679,7 @@ a:hover {
   max-width: fit-content;
 }
 
-/* line 726, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 598, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .social-links .social-link svg {
   color: white;
   fill: white;
@@ -809,60 +688,60 @@ a:hover {
   height: 24px;
 }
 
-/* line 733, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 605, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .social-links .social-link svg:hover {
   filter: drop-shadow(0px 0px 8px #50b4ff);
   transition: all ease 250ms;
 }
 
-/* line 738, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 610, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .social-links a:first-child svg {
   margin-left: 0px !important;
 }
 
 @media screen and (min-width: 1152px) {
-  /* line 744, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 616, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .social-links {
     margin-left: auto !important;
     margin-right: 0px;
     margin-top: 1.25em;
   }
-  /* line 749, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 621, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .social-links .social-link .social-link-icon {
     height: 32px;
   }
 }
 
-/* line 756, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 628, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-navigator {
   display: flex;
   width: 100%;
 }
 
-/* line 759, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 631, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-navigator .post-navigator-next {
   margin-left: auto;
   margin-right: 0px;
   transition: all ease 250ms;
 }
 
-/* line 763, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 635, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-navigator .post-navigator-next .post-navigator-link-div {
   justify-content: space-evenly;
 }
 
-/* line 767, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 639, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-navigator .post-navigator-previous {
   margin-right: auto;
   margin-left: 0px;
 }
 
-/* line 770, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 642, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-navigator .post-navigator-previous .post-navigator-link-div {
   justify-content: space-evenly;
 }
 
-/* line 774, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 646, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-navigator .post-navigator-link-div {
   display: flex;
   flex-direction: row;
@@ -870,7 +749,7 @@ a:hover {
   align-items: center;
 }
 
-/* line 779, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 651, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-navigator .post-navigator-link-div p {
   margin: 0px;
   padding: 0px;
@@ -880,47 +759,34 @@ a:hover {
   font-size: larger;
 }
 
-/* line 787, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 659, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .post-navigator .post-navigator-link-div svg {
   margin: 0px;
 }
 
-/* line 793, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 665, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .tags-list p {
   margin-bottom: 0px;
 }
 
-/* line 797, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
-.blog-post-tags-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-top: 0.5em;
-}
-
-/* line 803, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
-.blog-post-tags-container a:first-child .tag-link {
-  margin-left: 0px;
-}
-
 @media screen and (min-width: 1152px) {
-  /* line 810, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+  /* line 670, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
   .blog-post-tags-container {
     margin-top: 0px;
   }
 }
 
-/* line 815, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 675, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .gatsby-resp-image-wrapper {
   box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.08), 1px 6px 10px rgba(39, 44, 49, 0.04);
 }
 
-/* line 820, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 680, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .tl-edges {
   overflow-x: visible;
 }
 
-/* line 825, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 685, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .blog-post-content[data="author"] .gatsby-resp-image-wrapper {
   max-width: 400px !important;
   border-radius: 50%;
