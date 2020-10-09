@@ -13,12 +13,16 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-netlify-cache",
+    `gatsby-plugin-react-helmet-async`,
     `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
     "gatsby-transformer-sharp",
     `gatsby-plugin-sharp`,
     `gatsby-remark-images`,
     `gatsby-plugin-transition-link`,
+    {
+      resolve: `gatsby-plugin-social9-comment`,
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

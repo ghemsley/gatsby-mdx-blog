@@ -4,8 +4,8 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from "gatsby-image"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import PostNavigator from "../components/postNavigator"
-import CommentBox from "../components/commentBox"
 import { HiOutlineTag } from "react-icons/hi"
+import { S9comment } from "gatsby-plugin-social9-comment"
 
 export default function Post({ location, data }) {
   return (
@@ -46,7 +46,7 @@ export default function Post({ location, data }) {
         </div>
         <PostNavigator data={data} location={location} />
       </div>
-      <CommentBox />
+      <S9comment />
     </div>
   )
 }
