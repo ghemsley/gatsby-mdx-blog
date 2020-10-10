@@ -679,11 +679,15 @@ a:hover {
   max-width: fit-content;
 }
 
-/* line 598, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+/* line 597, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
+.social-links .social-link {
+  margin-left: 1em;
+}
+
+/* line 599, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .social-links .social-link svg {
   color: white;
   fill: white;
-  margin-left: 1em;
   transition: all ease 250ms;
   height: 24px;
 }
@@ -695,7 +699,7 @@ a:hover {
 }
 
 /* line 610, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
-.social-links a:first-child svg {
+.social-links .social-link:first-child {
   margin-left: 0px !important;
 }
 

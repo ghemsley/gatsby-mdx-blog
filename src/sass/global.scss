@@ -595,10 +595,10 @@ a:hover {
   margin-right: auto;
   max-width: fit-content;
   .social-link {
+    margin-left: 1em;
     svg {
       color: white;
       fill: white;
-      margin-left: 1em;
       transition: all ease 250ms;
       height: 24px;
     }
@@ -607,7 +607,7 @@ a:hover {
       transition: all ease 250ms;
     }
   }
-  a:first-child svg {
+  .social-link:first-child {
     margin-left: 0px !important;
   }
 }

@@ -6,48 +6,75 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 import PostNavigator from "../components/postNavigator"
 import { HiOutlineTag } from "react-icons/hi"
 import { S9comment } from "gatsby-plugin-social9-comment"
+import { GatsbySeo } from "gatsby-plugin-next-seo"
 
 export default function Post({ location, data }) {
   return (
-    <div className="blog-post-container">
-      <h1 className="page-header" id='page-header'>{data.mdx.frontmatter.title}</h1>
-      <div className="blog-post">
-        <div className="post-metadata">
-          <time className="blog-post-meta-date">
-            {data.mdx.frontmatter.date}
-          </time>
-          <div className="blog-post-tags-container">
-            {data.mdx.frontmatter.tags.map((tag, i) => {
-              return (
-                <AniLink
-                  fade
-                  duration={0.25}
-                  to={`/tags/${tag.name}`.toLowerCase()}
-                  key={tag.name}
-                  title={tag.name}
-                >
-                  <div className="tag-link">
-                    <HiOutlineTag size="24" />
-                    {tag.name}
-                  </div>
-                </AniLink>
-              )
-            })}
+    <>
+      <GatsbySeo
+        title={data.mdx.frontmatter.title}
+        description={data.mdx.excerpt}
+        openGraph={{
+          type: "article",
+          title: data.mdx.frontmatter.title,
+          description: "Open Graph Description",
+          url: `https://www.grahamhemsley.com${data.mdx.frontmatter.slug}`,
+          article: {
+            publishedTime: data.mdx.frontmatter.date,
+            authors: ["https://www.grahamhemsley.com/author"],
+            tags: data.mdx.frontmatter.tags,
+          },
+          images: [
+            {
+              url: `https://www.grahamhemsley.com${data.mdx.frontmatter.image.childImageSharp.fluid.src}`,
+              width: 1280,
+              alt: data.mdx.frontmatter.title,
+            },
+          ],
+        }}
+      />
+      <div className="blog-post-container">
+        <h1 className="page-header" id="page-header">
+          {data.mdx.frontmatter.title}
+        </h1>
+        <div className="blog-post">
+          <div className="post-metadata">
+            <time className="blog-post-meta-date">
+              {data.mdx.frontmatter.date}
+            </time>
+            <div className="blog-post-tags-container">
+              {data.mdx.frontmatter.tags.map((tag, i) => {
+                return (
+                  <AniLink
+                    fade
+                    duration={0.25}
+                    to={`/tags/${tag.name}`.toLowerCase()}
+                    key={tag.name}
+                    title={tag.name}
+                  >
+                    <div className="tag-link">
+                      <HiOutlineTag size="24" />
+                      {tag.name}
+                    </div>
+                  </AniLink>
+                )
+              })}
+            </div>
           </div>
+          <h6 className="blog-post-time-to-read">{`This post should take around ${data.mdx.timeToRead} minutes to read`}</h6>
+          <Img
+            className="blog-post-image"
+            fluid={data.mdx.frontmatter.image.childImageSharp.fluid}
+            title="Cover image"
+          />
+          <div className="blog-post-content">
+            <MDXRenderer>{data.mdx.body}</MDXRenderer>
+          </div>
+          <PostNavigator data={data} location={location} />
         </div>
-        <h6 className="blog-post-time-to-read">{`This post should take around ${data.mdx.timeToRead} minutes to read`}</h6>
-        <Img
-          className="blog-post-image"
-          fluid={data.mdx.frontmatter.image.childImageSharp.fluid}
-          title="Cover image"
-        />
-        <div className="blog-post-content">
-          <MDXRenderer>{data.mdx.body}</MDXRenderer>
-        </div>
-        <PostNavigator data={data} location={location} />
+        <S9comment />
       </div>
-      <S9comment />
-    </div>
+    </>
   )
 }
 
@@ -86,6 +113,7 @@ export const pageQuery = graphql`
           childImageSharp {
             fluid(maxWidth: 1280) {
               ...GatsbyImageSharpFluid_withWebp
+              src
             }
           }
         }
@@ -97,6 +125,7 @@ export const pageQuery = graphql`
       }
       timeToRead
       body
+      excerpt
     }
   }
 `
