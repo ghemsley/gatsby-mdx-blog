@@ -17,7 +17,7 @@ export default function Post({ location, data }) {
         openGraph={{
           type: "article",
           title: data.mdx.frontmatter.title,
-          description: "Open Graph Description",
+          description: data.mdx.frontmatter.excerpt,
           url: `https://www.grahamhemsley.com${data.mdx.frontmatter.slug}`,
           article: {
             publishedTime: data.mdx.frontmatter.date,
