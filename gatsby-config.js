@@ -228,6 +228,7 @@ module.exports = {
         description: "A blog by Graham Hemsley",
         openGraph: {
           type: "website",
+          title: 'Blog',
           locale: "en_US",
           site_name: "Blog",
           url: "https://www.grahamhemsley.com/",
