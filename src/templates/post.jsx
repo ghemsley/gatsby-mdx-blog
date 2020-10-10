@@ -5,8 +5,8 @@ import Img from "gatsby-image"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import PostNavigator from "../components/postNavigator"
 import { HiOutlineTag } from "react-icons/hi"
-import { S9comment } from "gatsby-plugin-social9-comment"
 import { GatsbySeo } from "gatsby-plugin-next-seo"
+import Valine from "gatsby-plugin-valine"
 
 export default function Post({ location, data }) {
   return (
@@ -76,8 +76,16 @@ export default function Post({ location, data }) {
           </div>
           <PostNavigator data={data} location={location} />
         </div>
-        <S9comment />
+        <div
+          id={data.mdx.frontmatter.slug}
+          class="leancloud-visitors"
+          data-flag-title={data.mdx.frontmatter.title}
+        >
+          <h2 class="post-meta-item-text">Readers:</h2>
+          <h3 class="leancloud-visitors-count"> </h3>
+        </div>
       </div>
+      <Valine />
     </>
   )
 }

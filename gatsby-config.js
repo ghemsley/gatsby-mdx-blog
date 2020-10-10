@@ -21,7 +21,17 @@ module.exports = {
     `gatsby-remark-images`,
     `gatsby-plugin-transition-link`,
     {
-      resolve: `gatsby-plugin-social9-comment`,
+      resolve: `gatsby-plugin-valine`,
+      options: {
+        appId: `m0YcwrXOFF2OephUckqNJxyp-MdYXbMMI`,
+        appKey: `P3chb180mUIwnVr7d86WIuAC`,
+        avatar: `monsterid`,
+        lang: "en",
+        enableQQ: false,
+        requiredFields: ["nick", "mail"],
+        visitor: true,
+        placeholder: "Leave a comment",
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -48,15 +58,6 @@ module.exports = {
       resolve: `gatsby-plugin-layout`,
       options: {
         component: require.resolve(`./src/components/layout.jsx`),
-      },
-    },
-    {
-      resolve: `gatsby-plugin-nprogress`,
-      options: {
-        // Setting a color is optional.
-        //color: `tomato`,
-        // Disable the loading spinner.
-        showSpinner: false,
       },
     },
     {
@@ -224,11 +225,11 @@ module.exports = {
         language: "en",
         dangerouslySetAllPagesToNoIndex: true,
         dangerouslySetAllPagesToNoFollow: true,
-        title: 'Blog',
+        title: "Blog",
         description: "A blog by Graham Hemsley",
         openGraph: {
           type: "website",
-          title: 'Blog',
+          title: "Blog",
           locale: "en_US",
           site_name: "Blog",
           url: "https://www.grahamhemsley.com/",
@@ -241,6 +242,24 @@ module.exports = {
               alt: "Preview of a blog by Graham Hemsley",
             },
           ],
+        },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-minify-html",
+      options: {
+        debug: true, // debug optional, default false
+        config: {
+          // Enabled default by this plugin
+          collapseWhitespace: true,
+          minifyCSS: true,
+          minifyJS: true,
+          removeComments: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          // Disabled default by html-minifier-terser
+          sortAttributes: true,
+          useShortDoctype: true,
         },
       },
     },

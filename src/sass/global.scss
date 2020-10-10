@@ -285,8 +285,8 @@ a:hover {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2em;
-  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.08),
-    1px 6px 10px rgba(39, 44, 49, 0.04);
+  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.12),
+    1px 6px 10px rgba(39, 44, 49, 0.06);
   transition: all ease 250ms;
   border-radius: 4px;
 }
@@ -349,8 +349,8 @@ a:hover {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.08),
-    1px 6px 10px rgba(39, 44, 49, 0.04);
+  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.12),
+    1px 6px 10px rgba(39, 44, 49, 0.06);
 }
 
 .post-preview {
@@ -579,8 +579,8 @@ a:hover {
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.08),
-    1px 6px 10px rgba(39, 44, 49, 0.04);
+  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.12),
+    1px 6px 10px rgba(39, 44, 49, 0.06);
 }
 
 .social-links {
@@ -673,8 +673,8 @@ a:hover {
 }
 
 .gatsby-resp-image-wrapper {
-  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.08),
-    1px 6px 10px rgba(39, 44, 49, 0.04);
+  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.12),
+    1px 6px 10px rgba(39, 44, 49, 0.06);
 }
 
 .tl-edges {
@@ -696,4 +696,63 @@ ul {
 
 .tags-list {
   margin-bottom: 1em;
+}
+
+.leancloud-visitors {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .post-meta-item-text {
+    font-style: normal;
+    font-size: smaller;
+    font-weight: 400;
+    margin-left: auto;
+    margin-right: 0.5em;
+  }
+  .leancloud-visitors-count {
+    margin-right: auto;
+    font-style: normal;
+    font-weight: 400;
+    font-size: smaller;
+  }
+}
+
+.v .vwrap {
+  background: white;
+  border-radius: 6px !important;
+  color: dimgray;
+  border-color: dimgray;
+  button {
+    border-radius: 6px;
+  }
+  .vheader * {
+    border-bottom: 1px solid lightgray !important;
+    color: dimgray !important;
+  }
+  .vedit textarea {
+    color: dimgray !important;
+    font-family: sans-serif;
+  }
+  .vbtn {
+    border-color: dimgray !important;
+    color: dimgray !important;
+  }
+  * {
+    color: dimgray !important;
+    border-color: dimgray !important;
+
+    fill: dimgray !important;
+  }
+}
+
+.v .vempty {
+  display: none !important;
+}
+
+.v .vcontent p {
+  color: dimgray !important;
+}
+
+::selection {
+  background-color: rgba(128, 198, 255, 0.6);
 }
