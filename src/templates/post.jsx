@@ -22,12 +22,16 @@ export default function Post({ location, data }) {
           article: {
             publishedTime: data.mdx.frontmatter.date,
             authors: ["https://www.grahamhemsley.com/author"],
-            tags: data.mdx.frontmatter.tags,
+            tags: [
+              ...data.mdx.frontmatter.tags.map(tag => {
+                return tag.name
+              }),
+            ],
           },
           images: [
             {
               url: `https://www.grahamhemsley.com${data.mdx.frontmatter.image.childImageSharp.fluid.src}`,
-              width: 1280,
+              width: 960,
               alt: data.mdx.frontmatter.title,
             },
           ],
@@ -111,7 +115,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM D, YYYY")
         image {
           childImageSharp {
-            fluid(maxWidth: 1280) {
+            fluid(maxWidth: 960) {
               ...GatsbyImageSharpFluid_withWebp
               src
             }

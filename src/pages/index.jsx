@@ -20,7 +20,7 @@ const Home = ({ location }) => {
               author
               image {
                 childImageSharp {
-                  fluid(maxWidth: 800) {
+                  fluid(maxWidth: 960) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }

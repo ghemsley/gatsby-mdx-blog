@@ -66,7 +66,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 1000,
+              maxWidth: 960,
             },
           },
           {
@@ -147,7 +147,7 @@ module.exports = {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 1000,
+              maxWidth: 960,
             },
           },
           {
@@ -224,8 +224,7 @@ module.exports = {
         language: "en",
         dangerouslySetAllPagesToNoIndex: true,
         dangerouslySetAllPagesToNoFollow: true,
-        titleTemplate: "Blog | %s",
-        title: 'Home',
+        title: 'Blog',
         description: "A blog by Graham Hemsley",
         openGraph: {
           type: "website",

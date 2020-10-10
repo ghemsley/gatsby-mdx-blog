@@ -792,7 +792,7 @@ a:hover {
 
 /* line 685, ../../../../../Users/ghemsley/Development/gatsby-mdx-blog/src/sass/global.scss */
 .blog-post-content[data="author"] .gatsby-resp-image-wrapper {
-  max-width: 400px !important;
+  max-width: 480px !important;
   border-radius: 50%;
   overflow: hidden;
   box-sizing: border-box;
