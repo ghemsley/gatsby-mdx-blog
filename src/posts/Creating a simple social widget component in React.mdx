@@ -32,11 +32,13 @@ touch /src/components/socialWidget.jsx
 
 Once you created the file, open it in your favorite-shmavorite text editor. (Many people recommend [VSCode](https://code.visualstudio.com/) if you don't have one, including me!)
 
-### Dependencies
+### Coding our component
+
+#### Step 1: Dependencies
 
 First let's see what we'll be importing for this project. 
 
-#### React
+##### React
 
 Duh! 
 
@@ -46,7 +48,7 @@ At the top of your file, type the following.
 import React from 'react'
 ```
 
-#### React-icons
+##### React-icons
 
 No social widget is complete without fancy icons! I like `react-icons` because it combines many popular icon packs into one. But you can use any icon pack you are familiar with instead if you want. You can see all the icons available in `react-icons` [here](https://react-icons.github.io/react-icons/).
 
@@ -60,7 +62,7 @@ import { MdMailOutline } from "react-icons/md"
 
 Now we're done getting our dependencies ready!
 
-### Coding our component
+#### Step 2: Defining our array
 
 First let's create.a `const` that will tell our icons what size to make themselves. 
 
@@ -108,7 +110,7 @@ That last property of our first object in the array is more complicated than the
 
 We also are setting some `props` for our icon to use, namely `className` which lets us apply CSS directly to our SVG icons later on, and `size` which is pretty self-explanatory. What's handy about using that `iconSize` constant we defined earlier is that we can update the sizes of all of our icons easily and at once if we decide to change the value. Just change the value of `iconSize` and they will all update.
 
-#### Bonus
+##### Bonus: the mailto URL
 
 Check out this line of our `Email` object again: 
 
@@ -120,7 +122,7 @@ This is a special url that should open the default mail client of the user's dev
 
 The rest of the objects in our array have the same properties and structure, and if you understand what's going on so far you can customize the array and its objects however you like. Once that's done, let's move on to the fun part!
 
-### Defining our function component
+#### Step 3: Defining our function component
 
 Now we're going to define the actual component we are trying to build. We are going to use an ES6 arrow function without any `props` passed to it to keep things simple and concise. This component is so simple that it just immediately returns some JSX!
 
@@ -150,8 +152,6 @@ const SocialWidget = () => {
 
 It's okay! What's happening is actually pretty simple, it's just weird if you haven't seen `array.map()`or an anonymous function before. Let's dive in and see what's going on. 
 
-#### Step 1: The outer div
-
 ```jsx
 <div className="social-links">
   ...
@@ -160,7 +160,7 @@ It's okay! What's happening is actually pretty simple, it's just weird if you ha
 
 This is our outer container for everything else to live inside. It's really important that it's a `<div>`! We'll see why when we start styling it.
 
-#### Step 2: the map() method
+##### The map() method
 
 ```jsx
 {socialLinks.map((socialObject) => {
@@ -187,6 +187,8 @@ If you have been using React for any length of time you have probably already co
 4. Our anonymous function returns an HTML `<a>` tag, which turns everything inside it into a link. We also set some attributes of the tag to either properties of the current object that `map()` is working on, or to a plain string. (The `"noopener noreferrer" and "_blank"` values for the `rel` and `target` attributes are to preserve privacy/security and open the link in a new tab instead of leaving the current page, respectively.)
 5. Remember how we set the last property of each of the objects in our array to a React component earlier? Well now we are sticking that component inside of our `<a>` tag! That whole component will be a link, so since the component returns an icon, clicking that icon will take us to the page specified by the `href` attribute of our `<a>` tag. Pretty cool!
 6. Now we close all our tags and brackets because we are good web developers, aren't we? :)
+
+#### Step 4: Exporting our finished component
 
 As a final step, we need to export our component now that it is completely defined.
 
@@ -248,7 +250,7 @@ export default SocialWidget
 
 Nifty, we're all set to use it now. But first...
 
-### Some CSS
+#### Bonus: Some CSS
 
 Let's style our component with some CSS.
 
