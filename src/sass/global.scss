@@ -760,7 +760,7 @@ ul {
 .vcontent.expand::before {
   background: linear-gradient(
     to bottom,
-    rgba(241, 241, 241, 0.0),
+    rgba(241, 241, 241, 0),
     rgba(241, 241, 241, 0.9)
   ) !important;
 }
@@ -771,4 +771,50 @@ ul {
     rgba(241, 241, 241, 0.9),
     rgba(241, 241, 241, 1)
   ) !important;
+}
+
+.v .vcards .vcard .vcontent,
+.v .vcards .vcard .vcontent p {
+  word-break: normal;
+}
+
+.v[data-class="v"] {
+  font-size: 18px !important;
+}
+
+.v .vedit code,
+.v .vpreview code {
+  font-size: 14px !important;
+  background: #f1f1f1 !important;
+  color: dimgray !important;
+}
+
+.v .vcard code {
+  font-size: 14px !important;
+  background: #e8e8e8 !important;
+  color: dimgray !important;
+}
+
+.v .vcard pre {
+  background: #e8e8e8 !important;
+}
+
+.v .vpreview pre {
+  background: #f1f1f1 !important;
+}
+
+.v .vwrap blockquote {
+  border-left: 8px solid #e0e0e0 !important;
+  border-color: #e0e0e0 !important;
+  background: #f1f1f1 !important;
+}
+
+.v table * {
+  border: 1px solid #e0e0e0 !important;
+}
+
+.v .vcard blockquote {
+  background: #e8e8e8 !important;
+  border-left: 8px solid #d0d0d0 !important;
+  border-color: #d0d0d0 !important;
 }
