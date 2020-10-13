@@ -1,6 +1,5 @@
 import React from "react"
 import Img from "gatsby-image"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { HiOutlineTag } from "react-icons/hi"
 
 const PostsListItem = ({ post }) => {
@@ -11,23 +10,16 @@ const PostsListItem = ({ post }) => {
           <div>
             <div className="title-container">
               <div className="title-container-nested">
-                <AniLink
-                  fade
-                  duration={0.25}
-                  to={post.frontmatter.slug}
-                  title={post.frontmatter.title}
-                >
+                <a href={post.frontmatter.slug} title={post.frontmatter.title}>
                   <h2 className="post-title">{post.frontmatter.title}</h2>
-                </AniLink>
+                </a>
               </div>
               <div className="tag-container">
                 {post.frontmatter.tags &&
                   post.frontmatter.tags.map((tag, i) => {
                     return (
-                      <AniLink
-                        fade
-                        duration={0.25}
-                        to={`/tags/${tag.name}`.toLowerCase()}
+                      <a
+                        href={`/tags/${tag.name}`.toLowerCase()}
                         key={tag.name}
                         title={tag.name}
                       >
@@ -35,7 +27,7 @@ const PostsListItem = ({ post }) => {
                           <HiOutlineTag size="24" />
                           {tag.name}
                         </div>
-                      </AniLink>
+                      </a>
                     )
                   })}
               </div>
@@ -43,37 +35,26 @@ const PostsListItem = ({ post }) => {
             <p className="date">
               Published {post.frontmatter.date}
               {" by "}
-              <AniLink
-                fade
-                duration={0.25}
-                className="author-link"
-                to={"/author"}
-                title="author"
-              >
+              <a href={"/author"} title="author">
                 {post.frontmatter.author}
-              </AniLink>
+              </a>
             </p>
           </div>
         </div>
       </div>
       {post.frontmatter.image && (
-        <AniLink fade duration={0.25} to={post.frontmatter.slug}>
+        <a href={post.frontmatter.slug}>
           <Img
             className="post-image"
             fluid={post.frontmatter.image.childImageSharp.fluid}
             title="Cover image"
           />
-        </AniLink>
+        </a>
       )}
       <div className="read-more-div">
-        <AniLink
-          fade
-          duration={0.25}
-          to={post.frontmatter.slug}
-          title={post.frontmatter.title}
-        >
+        <a href={post.frontmatter.slug} title={post.frontmatter.title}>
           <p className="read-more">Read more</p>
-        </AniLink>
+        </a>
       </div>
       <div className="post-preview">{post.excerpt}</div>
     </div>
