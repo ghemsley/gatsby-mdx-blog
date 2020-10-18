@@ -17,7 +17,7 @@ const PostsList = ({ location, data }) => {
             )
           } else return null
         })}
-        <h1 className="page-header">Recent posts</h1>
+        <h1 className="page-header">Latest posts</h1>
         {data.allMdx.edges.map((node, i) => {
           if (!node.node.frontmatter.featured) {
             return <PostsListItem post={node.node} key={node.node.id} />

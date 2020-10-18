@@ -19,7 +19,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-remark-images`,
-    `gatsby-plugin-transition-link`,
     {
       resolve: `gatsby-plugin-valine`,
       options: {
@@ -216,6 +215,24 @@ module.exports = {
               escapeEntities: {},
             },
           },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        stats: false,
+        formats: ["ttf", "woff", "woff2"],
+        encode: true,
+        fonts: [
+          {
+            family: `Nunito`,
+            variants: [`regular`, `italic`, `bold`, `bolditalic`],
+          },
+          {
+            family: `Quicksand`,
+            variants: [`400`],
+          }
         ],
       },
     },

@@ -30,6 +30,7 @@ const Home = ({ location }) => {
                 name
               }
               date(formatString: "MMMM D, YYYY")
+              featured
             }
           }
         }

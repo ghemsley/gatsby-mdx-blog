@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
+
 const Nav = () => {
   const data = useStaticQuery(graphql`
     {
@@ -20,16 +21,16 @@ const Nav = () => {
       <nav className="nav">
         <ul style={{ margin: "0", padding: "0", listStyle: "none" }}>
           <li style={{ display: "inline-block" }} key={0}>
-            <AniLink fade duration={0.25} className="nav-button" to="/" title='home'>
+            <Link className="nav-button" to="/" title='home'>
               Home
-            </AniLink>
+            </Link>
           </li>
           {data.allFile.edges.map((page, i) => {
             return (
               <li style={{ display: "inline-block" }} key={page.node.name}>
-                <AniLink fade duration={0.25} to={`/${page.node.name}`} className="nav-button" title={page.node.name}>
+                <Link to={`/${page.node.name}`} className="nav-button" title={page.node.name}>
                   {page.node.name}
-                </AniLink>
+                </Link>
               </li>
             )
           })}

@@ -1,9 +1,14 @@
+@font-face {
+  font-family: 'Quicksand';
+  src: url('Quicksand-VariableFont_wght.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+
 html {
-  background: #f1f1f1;
+  background: #d8ebf2;
 }
 
 body {
-  background: #f1f1f1;
+  background: #d8ebf2;
 }
 
 ul {
@@ -14,17 +19,16 @@ ul {
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
-  font-family: Catamaran, sans-serif;
   padding: 0px;
   margin: 0px;
-  background: #f1f1f1;
+  background: #d8ebf2;
   box-sizing: border-box;
 }
 
 .sidebar {
   box-sizing: border-box;
-  background: #100e17;
-  color: #fff;
+  background: #0588a6;
+  color: white;
   left: 0px;
   width: 100vw;
   z-index: 1;
@@ -32,28 +36,34 @@ ul {
   overflow: hidden;
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .sidebar {
     position: fixed;
     top: 0px;
     bottom: 0px;
-    width: 30%;
+    width: 33%;
     display: inline-block;
   }
 }
 
 .header {
-  margin: 1em;
+  margin: 2em;
+  margin-top: 1em;
+  padding: 0px;
   text-align: center;
   position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .header {
-    margin: 35vh 2em 0 2em;
+    margin: 33vh 2em 2em 2em;
     text-align: right;
     border-radius: 8px;
+    min-height: 33%;
   }
 }
 
@@ -65,14 +75,15 @@ ul {
   right: 0;
   bottom: 0;
   z-index: -1;
-  box-shadow: inset 0 0 60px 10px rgba(255, 255, 255, 0.5);
+  background: #153259;
+  //box-shadow: inset 0 0 60px 10px rgba(255, 255, 255, 0.5);
   margin: -40px;
   border-radius: 8px;
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .header::before {
-    box-shadow: inset 0 0 60px 10px rgba(255, 255, 255, 0.35);
+    box-shadow: none;
   }
 }
 
@@ -83,12 +94,12 @@ ul {
   box-sizing: border-box;
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .content {
     padding-left: 2em;
     padding-right: 2em;
-    width: 70%;
-    margin-left: 30%;
+    width: 67%;
+    margin-left: 33%;
     vertical-align: top;
   }
 }
@@ -99,7 +110,7 @@ ul {
 }
 
 .author:hover {
-  text-shadow: 0px 0px 10px rgba(80, 180, 255, 0.5);
+  text-shadow: 0px 0px 10px #d8ebf2;
   transition: all ease 250ms;
 }
 
@@ -121,6 +132,10 @@ li {
 }
 
 .nav {
+  .nav-button {
+    font-family: Quicksand, 'Quicksand', sans-serif;
+    font-weight: 900;
+  }
   ul {
     display: flex;
     flex-direction: row;
@@ -138,7 +153,7 @@ li {
   }
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .nav {
     ul {
       justify-content: flex-end;
@@ -150,11 +165,11 @@ li {
   display: block;
   background: transparent;
   box-sizing: border-box;
-  border: 2px solid rgb(176, 202, 219);
+  border: 2px solid white;
   border-radius: 2px;
   text-transform: uppercase;
   font-size: 1em;
-  color: #fff;
+  color: white;
   user-select: none;
   cursor: pointer;
   padding: 0.33em 1em 0.33em 1em;
@@ -165,7 +180,7 @@ li {
   border-radius: 4px;
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .nav-button {
     margin-left: 0px;
     margin-right: 0px;
@@ -190,10 +205,12 @@ li {
 }
 
 .nav-button:hover {
-  border: 2px solid rgb(80, 180, 255) !important;
+  border: 2px solid white !important;
   text-decoration: none;
   transition: all ease 250ms !important;
-  box-shadow: 0 0 10px 2px rgba(80, 180, 255, 0.5);
+  box-shadow: 0 0 10px 2px #d8ebf2;
+  color: white;
+  text-shadow: 0px 0px 10px #d8ebf2;
 }
 
 .search-form {
@@ -215,41 +232,43 @@ li {
 
 .blog:hover,
 .author:hover {
-  color: rgb(80, 180, 255) !important;
+  color: white !important;
   transition: all ease 250ms;
 }
 
 a,
 a :visited :active {
-  color: #4090d0;
+  color: #0588a6;
   text-decoration: none;
   transition: all ease 250ms;
 }
 
 a:hover {
   transition: all ease 250ms !important;
-  color: rgb(80, 180, 255);
+  color: #50d4f2;
 }
 
 .page-header {
-  border-bottom: 1px solid #666;
-  color: #666;
+  border-bottom: 1px solid #444;
+  color: #444;
   font-size: 1em;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
   padding-bottom: 0.25em;
   text-transform: uppercase;
   letter-spacing: 0.25em;
+  //font-family: 'Quicksand', Quicksand, sans-serif;
+ // font-weight: 900;
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .page-header {
     margin-bottom: 1.5em;
     margin-top: 1.5em;
   }
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .title-container {
     display: flex;
     flex-direction: row;
@@ -257,7 +276,7 @@ a:hover {
 }
 
 .post-title {
-  color: #4a4a4a;
+  color: #444;
   word-wrap: normal;
   word-break: keep-all;
   hyphens: none;
@@ -267,10 +286,11 @@ a:hover {
   margin-right: 0.5em;
   width: fit-content;
   transition: all ease 250ms;
+  font-family: 'Nunito', sans-serif;
 }
 
 .post-title:hover {
-  color: rgb(80, 180, 255);
+  color: #50d4f2;
   transition: all ease 250ms;
 }
 
@@ -293,7 +313,8 @@ a:hover {
 
 .post:hover {
   transition: all ease 250ms;
-  box-shadow: 0px -0px 16px 4px rgba(80, 180, 255, 0.5);
+  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.24),
+    1px 6px 10px rgba(39, 44, 49, 0.12);
 }
 
 .post-info {
@@ -313,7 +334,7 @@ a:hover {
   }
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .post-metadata {
     align-items: flex-start;
   }
@@ -380,14 +401,13 @@ a:hover {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  color: white;
   padding: 1%;
-  color: #5080b0;
+  color: #0588a6;
   overflow: hidden;
 }
 
 .read-more:hover {
-  color: rgb(80, 180, 255);
+  color: #50d4f2;
   transition: all ease 250ms;
 }
 
@@ -416,7 +436,7 @@ a:hover {
   }
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .tag-container,
   .blog-post-tags-container {
     justify-content: flex-end;
@@ -446,7 +466,7 @@ a:hover {
   flex-wrap: nowrap;
   align-items: center;
   transition: all ease 250ms !important;
-  background: #5080b0;
+  background: #0588a6;
   margin-bottom: 0px;
   padding: 0.333em;
   padding-left: 0.5em;
@@ -463,7 +483,7 @@ a:hover {
 
 .tag-link:hover {
   color: white;
-  background: rgb(80, 180, 255) !important;
+  background: #50d4f2 !important;
   transition: all ease 250ms !important;
 }
 
@@ -474,14 +494,14 @@ a:hover {
   vertical-align: baseline;
   margin-top: auto;
   margin-bottom: 1.333em;
-  color: #5080b0;
+  color: #0588a6;
 }
 
 .date {
   margin-top: 1em;
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .date {
     margin-top: 0px;
   }
@@ -508,7 +528,7 @@ a:hover {
   border-left: 0.25em solid rgb(175, 220, 255);
 }
 .gatsby-highlight {
-  background-color: #f1f1f1;
+  background-color: #d8ebf2;
   border-radius: 0.3em;
   margin: 0.5em 0;
   padding: 1em;
@@ -552,7 +572,7 @@ a:hover {
   font-size: x-large;
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .blog-post {
     margin-left: 1em;
     margin-right: 1em;
@@ -566,7 +586,7 @@ a:hover {
   margin-bottom: 1em;
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .blog-post-time-to-read {
     margin-bottom: 2em;
   }
@@ -603,7 +623,7 @@ a:hover {
       height: 24px;
     }
     svg:hover {
-      filter: drop-shadow(0px 0px 8px rgba(80, 180, 255, 1));
+      filter: drop-shadow(0px 0px 8px #d8ebf2);
       transition: all ease 250ms;
     }
   }
@@ -612,7 +632,7 @@ a:hover {
   }
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .social-links {
     margin-left: auto !important;
     margin-right: 0px;
@@ -666,7 +686,7 @@ a:hover {
   margin-bottom: 0px;
 }
 
-@media screen and (min-width: 1152px) {
+@media screen and (min-width: 1080px) {
   .blog-post-tags-container {
     margin-top: 0px;
   }
@@ -760,16 +780,16 @@ ul {
 .vcontent.expand::before {
   background: linear-gradient(
     to bottom,
-    rgba(241, 241, 241, 0),
-    rgba(241, 241, 241, 0.9)
+    rgba(rgb(216, 235, 242), 0),
+    rgba(rgb(216, 235, 242), 0.9)
   ) !important;
 }
 
 .vcontent.expand::after {
   background: linear-gradient(
     to bottom,
-    rgba(241, 241, 241, 0.9),
-    rgba(241, 241, 241, 1)
+    rgba(rgb(216, 235, 242), 0.9),
+    rgba(rgb(216, 235, 242), 1)
   ) !important;
 }
 
@@ -785,7 +805,7 @@ ul {
 .v .vedit code,
 .v .vpreview code {
   font-size: 14px !important;
-  background: #f1f1f1 !important;
+  background: #d8ebf2 !important;
   color: dimgray !important;
 }
 
@@ -800,13 +820,13 @@ ul {
 }
 
 .v .vpreview pre {
-  background: #f1f1f1 !important;
+  background: #d8ebf2 !important;
 }
 
 .v .vwrap blockquote {
   border-left: 8px solid #e0e0e0 !important;
   border-color: #e0e0e0 !important;
-  background: #f1f1f1 !important;
+  background: #d8ebf2 !important;
 }
 
 .v table * {

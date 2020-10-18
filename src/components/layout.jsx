@@ -1,5 +1,5 @@
 import React from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from 'gatsby'
 import Nav from "./nav"
 import Social from "./social"
 import "../css/compiled/sakura.css"
@@ -13,15 +13,13 @@ const Layout = ({ children }) => {
           <h1 className="site-title">Blog</h1>
           <h2 className="subtitle">
             By{" "}
-            <AniLink
-              fade
-              duration={0.25}
+            <Link
               to="/author"
               className="author"
               title="Author"
             >
               Graham Hemsley
-            </AniLink>
+            </Link>
           </h2>
           <Social />
           <Nav />

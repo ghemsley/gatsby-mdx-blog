@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from "gatsby-image"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { Link } from "gatsby"
 import PostNavigator from "../components/postNavigator"
 import { HiOutlineTag } from "react-icons/hi"
 import { GatsbySeo } from "gatsby-plugin-next-seo"
@@ -49,9 +49,7 @@ export default function Post({ location, data }) {
             <div className="blog-post-tags-container">
               {data.mdx.frontmatter.tags.map((tag, i) => {
                 return (
-                  <AniLink
-                    fade
-                    duration={0.25}
+                  <Link
                     to={`/tags/${tag.name}`.toLowerCase()}
                     key={tag.name}
                     title={tag.name}
@@ -60,7 +58,7 @@ export default function Post({ location, data }) {
                       <HiOutlineTag size="24" />
                       {tag.name}
                     </div>
-                  </AniLink>
+                  </Link>
                 )
               })}
             </div>
