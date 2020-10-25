@@ -10,7 +10,7 @@ const PostsList = ({ location, data }) => {
             return (
               <React.Fragment key="fragment">
                 <h1 className="page-header" key="pinned">
-                  Pinned post
+                  Featured post
                 </h1>
                 <PostsListItem post={node.node} key={node.node.id} />
               </React.Fragment>
