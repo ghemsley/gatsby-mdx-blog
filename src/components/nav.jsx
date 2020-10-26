@@ -39,7 +39,7 @@ const Nav = () => {
             )
           })}
           <li key='rss'>
-            <a className="nav-button" href="/rss.xml" title="rss">
+            <a className="nav-button" href="/rss/feed.xml" title="rss">
               RSS
             </a>
           </li>
