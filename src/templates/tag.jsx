@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import PostsList from "../components/postsList"
+import { GatsbySeo } from "gatsby-plugin-next-seo"
 
 export default function Tag({ location, pageContext, data }) {
   const { tag } = pageContext
@@ -10,7 +11,30 @@ export default function Tag({ location, pageContext, data }) {
   } tagged with "${tag}"`
   return (
     <>
-      <h1 className='page-header' id='page-header'>{tagHeader}</h1>
+      <GatsbySeo
+        title={tag}
+        description={`Pages tagged with ${tag}`}
+        openGraph={{
+          title: tag,
+          description: `Pages tagged with ${tag}`,
+          url: `https://www.grahamhemsley.com${location.pathname}`,
+          article: {
+            authors: ["https://www.grahamhemsley.com/author"],
+            tags: [tag],
+          },
+          images: [
+            {
+              url: `https://www.grahamhemsley.com/preview.jpg`,
+              width: 1280,
+              height: 720,
+              alt: 'A blog by Graham Hemsley',
+            },
+          ],
+        }}
+      />
+      <h1 className="page-header" id="page-header">
+        {tagHeader}
+      </h1>
       <PostsList location={location} data={data} />
     </>
   )

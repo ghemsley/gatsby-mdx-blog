@@ -7,12 +7,13 @@
 module.exports = {
   siteMetadata: {
     title: "Blog",
-    description: "Graham Hemsley's blog",
+    description: "A blog by Graham Hemsley",
     author: "Graham Hemsley",
-    siteURL: "https://www.grahamhemsley.com",
+    siteUrl: "https://www.grahamhemsley.com",
   },
   plugins: [
     `gatsby-plugin-netlify-cache`,
+    `gatsby-plugin-remove-fingerprints`,
     `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet-async`,
@@ -219,6 +220,65 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-feed-mdx`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allMdx(
+                  filter: { frontmatter: { slug: { regex: "/^/posts//i" } } }
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      frontmatter {
+                        title
+                        date
+                        slug
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Blog RSS feed",
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            match: "\/posts\/",
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         stats: false,
@@ -231,8 +291,8 @@ module.exports = {
           },
           {
             family: `Quicksand`,
-            variants: [`400`],
-          }
+            variants: [`400`, `700`],
+          },
         ],
       },
     },
@@ -253,9 +313,9 @@ module.exports = {
           description: "A blog by Graham Hemsley",
           images: [
             {
-              url: "https://www.grahamhemsley.com/preview.png",
-              width: 800,
-              height: 600,
+              url: "https://www.grahamhemsley.com/preview.jpg",
+              width: 1280,
+              height: 720,
               alt: "Preview of a blog by Graham Hemsley",
             },
           ],

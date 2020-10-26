@@ -3,33 +3,63 @@ import kebabCase from "lodash/kebabCase"
 import { graphql } from "gatsby"
 import { Link } from "gatsby"
 import { HiOutlineTag } from "react-icons/hi"
+import { GatsbySeo } from "gatsby-plugin-next-seo"
 
 const TagsPage = ({
   data: {
     allMdx: { tagsGroup },
   },
 }) => (
-  <div>
+  <>
+    <GatsbySeo
+      title={"Tags"}
+      description={"Blog post topics and categories"}
+      openGraph={{
+        title: "Tags",
+        description: "Blog post topics and categories",
+        url: `https://www.grahamhemsley.com/tags`,
+        article: {
+          authors: ["https://www.grahamhemsley.com/author"],
+          tags: [
+            ...tagsGroup.map(tag => {
+              return tag.fieldValue
+            }),
+          ],
+        },
+        images: [
+          {
+            url: `https://www.grahamhemsley.com/preview.jpg`,
+            width: 1280,
+            height: 720,
+            alt: "A blog by Graham Hemsley",
+          },
+        ],
+      }}
+    />
     <div>
-      <h1 className="page-header" id='page-header'>Tags</h1>
-      <ul>
-        {tagsGroup.map(tag => (
-          <li className="tags-list" key={tag.fieldValue}>
-            <Link
-              to={`/tags/${kebabCase(tag.fieldValue)}/`}
-              title={tag.fieldValue}
-            >
-              <div className="tag-link">
-                <HiOutlineTag size="24" />
-                <p>{tag.fieldValue}</p>
-                <p className="tag-total-count">({tag.totalCount})</p>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <div>
+        <h1 className="page-header" id="page-header">
+          Tags
+        </h1>
+        <ul>
+          {tagsGroup.map(tag => (
+            <li className="tags-list" key={tag.fieldValue}>
+              <Link
+                to={`/tags/${kebabCase(tag.fieldValue)}/`}
+                title={tag.fieldValue}
+              >
+                <div className="tag-link">
+                  <HiOutlineTag size="24" />
+                  <p>{tag.fieldValue}</p>
+                  <p className="tag-total-count">({tag.totalCount})</p>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
-  </div>
+  </>
 )
 
 export default TagsPage

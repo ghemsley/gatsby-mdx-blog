@@ -21,7 +21,7 @@ export default function Post({ location, data }) {
           url: `https://www.grahamhemsley.com${data.mdx.frontmatter.slug}`,
           article: {
             publishedTime: data.mdx.frontmatter.date,
-            authors: ["https://www.grahamhemsley.com/author"],
+            authors: [`https://www.grahamhemsley.com/author`],
             tags: [
               ...data.mdx.frontmatter.tags.map(tag => {
                 return tag.name
@@ -32,6 +32,7 @@ export default function Post({ location, data }) {
             {
               url: `https://www.grahamhemsley.com${data.mdx.frontmatter.image.childImageSharp.fluid.src}`,
               width: 960,
+              height: 640,
               alt: data.mdx.frontmatter.title,
             },
           ],
