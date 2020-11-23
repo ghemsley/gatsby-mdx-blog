@@ -11,11 +11,9 @@ tags:
 date: 2020-11-23
 ---
 
-# Hello!
-
 Recently at school, I was assigned the task of designing and building a [Ruby](https://www.ruby-lang.org/en/) application that meets the following requirements: 
 
-1. It can be interacted with by the user via a [command-ine interface](https://en.wikipedia.org/wiki/Command-line_interface)
+1. It can be interacted with by the user via a [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface)
 2. It fetches data from a remote source using an [application programming interface](https://en.wikipedia.org/wiki/API)
 3. The data fetched must go more than one 'level' deep, ie. it should be able to list items and then provide a detail view about a given item as well
 4. It uses [object-oriented](https://en.wikipedia.org/wiki/Object-oriented_programming) design patterns
@@ -24,7 +22,7 @@ As soon as I heard this assignment was coming up, I was ecstatic! It sounded lik
 
 There were several challenging aspects of just this very first step, though. I wondered to myself for quite a while, "What task do I want it to complete? What APIs are out there that would fit the requirements? What project would be the most fun to build while still meeting all the demands of the assignment without being too large in scope?" So many questions! And nobody to answer them but me. So I deliberated for a while, and even started on several preliminary ideas before eventually settling on one that I ended up just running with.
 
-Naturally, it involves coffee.
+Naturally, it involves coffee. ☕️
 
 May I present to you: 
 
@@ -62,13 +60,15 @@ That's basically it! Unless you search by address, in which case the address is 
 
 ### Challenges involved in completing the project
 
-Upon reflection, the hardest parts of building this were settling on an idea to get started with, and refactoring my code into something that wasn't completely monstrous. I already explained how choosing an idea was difficult, and it actually took me several days to settle on something. However, it took me just as long after my program was in a workable state to massage the code into something presentable. There were also some other technical challenges involved in things like getting the two API's to talk to each other correctly and understanding the data they returned, or getting consistent formatting regardless of what options the user has set for the program to sort by, for example.
+Upon reflection, the hardest parts of building this were settling on an idea to get started with, and refactoring my code into something that wasn't completely monstrous. I explained how choosing an idea was difficult, and it actually took me several days to settle on something. However, it took me just as long after my program was in a workable state to sculpt the code into something presentable. There were also some other technical challenges involved in things like getting the two API's to talk to each other correctly and understanding the data they returned, or getting consistent formatting regardless of what options the user has set for the program to sort by, for example.
 
 #### The refactoring process
 
 If you want a hint of what it was like, understand that the process of refactoring involves taking working code and 'breaking' it so that it doesn't work anymore, in the hopes that you will land on a simpler codebase overall once you finish fixing everything. It can be quite stressful to do that when you're working with a deadline. 
 
-This program currently spans 7 classes, three modules, an environment file, an executable file, and a main entry point file. There are a total of just over 800 lines of code between them (after significant refactoring!) I had to break it over and over and over and find new ways to express certain ideas through code to get it to where it is. It's not much in the grand scheme, but when you are just one person trying to build something in a few days, it becomes quite important that you keep everything as simple as possible and follow the grand rule: **Keep it DRY**. This means **D**on't **R**epeat **Y**ourself. (Actually, I don't know if that's really the grand rule but it's fun to say so.) In any case, this simple program turned out to be quite complex to build under the constraints given my experience level, and the biggest takeaway I have from it all is that learning how to manage complexity is *extremely* important when writing large amounts of code.
+This program currently spans 7 classes, three modules, an environment file, an executable file, and a main entry point file. There are a total of just over 800 lines of code between them (after significant refactoring!) I had to break it over and over and over and find new ways to express certain ideas through code to get it to where it is. It's not much in the grand scheme, but when you are just one person trying to build something in a few days, it becomes quite important that you keep everything as simple as possible. It helps very much to follow the grand rule: **Keep it DRY**. This means **D**on't **R**epeat **Y**ourself. (Actually, I don't know if that's really the grand rule but it's fun to say so.) 
+
+In any case, this simple program turned out to be quite complex to build under the constraints given my experience level, and the biggest takeaway I have from it all is that learning how to manage complexity is *extremely* important when writing large amounts of code.
 
 ### Parts of the project that I am proud of
 
@@ -114,7 +114,7 @@ In its `initialize` method I have:
 self.class.all.push(self)
 ```
 
-So every instance of a business is kept track of by the `Business` class, and the class can find instances of itself. That lets me do this, in the `Yelp` class where I manage queries and store search results in an array:
+So every instance of a business is kept track of by the `Business` class, and the class can find instances of itself. That lets me do this, in the `Yelp` class where I manage queries and store search results in an array (a search in this context is an array of the business listing objects returned from a Yelp query):
 
 ```ruby
 def searches_to_business_instances
@@ -131,7 +131,7 @@ def searches_to_business_instances
 end
 ```
 
-This method is accessing the array of search results (in the form of `Business` instances) and adding to it every business object that comes from my GraphQL query that came from the last search, then either finding or instantiating `Business` instances based on the objects in that array.  A search in this context is an array of the business listing objects returned from a Yelp query. 
+This method is accessing the array of search results (in the form of `Business` instances) and adding to it every business object that comes from my GraphQL query that came from the last search, then either finding or instantiating `Business` instances based on the objects in that array.
 
 The previous method relies on the following methods in the `Yelp` Class being called throughout the program's lifespan to work:
 
@@ -151,7 +151,7 @@ These methods are what store the search results I obtain so that I can access th
 
 ### Things to improve on
 
-I wasn't sure how to implement many of the object relationships I have learned about in this project. To some extent I felt like the app didn't call for a complex relationship between most of the objects, but perhaps there is a way I could refactor it to include them in the future. Also, I noticed that taking a little break from coding or getting an outside perspective really helped me come back to the long refactoring process with new ideas on how to make things more manageable. I think that as far as my coding process goes, I could improve by taking more breaks instead of doing long sprints, as it seems to help me avoid getting stuck in a sort of rut when it comes to refactoring where I can't see any ways to keep breaking things down. I am sure there is much more for me to learn and improve upon as I go about my studies, of course.
+I wasn't sure how to implement many of the object relationships I have learned about in this project. To some extent I felt like the app didn't call for a complex relationship between most of the objects, but perhaps there is a way I could refactor it to include them in the future. Also, I noticed that taking a little break from coding or getting an outside perspective really helped me come back to the long refactoring process with new ideas on how to make things more manageable. I think that as far as my coding process goes, I could improve by taking more breaks instead of doing long sprints, as it seems to help me avoid getting stuck in a sort of rut when it comes to refactoring where I can't see any ways to keep breaking things down. I am sure I will find many more ways to improve my code as I go about my studies, of course.
 
 ## Final thoughts
 
@@ -160,6 +160,3 @@ This project was actually very fun to work on. I spent long nights staying up un
 By the way, the code for this project lives at [GitHub](https://github.com/ghemsley/coffeefinder). 
 
 You are very welcome to check it out and let me know what you think, or even, dare I say, fork it? 😃
-
-# Thanks for reading!
-
