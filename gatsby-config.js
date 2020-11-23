@@ -219,83 +219,65 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-feed-mdx`,
-      options: {
-        query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
-                })
-              })
-            },
-            query: `
-              {
-                allMdx(
-                  filter: { frontmatter: { slug: { regex: "/^/posts//i" } } }
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      frontmatter {
-                        title
-                        date
-                        slug
-                      }
-                    }
-                  }
-                }
-              }
-            `,
-            output: "/rss/feed.xml",
-            title: "Blog RSS feed",
-            // optional configuration to insert feed reference in pages:
-            // if `string` is used, it will be used to create RegExp and then test if pathname of
-            // current page satisfied this regular expression;
-            // if not provided or `undefined`, all pages will have feed reference inserted
-            match: undefined,
-          },
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        stats: false,
-        formats: ["ttf", "woff", "woff2"],
-        encode: true,
-        fonts: [
-          {
-            family: `Nunito`,
-            variants: [`regular`, `italic`, `bold`, `bolditalic`],
-          },
-          {
-            family: `Quicksand`,
-            variants: [`400`, `700`],
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-feed-mdx`,
+    //   options: {
+    //     query: `
+    //       {
+    //         site {
+    //           siteMetadata {
+    //             title
+    //             description
+    //             siteUrl
+    //             site_url: siteUrl
+    //           }
+    //         }
+    //       }
+    //     `,
+    //     feeds: [
+    //       {
+    //         serialize: ({ query: { site, allMdx } }) => {
+    //           return allMdx.edges.map(edge => {
+    //             return Object.assign({}, edge.node.frontmatter, {
+    //               description: edge.node.excerpt,
+    //               date: edge.node.frontmatter.date,
+    //               url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
+    //               guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
+    //               custom_elements: [{ "content:encoded": edge.node.html }],
+    //             })
+    //           })
+    //         },
+    //         query: `
+    //           {
+    //             allMdx(
+    //               filter: { frontmatter: { slug: { regex: "/^/posts//i" } } }
+    //               sort: { order: DESC, fields: [frontmatter___date] },
+    //             ) {
+    //               edges {
+    //                 node {
+    //                   excerpt
+    //                   html
+    //                   frontmatter {
+    //                     title
+    //                     date
+    //                     slug
+    //                   }
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         `,
+    //         output: "/rss/feed.xml",
+    //         title: "Blog RSS feed",
+    //         // optional configuration to insert feed reference in pages:
+    //         // if `string` is used, it will be used to create RegExp and then test if pathname of
+    //         // current page satisfied this regular expression;
+    //         // if not provided or `undefined`, all pages will have feed reference inserted
+    //         match: undefined,
+    //       },
+    //     ],
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-next-seo",
       options: {
