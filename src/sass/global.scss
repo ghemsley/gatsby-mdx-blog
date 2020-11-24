@@ -1,25 +1,57 @@
 @font-face {
   font-family: "Quicksand";
-  src: url('../../assets/fonts/Quicksand-VariableFont_wght.ttf') format("truetype"); /* Safari, Android, iOS */
+  src: url("../../assets/fonts/Quicksand/Quicksand-Regular.ttf")
+    format("truetype"); /* Safari, Android, iOS */
+  font-display: auto;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../assets/fonts/Quicksand/Quicksand-Light.ttf")
+    format("truetype"); /* Safari, Android, iOS */
+  font-weight: 300;
+  font-display: auto;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../assets/fonts/Quicksand/Quicksand-Medium.ttf")
+    format("truetype"); /* Safari, Android, iOS */
+  font-weight: 500;
+  font-display: auto;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../assets/fonts/Quicksand/Quicksand-Semibold.ttf")
+    format("truetype"); /* Safari, Android, iOS */
+  font-weight: 600;
+  font-display: auto;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../assets/fonts/Quicksand/Quicksand-Bold.ttf") format("truetype"); /* Safari, Android, iOS */
+  font-weight: 700;
   font-display: auto;
 }
 
 @font-face {
   font-family: "Nunito";
-  src: url('../../assets/fonts/Nunito/Nunito-Regular.ttf') format("truetype"); /* Safari, Android, iOS */
+  src: url("../../assets/fonts/Nunito/Nunito-Regular.ttf") format("truetype"); /* Safari, Android, iOS */
   font-display: auto;
 }
 
 @font-face {
   font-family: "Nunito";
-  src: url('../../assets/fonts/Nunito/Nunito-ExtraLight.ttf') format("truetype"); /* Safari, Android, iOS */
+  src: url("../../assets/fonts/Nunito/Nunito-ExtraLight.ttf") format("truetype"); /* Safari, Android, iOS */
   font-weight: 200;
   font-display: auto;
 }
 
 @font-face {
   font-family: "Nunito";
-  src: url('../../assets/fonts/Nunito/Nunito-ExtraLightItalic.ttf')
+  src: url("../../assets/fonts/Nunito/Nunito-ExtraLightItalic.ttf")
     format("truetype"); /* Safari, Android, iOS */
   font-weight: 200;
   font-style: italic;
@@ -28,14 +60,15 @@
 
 @font-face {
   font-family: "Nunito";
-  src: url('../../assets/fonts/Nunito/Nunito-Light.ttf') format("truetype"); /* Safari, Android, iOS */
+  src: url("../../assets/fonts/Nunito/Nunito-Light.ttf") format("truetype"); /* Safari, Android, iOS */
   font-weight: 300;
   font-display: auto;
 }
 
 @font-face {
   font-family: "Nunito";
-  src: url('../../assets/fonts/Nunito/Nunito-LightItalic.ttf') format("truetype"); /* Safari, Android, iOS */
+  src: url("../../assets/fonts/Nunito/Nunito-LightItalic.ttf")
+    format("truetype"); /* Safari, Android, iOS */
   font-weight: 300;
   font-style: italic;
   font-display: auto;
@@ -43,21 +76,22 @@
 
 @font-face {
   font-family: "Nunito";
-  src: url('../../assets/fonts/Nunito/Nunito-Italic.ttf') format("truetype"); /* Safari, Android, iOS */
+  src: url("../../assets/fonts/Nunito/Nunito-Italic.ttf") format("truetype"); /* Safari, Android, iOS */
   font-style: italic;
   font-display: auto;
 }
 
 @font-face {
   font-family: "Nunito";
-  src: url('../../assets/fonts/Nunito/Nunito-SemiBold.ttf') format("truetype"); /* Safari, Android, iOS */
+  src: url("../../assets/fonts/Nunito/Nunito-SemiBold.ttf") format("truetype"); /* Safari, Android, iOS */
   font-weight: 600;
   font-display: auto;
 }
 
 @font-face {
   font-family: "Nunito";
-  src: url('../../assets/fonts/Nunito/Nunito-SemiBoldItalic.ttf') format("truetype"); /* Safari, Android, iOS */
+  src: url("../../assets/fonts/Nunito/Nunito-SemiBoldItalic.ttf")
+    format("truetype"); /* Safari, Android, iOS */
   font-weight: 600;
   font-style: italic;
   font-display: auto;
@@ -65,14 +99,14 @@
 
 @font-face {
   font-family: "Nunito", monospace;
-  src: url('../../assets/fonts/Nunito/Nunito-Bold.ttf') format("truetype");
+  src: url("../../assets/fonts/Nunito/Nunito-Bold.ttf") format("truetype");
   font-weight: 700;
   font-display: auto;
 }
 
 @font-face {
   font-family: "Nunito", monospace;
-  src: url('../../assets/fonts/Nunito/Nunito-BoldItalic.ttf') format("truetype");
+  src: url("../../assets/fonts/Nunito/Nunito-BoldItalic.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
   font-display: auto;
@@ -80,14 +114,15 @@
 
 @font-face {
   font-family: "Nunito", monospace;
-  src: url('../../assets/fonts/Nunito/Nunito-ExtraBold.ttf') format("truetype");
+  src: url("../../assets/fonts/Nunito/Nunito-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-display: auto;
 }
 
 @font-face {
   font-family: "Nunito";
-  src: url('../../assets/fonts/Nunito/Nunito-ExtraBoldItalic.ttf') format("truetype"); /* Safari, Android, iOS */
+  src: url("../../assets/fonts/Nunito/Nunito-ExtraBoldItalic.ttf")
+    format("truetype"); /* Safari, Android, iOS */
   font-weight: 800;
   font-style: italic;
   font-display: auto;
@@ -95,14 +130,15 @@
 
 @font-face {
   font-family: "Nunito", monospace;
-  src: url('../../assets/fonts/Nunito/Nunito-Black.ttf') format("truetype");
+  src: url("../../assets/fonts/Nunito/Nunito-Black.ttf") format("truetype");
   font-weight: 900;
   font-display: auto;
 }
 
 @font-face {
   font-family: "Nunito", monospace;
-  src: url('../../assets/fonts/Nunito/Nunito-BlackItalic.ttf') format("truetype");
+  src: url("../../assets/fonts/Nunito/Nunito-BlackItalic.ttf")
+    format("truetype");
   font-weight: 900;
   font-style: italic;
   font-display: auto;
@@ -110,14 +146,14 @@
 
 html {
   background: #d8ebf2;
-   font-family: Nunito, "Nunito", -apple-system, BlinkMacSystemFont, 'Noto Sans', 'Segoe UI',
-    'Helvetica Neue', Arial, sans-serif;
+  font-family: Nunito, "Nunito", -apple-system, BlinkMacSystemFont, "Noto Sans",
+    "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
   background: #d8ebf2;
-   font-family: Nunito, "Nunito", -apple-system, BlinkMacSystemFont, 'Noto Sans', 'Segoe UI',
-    'Helvetica Neue', Arial, sans-serif;
+  font-family: Nunito, "Nunito", -apple-system, BlinkMacSystemFont, "Noto Sans",
+    "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 ul {
@@ -245,7 +281,7 @@ li {
     font-family: Quicksand, "Quicksand", -apple-system, BlinkMacSystemFont,
       "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
       "Helvetica Neue", sans-serif;
-    font-weight: 700;
+    font-weight: 500;
   }
   ul {
     display: flex;
@@ -356,7 +392,7 @@ a :visited :active {
 
 a:hover {
   transition: all ease 250ms !important;
-  color: #50d4f2;
+  color: #00afd7;
 }
 
 .page-header {
@@ -368,8 +404,8 @@ a:hover {
   padding-bottom: 0.25em;
   text-transform: uppercase;
   letter-spacing: 0.25em;
-  //font-family: 'Quicksand', Quicksand, sans-serif;
-  // font-weight: 900;
+  font-family: "Quicksand", Quicksand, sans-serif;
+  font-weight: 600;
 }
 
 @media screen and (min-width: 1080px) {
@@ -400,7 +436,7 @@ a:hover {
 }
 
 .post-title:hover {
-  color: #50d4f2;
+  color: #00afd7;
   transition: all ease 250ms;
 }
 
@@ -517,7 +553,7 @@ a:hover {
 }
 
 .read-more:hover {
-  color: #50d4f2;
+  color: #00afd7;
   transition: all ease 250ms;
 }
 
@@ -593,7 +629,7 @@ a:hover {
 
 .tag-link:hover {
   color: white;
-  background: #50d4f2 !important;
+  background: #00afd7 !important;
   transition: all ease 250ms !important;
 }
 
@@ -861,9 +897,8 @@ ul {
   }
   .vedit textarea {
     color: dimgray !important;
-    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-      sans-serif;
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
   .vbtn {
     border-color: dimgray !important;
