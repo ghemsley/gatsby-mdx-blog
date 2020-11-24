@@ -23,7 +23,7 @@
 
 @font-face {
   font-family: "Quicksand";
-  src: url("../../assets/fonts/Quicksand/Quicksand-Semibold.ttf")
+  src: url("../../assets/fonts/Quicksand/Quicksand-SemiBold.ttf")
     format("truetype"); /* Safari, Android, iOS */
   font-weight: 600;
   font-display: auto;
@@ -284,10 +284,6 @@ ul {
   text-transform: uppercase;
   z-index: 1;
   transition: text-shadow ease 250ms;
-}
-
-.site-title :hover {
-  
 }
 
 .subtitle {
