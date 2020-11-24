@@ -21,7 +21,7 @@ const Nav = () => {
       <nav className="nav">
         <ul style={{ margin: "0", padding: "0", listStyle: "none" }}>
           <li key='home'>
-            <Link className="nav-button" to="/" title="home">
+            <Link className="nav-button" to="/" title="Home">
               Home
             </Link>
           </li>
@@ -31,7 +31,9 @@ const Nav = () => {
                 <Link
                   to={`/${page.node.name}`}
                   className="nav-button"
-                  title={page.node.name}
+                  title={
+                    page.node.name.charAt(0).toUpperCase() + page.node.name.slice(1)
+                  }
                 >
                   {page.node.name}
                 </Link>

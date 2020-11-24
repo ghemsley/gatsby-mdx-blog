@@ -259,11 +259,35 @@ ul {
   transition: all ease 250ms;
 }
 
+.blog-link {
+  max-width: fit-content;
+  transition: all ease 250ms;
+  margin: auto;
+}
+
+@media screen and (min-width: 1080px) {
+  .blog-link {
+    margin: 0;
+    margin-left: auto;
+  }
+}
+
+
+.blog-link :hover {
+  transition: all ease 250ms;
+  text-shadow: 0px 0px 8px #d8ebf2;
+}
+
 .site-title {
   font-size: 3em;
-  margin: 0;
+  color: white;
   text-transform: uppercase;
   z-index: 1;
+  transition: text-shadow ease 250ms;
+}
+
+.site-title :hover {
+  
 }
 
 .subtitle {
