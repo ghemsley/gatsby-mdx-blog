@@ -53,9 +53,9 @@ At any point the user can quit or go back to the main menu to do another search.
 ### How does it work?
 
 1. The user's [Ip address](https://en.wikipedia.org/wiki/IP_address) is checked against a [Geolocation](https://en.wikipedia.org/wiki/Internet_geolocation) API, specifically [IP-API](https://ip-api.com/).
-2. The data returned includes latitude and longitude coordinates that are then sent to [Yelp](https://www.yelp.com/)'s [GraphQL](https://graphql.org/) API.
-3. Yelp responds with business listings in [JSON](https://www.json.org/json-en.html) format.
-4. This data is parsed and turned into an object, which I pull information from to create my own objects as needed.
+2. The data returned (in [JSON](https://www.json.org/json-en.html) format) includes latitude and longitude coordinates that are then sent to [Yelp](https://www.yelp.com/)'s [GraphQL](https://graphql.org/) API.
+3. Yelp responds with business listings in the form of a special GraphQL response object.
+4. I pull information from those objects to create my own simpler listing objects as needed.
 5. The program [iterates](https://en.wikipedia.org/wiki/Iteration) on the collections of objects to create the various menus and listings you see above.
 
 That's basically it! Unless you search by address, in which case the address is sent to Yelp instead of the coordinates. However, this simple set of steps belies the complexity of their implementation.
