@@ -65,6 +65,9 @@ module.exports = {
       options: {
         gatsbyRemarkPlugins: [
           {
+            resolve: "gatsby-remark-embed-video-lite",
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 960,
@@ -142,6 +145,9 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          {
+            resolve: "gatsby-remark-embed-video-lite",
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
