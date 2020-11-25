@@ -133,7 +133,7 @@ def searches_to_business_instances
 end
 ```
 
-This method is accessing the array of search results (in the form of `Business` instances) and adding to it every business object that comes from my GraphQL query that came from the last search, then either finding or instantiating `Business` instances based on the objects in that array.
+This method is accessing the array of search results and adding to it every business object returned from my GraphQL query that came from the last search, then either finding or instantiating my own `Business` class instances based on the objects in that array.
 
 The previous method relies on the following methods in the `Yelp` Class being called throughout the program's lifespan to work:
 
