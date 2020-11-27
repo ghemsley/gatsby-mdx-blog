@@ -2,7 +2,7 @@ import React from "react"
 import { SiGithub, SiLinkedin, SiInstagram, SiYoutube } from "react-icons/si"
 import { MdMailOutline } from "react-icons/md"
 
-const iconSize = 32
+const iconSize = 40
 
 const Social = () => {
   const socialLinks = [

@@ -177,7 +177,6 @@ ul {
   left: 0px;
   width: 100vw;
   z-index: 1;
-  display: inline-block;
   overflow: hidden;
 }
 
@@ -187,7 +186,9 @@ ul {
     top: 0px;
     bottom: 0px;
     width: 33%;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
@@ -201,12 +202,14 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 @media screen and (min-width: 1080px) {
   .header {
-    margin: 33vh 2em 2em 2em;
+    margin: 2em 2em 2em 2em;
     text-align: right;
+    align-items: flex-end;
     border-radius: 8px;
     min-height: 33%;
   }
@@ -252,6 +255,9 @@ ul {
 .author {
   color: white;
   transition: all ease 250ms;
+  line-height: 0px;
+  max-height: min-content;
+  display: inline;
 }
 
 .author:hover {
@@ -260,36 +266,60 @@ ul {
 }
 
 .blog-link {
-  max-width: fit-content;
+  display: inline;
+  color: white !important;
+  max-width: max-content;
+  max-height: min-content;
   transition: all ease 250ms;
-  margin: auto;
+  padding: 0px;
+  margin: 0px;
 }
 
-@media screen and (min-width: 1080px) {
-  .blog-link {
-    margin: 0;
-    margin-left: auto;
-  }
-}
-
-
-.blog-link :hover {
+.blog-link:hover {
   transition: all ease 250ms;
   text-shadow: 0px 0px 8px #d8ebf2;
 }
 
 .site-title {
+  display: inline;
   font-size: 3em;
   color: white;
   text-transform: uppercase;
   z-index: 1;
   transition: text-shadow ease 250ms;
+  margin: 0px;
+  max-width: fit-content;
+  max-height: min-content;
+  margin-bottom: 0.25em;
+  padding: 0px;
+  p {
+    padding: 0px;
+    margin: 0px;
+  }
 }
 
 .subtitle {
-  margin: 0;
+  display: flex;
+  margin: 0px;
+  margin-bottom: 0.5em;
   font-size: 1.5em;
   font-weight: normal;
+  align-items: center;
+  justify-content: center;
+  max-width: max-content;
+  max-height: min-content;
+  line-height: 1em;
+  padding: 0px;
+  p {
+    width: max-content;
+    line-height: 1em;
+    margin: 0px;
+    padding: 0px;
+  }
+  a {
+    margin-left: 0.333em;
+    padding: 0px;
+  }
 }
 
 li {
@@ -297,6 +327,8 @@ li {
 }
 
 .nav {
+  margin-top: 1em;
+  margin-bottom: -0.75em;
   .nav-button {
     font-family: Quicksand, "Quicksand", -apple-system, BlinkMacSystemFont,
       "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
@@ -310,18 +342,20 @@ li {
     align-items: center;
     justify-content: center;
     align-content: center;
-    margin-top: -0.5em;
+    margin-top: 0px;
     margin-left: -0.5em;
   }
   ul > li {
-    margin-top: 0.5em;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+    margin-top: 0;
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+    margin-bottom: 0.75em;
   }
 }
 
 @media screen and (min-width: 1080px) {
   .nav {
+    margin-bottom: 0.25em;
     ul {
       justify-content: flex-end;
     }
@@ -353,7 +387,6 @@ li {
     margin-right: 0px;
   }
   .nav ul > li {
-    margin-top: 1em;
     margin-left: 1em;
     margin-right: 0em;
   }
@@ -776,17 +809,19 @@ a:hover {
   align-items: center;
   justify-content: flex-end;
   align-content: center;
-  margin-top: 0.75em;
   margin-left: auto;
   margin-right: auto;
   max-width: fit-content;
   .social-link {
     margin-left: 1em;
+    max-height: min-content;
+    line-height: 0px;
     svg {
       color: white;
       fill: white;
       transition: all ease 250ms;
-      height: 24px;
+      height: 28px;
+      width: 28px;
     }
     svg:hover {
       filter: drop-shadow(0px 0px 8px #d8ebf2);
@@ -802,10 +837,10 @@ a:hover {
   .social-links {
     margin-left: auto !important;
     margin-right: 0px;
-    margin-top: 1.25em;
     .social-link {
       .social-link-icon {
-        height: 32px;
+        height: 38px;
+        width: 38px;
       }
     }
   }
