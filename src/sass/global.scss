@@ -2,7 +2,7 @@
   font-family: "Quicksand";
   src: url("../../assets/fonts/Quicksand/Quicksand-Regular.ttf")
     format("truetype"); /* Safari, Android, iOS */
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
@@ -10,7 +10,7 @@
   src: url("../../assets/fonts/Quicksand/Quicksand-Light.ttf")
     format("truetype"); /* Safari, Android, iOS */
   font-weight: 300;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
@@ -18,7 +18,7 @@
   src: url("../../assets/fonts/Quicksand/Quicksand-Medium.ttf")
     format("truetype"); /* Safari, Android, iOS */
   font-weight: 500;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
@@ -26,27 +26,27 @@
   src: url("../../assets/fonts/Quicksand/Quicksand-SemiBold.ttf")
     format("truetype"); /* Safari, Android, iOS */
   font-weight: 600;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Quicksand";
   src: url("../../assets/fonts/Quicksand/Quicksand-Bold.ttf") format("truetype"); /* Safari, Android, iOS */
   font-weight: 700;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Nunito";
   src: url("../../assets/fonts/Nunito/Nunito-Regular.ttf") format("truetype"); /* Safari, Android, iOS */
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Nunito";
   src: url("../../assets/fonts/Nunito/Nunito-ExtraLight.ttf") format("truetype"); /* Safari, Android, iOS */
   font-weight: 200;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
@@ -55,14 +55,14 @@
     format("truetype"); /* Safari, Android, iOS */
   font-weight: 200;
   font-style: italic;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Nunito";
   src: url("../../assets/fonts/Nunito/Nunito-Light.ttf") format("truetype"); /* Safari, Android, iOS */
   font-weight: 300;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
@@ -71,21 +71,21 @@
     format("truetype"); /* Safari, Android, iOS */
   font-weight: 300;
   font-style: italic;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Nunito";
   src: url("../../assets/fonts/Nunito/Nunito-Italic.ttf") format("truetype"); /* Safari, Android, iOS */
   font-style: italic;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Nunito";
   src: url("../../assets/fonts/Nunito/Nunito-SemiBold.ttf") format("truetype"); /* Safari, Android, iOS */
   font-weight: 600;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
@@ -94,14 +94,14 @@
     format("truetype"); /* Safari, Android, iOS */
   font-weight: 600;
   font-style: italic;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Nunito", monospace;
   src: url("../../assets/fonts/Nunito/Nunito-Bold.ttf") format("truetype");
   font-weight: 700;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
@@ -109,14 +109,14 @@
   src: url("../../assets/fonts/Nunito/Nunito-BoldItalic.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Nunito", monospace;
   src: url("../../assets/fonts/Nunito/Nunito-ExtraBold.ttf") format("truetype");
   font-weight: 800;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
@@ -125,14 +125,14 @@
     format("truetype"); /* Safari, Android, iOS */
   font-weight: 800;
   font-style: italic;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Nunito", monospace;
   src: url("../../assets/fonts/Nunito/Nunito-Black.ttf") format("truetype");
   font-weight: 900;
-  font-display: auto;
+  font-display: swap;
 }
 
 @font-face {
@@ -141,7 +141,7 @@
     format("truetype");
   font-weight: 900;
   font-style: italic;
-  font-display: auto;
+  font-display: swap;
 }
 
 html {
