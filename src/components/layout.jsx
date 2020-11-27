@@ -20,11 +20,9 @@ const Layout = ({ children }) => {
       <div className="layout">
         <div className="sidebar">
           <div className="header">
-            <h1 className="site-title">
-              <Link to="/" className="blog-link" title="Home">
-                Blog
-              </Link>
-            </h1>
+            <Link to="/" className="blog-link" title="Home">
+              Blog
+            </Link>
             <h2 className="subtitle">
               By
               <Link to="/author" className="author" title="Author">

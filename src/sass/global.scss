@@ -193,8 +193,6 @@ ul {
 }
 
 .header {
-  margin: 2em;
-  margin-top: 1em;
   padding: 0px;
   text-align: center;
   position: relative;
@@ -203,6 +201,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  row-gap: 16px;
 }
 
 @media screen and (min-width: 1080px) {
@@ -255,7 +254,6 @@ ul {
 .author {
   color: white;
   transition: all ease 250ms;
-  line-height: 0px;
   max-height: min-content;
   display: inline;
 }
@@ -266,6 +264,7 @@ ul {
 }
 
 .blog-link {
+  font-size: 3em;
   display: inline;
   color: white !important;
   max-width: max-content;
@@ -273,6 +272,10 @@ ul {
   transition: all ease 250ms;
   padding: 0px;
   margin: 0px;
+  line-height: 1em;
+  text-transform: uppercase;
+  margin-bottom: -8px;
+  margin-top: 8px;
 }
 
 .blog-link:hover {
@@ -280,28 +283,9 @@ ul {
   text-shadow: 0px 0px 8px #d8ebf2;
 }
 
-.site-title {
-  display: inline;
-  font-size: 3em;
-  color: white;
-  text-transform: uppercase;
-  z-index: 1;
-  transition: text-shadow ease 250ms;
-  margin: 0px;
-  max-width: fit-content;
-  max-height: min-content;
-  margin-bottom: 0.25em;
-  padding: 0px;
-  p {
-    padding: 0px;
-    margin: 0px;
-  }
-}
-
 .subtitle {
   display: flex;
   margin: 0px;
-  margin-bottom: 0.5em;
   font-size: 1.5em;
   font-weight: normal;
   align-items: center;
@@ -310,6 +294,7 @@ ul {
   max-height: min-content;
   line-height: 1em;
   padding: 0px;
+  column-gap: 8px;
   p {
     width: max-content;
     line-height: 1em;
@@ -317,7 +302,6 @@ ul {
     padding: 0px;
   }
   a {
-    margin-left: 0.333em;
     padding: 0px;
   }
 }
@@ -327,8 +311,7 @@ li {
 }
 
 .nav {
-  margin-top: 1em;
-  margin-bottom: -0.75em;
+  margin-bottom: 16px;
   .nav-button {
     font-family: Quicksand, "Quicksand", -apple-system, BlinkMacSystemFont,
       "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
@@ -342,20 +325,15 @@ li {
     align-items: center;
     justify-content: center;
     align-content: center;
-    margin-top: 0px;
-    margin-left: -0.5em;
-  }
-  ul > li {
-    margin-top: 0;
-    margin-left: 0.4em;
-    margin-right: 0.4em;
-    margin-bottom: 0.75em;
+    margin: 0px;
+    row-gap: 16px;
+    column-gap: 16px;
   }
 }
 
 @media screen and (min-width: 1080px) {
   .nav {
-    margin-bottom: 0.25em;
+    margin-bottom: 28px;
     ul {
       justify-content: flex-end;
     }
@@ -381,29 +359,6 @@ li {
   border-radius: 4px;
 }
 
-@media screen and (min-width: 1080px) {
-  .nav-button {
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-  .nav ul > li {
-    margin-left: 1em;
-    margin-right: 0em;
-  }
-
-  .nav ul > li:first-child {
-    margin-left: 0em;
-  }
-}
-
-.nav ul li:first-child .nav-button {
-  margin-left: 0px;
-}
-
-.nav ul li:last-child .nav-button {
-  margin-right: 0px;
-}
-
 .nav-button:hover {
   border: 2px solid white !important;
   text-decoration: none;
@@ -413,12 +368,6 @@ li {
   text-shadow: 0px 0px 10px #d8ebf2;
 }
 
-.search-form {
-  margin-top: 1em;
-}
-.submit-button {
-  margin-left: 4px;
-}
 .tags {
   font-size: 1.5em;
   text-transform: uppercase;
@@ -803,40 +752,36 @@ a:hover {
 }
 
 .social-links {
+  justify-self: center;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
-  align-content: center;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: fit-content;
+  justify-content: center;
+  margin: 0;
+  max-width: 320px;
+  flex-basis: 32px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  gap: 16px;
   .social-link {
-    margin-left: 1em;
-    max-height: min-content;
     line-height: 0px;
-    svg {
+    .social-link-icon {
       color: white;
       fill: white;
       transition: all ease 250ms;
-      height: 28px;
-      width: 28px;
+      height: 32px;
+      width: 32px;
     }
     svg:hover {
       filter: drop-shadow(0px 0px 8px #d8ebf2);
       transition: all ease 250ms;
     }
   }
-  .social-link:first-child {
-    margin-left: 0px !important;
-  }
 }
 
 @media screen and (min-width: 1080px) {
   .social-links {
-    margin-left: auto !important;
-    margin-right: 0px;
     .social-link {
       .social-link-icon {
         height: 38px;
