@@ -567,21 +567,14 @@ a:hover {
 .blog-post-tags-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
-}
-
-@media screen and (max-width: 374px) {
-  .tag-container,
-  .blog-post-tags-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    a {
-      margin-left: 0.5em !important;
-      margin-top: 0.5em !important;
-    }
-  }
+  row-gap: 8px;
+  column-gap: 8px;
+  min-width: min-content;
+  margin-left: auto;
+  margin-right: 0px;
 }
 
 @media screen and (min-width: 1080px) {
@@ -595,7 +588,6 @@ a:hover {
 .tag-container a,
 .blog-post-tags-container a {
   margin: 0px;
-  margin-left: 1em;
   flex-basis: auto;
   flex-grow: 0;
   flex-shrink: 1;
