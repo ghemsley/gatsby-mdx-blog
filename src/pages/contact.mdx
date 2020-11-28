@@ -5,6 +5,25 @@ date: 2020-10-08
 slug: /pages/contact
 image: ../assets/images/pages/contact/cover.jpg
 ---
+import { GatsbySeo } from "gatsby-plugin-next-seo"
+
+<GatsbySeo
+  title='Contact'
+  description='How to contact the author'
+  openGraph={{
+    title: 'Contact',
+    description: 'How to contact the author',
+    url: 'https://www.grahamhemsley.com/contact',
+    images: [
+      {
+        url: `https://www.grahamhemsley.com/preview.jpg`,
+        width: 1280,
+        height: 720,
+        alt: 'A blog by Graham Hemsley',
+      },
+    ],
+  }}
+/>
 
 <h1 className='page-header'>
   Contact
@@ -19,4 +38,3 @@ The email icon should open your device's default mail handler and begin an email
     </p>
   </div>
 </div>
-

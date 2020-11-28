@@ -1,12 +1,33 @@
 import React from "react"
 import Img from "gatsby-image"
 import { graphql } from "gatsby"
+import { GatsbySeo } from "gatsby-plugin-next-seo"
 
 const InstagramLogo = require("../assets/images/pages/photos/instagram-logo.png")
 
 const PhotosPage = ({ data }) => {
   return (
     <>
+      <GatsbySeo
+        title={"Photos"}
+        description={"Photos by the author"}
+        openGraph={{
+          title: "Photos",
+          description: "Photos by the author",
+          url: `https://www.grahamhemsley.com/photos`,
+          article: {
+            authors: ["https://www.grahamhemsley.com/author"],
+          },
+          images: [
+            {
+              url: `https://www.grahamhemsley.com/preview.jpg`,
+              width: 1280,
+              height: 720,
+              alt: "A blog by Graham Hemsley",
+            },
+          ],
+        }}
+      />
       <h1 className="page-header">Photos</h1>
 
       <div className="photos-container">
