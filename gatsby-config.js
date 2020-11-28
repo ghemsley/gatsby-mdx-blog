@@ -352,8 +352,8 @@ module.exports = {
       resolve: "gatsby-plugin-next-seo",
       options: {
         language: "en",
-        dangerouslySetAllPagesToNoIndex: true,
-        dangerouslySetAllPagesToNoFollow: true,
+        dangerouslySetAllPagesToNoIndex: false,
+        dangerouslySetAllPagesToNoFollow: false,
         title: "Blog",
         description: "A blog by Graham Hemsley",
         openGraph: {
