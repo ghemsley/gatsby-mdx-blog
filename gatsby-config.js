@@ -412,11 +412,9 @@ module.exports = {
             "'self' 'unsafe-inline' *.grahamhemsley.com grahamhemsley.com *.cloudfront.net fonts.gstatic.com",
           "connect-src":
             "'self' us.avoscloud.com *.grahamhemsley.com grahamhemsley.com *.googlevideo.com www.youtube.com",
-          "frame-src": "'self' *.grahamhemsley.com grahamhemsley.com www.youtube.com",
-          "default-src": "'none'",
-          "prefetch-src": "'self' *.grahamhemsley.com grahamhemsley.com",
+          "frame-src":
+            "'self' *.grahamhemsley.com grahamhemsley.com www.youtube.com",
           "object-src": "'none'",
-          "require-trusted-types-for": "'script'",
           // you can add your directives or override defaults
         },
       },
