@@ -393,7 +393,27 @@ module.exports = {
       },
     },
     `gatsby-plugin-advanced-sitemap`,
-    `gatsby-plugin-csp`,
+    {
+      resolve: `gatsby-plugin-csp`,
+      options: {
+        disableOnDev: true,
+        reportOnly: false, // Changes header to Content-Security-Policy-Report-Only for csp testing purposes
+        mergeScriptHashes: true, // you can disable scripts sha256 hashes
+        mergeStyleHashes: true, // you can disable styles sha256 hashes
+        mergeDefaultDirectives: true,
+        directives: {
+          "script-src":
+            "'self' us.avoscloud.com api.ip.sb cdn.jsdelivr.net cloudfront.net googlevideo.com www.youtube.com www.google.com",
+          "style-src": "'self' 'unsafe-inline' cloudfront.net googlevideo.com",
+          "img-src":
+            "'self' data: i.ytimg.com cloudfront.net img.t.sinajs.cn ggpht.com",
+          "font-src": "'self' cloudfront.net fonts.gstatic.com",
+          "connect-src":
+            "'self' us.avoscloud.com googlevideo.com www.youtube.com",
+          // you can add your directives or override defaults
+        },
+      },
+    },
     `gatsby-plugin-netlify-headers`,
   ],
 }
