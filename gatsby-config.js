@@ -399,21 +399,20 @@ module.exports = {
         disableOnDev: true,
         reportOnly: false, // Changes header to Content-Security-Policy-Report-Only for csp testing purposes
         mergeScriptHashes: true, // you can disable scripts sha256 hashes
-        mergeStyleHashes: false, // you can disable styles sha256 hashes
+        mergeStyleHashes: true, // you can disable styles sha256 hashes
         mergeDefaultDirectives: true,
         directives: {
           "script-src":
-            "'self' 'strict-dynamic' 'unsafe-inline' us.avoscloud.com api.ip.sb cdn.jsdelivr.net *.cloudfront.net *.googlevideo.com www.youtube.com www.google.com",
+            "'self' 'strict-dynamic' 'unsafe-inline' *.grahamhemsley.com grahamhemsley.com us.avoscloud.com api.ip.sb cdn.jsdelivr.net *.cloudfront.net *.googlevideo.com www.youtube.com www.google.com",
           "style-src":
-            "'self' 'unsafe-inline' *.cloudfront.net *.googlevideo.com",
+            "'self' 'unsafe-inline' *.grahamhemsley.com grahamhemsley.com *.cloudfront.net *.googlevideo.com",
           "img-src":
-            "'self' 'unsafe-inline' data: i.ytimg.com *.cloudfront.net img.t.sinajs.cn *.ggpht.com",
+            "'self' 'unsafe-inline' data: *.grahamhemsley.com grahamhemsley.com i.ytimg.com *.cloudfront.net img.t.sinajs.cn *.ggpht.com",
           "font-src":
-            "'self' 'unsafe-inline' *.cloudfront.net fonts.gstatic.com",
+            "'self' 'unsafe-inline' *.grahamhemsley.com grahamhemsley.com *.cloudfront.net fonts.gstatic.com",
           "connect-src":
-            "'self' us.avoscloud.com *.googlevideo.com www.youtube.com",
-          "frame-src": "'self' www.youtube.com",
-          "frame-ancestors": "'self' www.youtube.com",
+            "'self' us.avoscloud.com *.grahamhemsley.com grahamhemsley.com *.googlevideo.com www.youtube.com",
+          "frame-src": "'self' *.grahamhemsley.com grahamhemsley.com www.youtube.com",
           "default-src": "'none'",
           "object-src": "'none'",
           "require-trusted-types-for": "'script'",
