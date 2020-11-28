@@ -407,7 +407,7 @@ module.exports = {
           "style-src":
             "'self' 'unsafe-inline' *.grahamhemsley.com grahamhemsley.com *.cloudfront.net *.googlevideo.com",
           "img-src":
-            "'self' 'unsafe-inline' data: *.grahamhemsley.com grahamhemsley.com i.ytimg.com *.cloudfront.net img.t.sinajs.cn *.ggpht.com",
+            "'self' 'unsafe-inline' data: *.grahamhemsley.com grahamhemsley.com i.ytimg.com *.cloudfront.net img.t.sinajs.cn *.ggpht.com *.githubusercontent.com gravatar.loli.net",
           "font-src":
             "'self' 'unsafe-inline' *.grahamhemsley.com grahamhemsley.com *.cloudfront.net fonts.gstatic.com",
           "connect-src":
