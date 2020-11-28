@@ -12,7 +12,7 @@ module.exports = {
     siteUrl: "https://www.grahamhemsley.com",
   },
   plugins: [
-    `gatsby-plugin-remove-fingerprints`,
+    // `gatsby-plugin-remove-fingerprints`,
     `gatsby-plugin-netlify-cache`,
     `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
