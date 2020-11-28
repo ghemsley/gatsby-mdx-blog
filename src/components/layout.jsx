@@ -2,21 +2,12 @@ import React from "react"
 import { Link } from "gatsby"
 import Nav from "./nav"
 import Social from "./social"
-import { Helmet } from "react-helmet-async"
 import "../css/compiled/sakura.css"
 import "../css/compiled/global.css"
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Helmet>
-        <link
-          href="https://www.grahamhemsley.com/rss/feed.xml"
-          rel="alternate"
-          type="application/rss+xml"
-          title="Blog RSS feed"
-        />
-      </Helmet>
       <div className="layout">
         <div className="sidebar">
           <div className="header">

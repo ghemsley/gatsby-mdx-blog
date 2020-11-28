@@ -35,7 +35,7 @@ const PostsListItem = ({ post }) => {
             <p className="date">
               Published {post.frontmatter.date}
               {" by "}
-              <a href={"/author"} title="Author" className='author-link'>
+              <a href={"/author"} title="Author" className="author-link">
                 {post.frontmatter.author}
               </a>
             </p>
