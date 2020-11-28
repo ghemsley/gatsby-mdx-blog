@@ -444,7 +444,7 @@ a:hover {
 
 .post {
   max-width: 800px;
-  background: #ffffff;
+  background: white;
   padding-left: 2em;
   padding-right: 2em;
   padding-bottom: 3em;
@@ -477,7 +477,6 @@ a:hover {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .posts-container {
@@ -574,7 +573,6 @@ a:hover {
     align-items: center;
   }
 }
-
 
 .tag-link {
   display: flex;
@@ -952,4 +950,117 @@ ul {
   background: #e8e8e8 !important;
   border-left: 8px solid #d0d0d0 !important;
   border-color: #d0d0d0 !important;
+}
+
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  h1 {
+    width: 100%;
+  }
+  h2 {
+    margin: 0px;
+    margin-bottom: 0.75em;
+  }
+}
+
+div.projects-user-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 32px;
+  column-gap: 32px;
+  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.12),
+    1px 6px 10px rgba(39, 44, 49, 0.06);
+  transition: all ease 250ms;
+  border-radius: 8px;
+  flex: 1;
+  margin-bottom: 32px;
+
+  .projects-author-image {
+    max-height: 320px;
+    flex: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.12),
+      1px 6px 10px rgba(39, 44, 49, 0.06);
+  }
+  h3,
+  p {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    p {
+      text-align: left;
+    }
+    ul {
+      list-style: none;
+    }
+  }
+}
+
+div.projects {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+  column-gap: 32px;
+  div.project-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: white;
+    margin-top: 32px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.12),
+      1px 6px 10px rgba(39, 44, 49, 0.06);
+    transition: all ease 250ms;
+    padding: 32px;
+    border-radius: 8px;
+    h4 {
+      margin: 0px;
+      padding: 0px;
+    }
+    p {
+      margin: 0px;
+      padding: 0px;
+    }
+    div {
+      display: flex;
+      column-gap: 8px;
+    }
+  }
+
+  ul {
+    list-style: none;
+  }
+}
+
+@media (min-width: 768px) {
+  div.projects-user-info {
+    flex-wrap: nowrap;
+  }
+  div.projects {
+    grid-template-columns: 1fr 1fr;
+  }
 }

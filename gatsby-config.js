@@ -14,7 +14,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-remove-fingerprints`,
     `gatsby-plugin-netlify-cache`,
-    `gatsby-plugin-remove-fingerprints`,
     `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet-async`,
@@ -309,6 +308,9 @@ module.exports = {
               followers {
                 totalCount
               }
+              repositories {
+                totalCount
+              }
               pinnedItems(first: 6) {
                 totalCount
                 edges {
@@ -343,7 +345,6 @@ module.exports = {
               }
             }
           }
-        }
         `,
       },
     },
@@ -376,7 +377,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-minify-html",
       options: {
-        debug: true, // debug optional, default false
+        debug: false, // debug optional, default false
         config: {
           // Enabled default by this plugin
           collapseWhitespace: true,
