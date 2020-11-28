@@ -981,6 +981,11 @@ div.projects-user-info {
   border-radius: 8px;
   flex: 1;
   margin-bottom: 32px;
+  &:hover {
+    transition: all ease 250ms;
+    box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.24),
+      1px 6px 10px rgba(39, 44, 49, 0.12);
+  }
 
   .projects-author-image {
     max-height: 320px;
@@ -1037,6 +1042,11 @@ div.projects {
     transition: all ease 250ms;
     padding: 32px;
     border-radius: 8px;
+    &:hover {
+      transition: all ease 250ms;
+      box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.24),
+        1px 6px 10px rgba(39, 44, 49, 0.12);
+    }
     h4 {
       margin: 0px;
       padding: 0px;
@@ -1050,7 +1060,6 @@ div.projects {
       column-gap: 8px;
     }
   }
-
   ul {
     list-style: none;
   }
