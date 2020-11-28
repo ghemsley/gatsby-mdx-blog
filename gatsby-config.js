@@ -12,6 +12,7 @@ module.exports = {
     siteUrl: "https://www.grahamhemsley.com",
   },
   plugins: [
+    `gatsby-plugin-remove-fingerprints`,
     `gatsby-plugin-netlify-cache`,
     `gatsby-plugin-remove-fingerprints`,
     `gatsby-plugin-preact`,
@@ -284,6 +285,68 @@ module.exports = {
     //     ],
     //   },
     // },
+    {
+      resolve: `gatsby-source-github-api`,
+      options: {
+        // url: API URL to use. Defaults to  https://api.github.com/graphql
+        //url: someUrl,
+
+        // token: required by the GitHub API
+        token: process.env.GITHUB_TOKEN,
+
+        // variables: defaults to variables needed for a search query
+        variables: {},
+
+        // GraphQLquery: defaults to a search query
+        graphQLQuery: `
+          query {
+            user(login: "ghemsley") {
+              login
+              name
+              bio
+              location
+              avatarUrl
+              followers {
+                totalCount
+              }
+              pinnedItems(first: 6) {
+                totalCount
+                edges {
+                  node {
+                    ... on Repository {
+                      name
+                      description
+                      url
+                      createdAt
+                      pushedAt
+                      forkCount
+                      languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+                        nodes {
+                          name
+                          color
+                        }
+                      }
+                      refs(last: 1, orderBy: {field: TAG_COMMIT_DATE, direction: DESC}, refPrefix: "refs/") {
+                        edges {
+                          node {
+                            target {
+                              ... on Commit {
+                                messageHeadline
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        `,
+      },
+    },
     {
       resolve: "gatsby-plugin-next-seo",
       options: {
