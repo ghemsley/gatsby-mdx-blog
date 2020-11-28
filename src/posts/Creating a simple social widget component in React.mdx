@@ -15,15 +15,15 @@ date: 2020-10-07
 
 Hey, thanks for checking out my blog! In this first post, we're gonna see one way to build a simple social widget component in React! 
 
-###### Why?
+### Why?
 
 Because I need something to populate my post list, that's why! But also because it is a fairly easy and fun thing to build, but could still be confusing if you are newer to React development. So I figured I'd share the way I built the social widget you see on this blog.
 
-### Getting started
+## Getting started
 
 This component should work for pretty much any web framework that uses both React and Node.js. I built my blog with Gatsby, but this component just uses React along with some React icon libraries so it doesn't depend on Gatsby at all. Anyway, for this guide, I'll assume you have a website already set up. If you need help with that part, I recommend you [begin your quest here](https://reactjs.org/docs/create-a-new-react-app.html).  Just remember, we're assuming React is already set up from this point on.
 
-#### Creating a new file
+### Creating a new file
 
 Find the directory in your project where you store your components and create a new file in that directory. I'm going to name mine `socialWidget.jsx` but if you know what you are doing you can choose any filename you like as long as you reference it properly later. Below is the command I used to create my file, as an example (I was in the root directory of my project, and I store my files in `/src/components`).
 
@@ -93,7 +93,7 @@ const socialLinks = [
   ]
 ```
 
-# Whoa!
+##### Whoa!
 
 That was a lot compared to our `iconSize` const, wasn't it? But it's not so complicated: the square brackets enclosing the whole thing indicate that our outermost datastructure is an array, whereas the pairs of curly brackets inside each denote a separate object, with key:value pairs inside corresponding to the types of data we want to use for our social icons.
 
@@ -111,7 +111,7 @@ That last property of our first object in the array is more complicated than the
 
 We also are setting some `props` for our icon to use, namely `className` which lets us apply CSS directly to our SVG icons later on, and `size` which is pretty self-explanatory. What's handy about using that `iconSize` constant we defined earlier is that we can update the sizes of all of our icons easily and at once if we decide to change the value. Just change the value of `iconSize` and they will all update.
 
-##### Bonus: the mailto URL
+###### Bonus: the mailto URL
 
 Check out this line of our `Email` object again: 
 
@@ -149,7 +149,7 @@ const SocialWidget = () => {
 }
 ```
 
-# Double whoa! What the heck?
+##### Double whoa! What the heck?
 
 It's okay! What's happening is actually pretty simple, it's just weird if you haven't seen `array.map()`or an anonymous function before. Let's dive in and see what's going on. 
 
@@ -251,7 +251,7 @@ export default SocialWidget
 
 Nifty, we're all set to use it now. But first...
 
-#### Bonus: Some CSS
+##### Bonus: Some CSS
 
 Let's style our component with some CSS.
 

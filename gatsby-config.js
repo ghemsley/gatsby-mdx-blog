@@ -285,6 +285,19 @@ module.exports = {
     //   },
     // },
     {
+      resolve: "gatsby-source-google-photos",
+      options: {
+        albumsTitles: ["Random"],
+        photosMaxWidth: 1920,
+        photosMaxHeight: 1920,
+        photosCrop: false,
+        //
+        // For a better stack trace and more information
+        // Useful when you open a issue to report a bug
+        debug: false,
+      },
+    },
+    {
       resolve: `gatsby-source-github-api`,
       options: {
         // url: API URL to use. Defaults to  https://api.github.com/graphql

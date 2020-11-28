@@ -64,7 +64,7 @@ export default function Post({ location, data }) {
               })}
             </div>
           </div>
-          <h6 className="blog-post-time-to-read">{`This post should take around ${data.mdx.timeToRead} minutes to read`}</h6>
+          <p className="blog-post-time-to-read">{`This post should take around ${data.mdx.timeToRead} minutes to read`}</p>
           <Img
             className="blog-post-image"
             fluid={data.mdx.frontmatter.image.childImageSharp.fluid}
@@ -77,11 +77,11 @@ export default function Post({ location, data }) {
         </div>
         <div
           id={data.mdx.frontmatter.slug}
-          class="leancloud-visitors"
+          className="leancloud-visitors"
           data-flag-title={data.mdx.frontmatter.title}
         >
-          <h2 class="post-meta-item-text">Readers:</h2>
-          <h3 class="leancloud-visitors-count"> </h3>
+          <h2 className="post-meta-item-text">Readers:</h2>
+          <h3 className="leancloud-visitors-count"> </h3>
         </div>
       </div>
       <Valine />
