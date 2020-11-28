@@ -53,7 +53,7 @@ const PostsListItem = ({ post }) => {
       )}
       <div className="read-more-div">
         <a href={post.frontmatter.slug} title={post.frontmatter.title}>
-          <p className="read-more">Read more</p>
+          <p className="read-more">Read post</p>
         </a>
       </div>
       <div className="post-preview">{post.excerpt}</div>
