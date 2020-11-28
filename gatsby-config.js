@@ -392,6 +392,8 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-advanced-sitemap`,
+    `gatsby-plugin-csp`,
     `gatsby-plugin-netlify-headers`,
   ],
 }
