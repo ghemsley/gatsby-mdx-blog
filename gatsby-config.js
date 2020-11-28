@@ -398,12 +398,12 @@ module.exports = {
       options: {
         disableOnDev: true,
         reportOnly: false, // Changes header to Content-Security-Policy-Report-Only for csp testing purposes
-        mergeScriptHashes: true, // you can disable scripts sha256 hashes
+        mergeScriptHashes: false, // you can disable scripts sha256 hashes
         mergeStyleHashes: false, // you can disable styles sha256 hashes
         mergeDefaultDirectives: true,
         directives: {
           "script-src":
-            "'self' 'strict-dynamic' 'unsafe-inline' *.grahamhemsley.com grahamhemsley.com us.avoscloud.com api.ip.sb cdn.jsdelivr.net *.cloudfront.net *.googlevideo.com www.youtube.com www.google.com",
+            "'self' 'unsafe-inline' 'unsafe-eval' *.grahamhemsley.com grahamhemsley.com us.avoscloud.com api.ip.sb cdn.jsdelivr.net *.cloudfront.net *.googlevideo.com www.youtube.com www.google.com",
           "style-src":
             "'self' 'unsafe-inline' *.grahamhemsley.com grahamhemsley.com *.cloudfront.net *.googlevideo.com",
           "img-src":
