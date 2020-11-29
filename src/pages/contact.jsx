@@ -50,7 +50,7 @@ const ContactPage = () => {
       </div>
       <h2>Comments</h2>
       <div
-        id='contact'
+        id='/contact'
         className="leancloud-visitors"
         data-flag-title='Contact'
       >
