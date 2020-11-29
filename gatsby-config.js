@@ -440,7 +440,7 @@ module.exports = {
           "X-Frame-Options: SAMEORIGIN",
           "X-Content-Type-Options: nosniff",
           "Referrer-Policy: strict-origin-when-cross-origin",
-          "Strict-Transport-Security: max-age=31536000",
+          "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload",
           "Permissions-Policy: geolocation=() midi=() notifications=() microphone=() camera=() magnetometer=() gyroscope=() vibrate=() payment=() accelerometer=() ambient-light-sensor=() battery=() display-capture=()",
         ], // option to add headers for all pages. `Link` headers are transformed by the below criteria
         mergeSecurityHeaders: true, // boolean to turn off the default security headers
