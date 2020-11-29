@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
                 Graham Hemsley
               </Link>
             </h2>
-            <Social />
+            <Social iconSize={40} />
             <Nav />
           </div>
         </div>

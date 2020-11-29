@@ -986,6 +986,7 @@ div.projects-user-info {
     transition: all ease 250ms;
     box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.24),
       1px 6px 10px rgba(39, 44, 49, 0.12);
+    transform: scale(1.0175);
   }
 
   .projects-author-image {
@@ -1047,6 +1048,7 @@ div.projects {
       transition: all ease 250ms;
       box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.24),
         1px 6px 10px rgba(39, 44, 49, 0.12);
+      transform: scale(1.025);
     }
     h4 {
       margin: 0px;
@@ -1135,5 +1137,38 @@ div.projects {
     height: auto;
     margin: auto;
     flex: 1;
+  }
+}
+
+.contact-email-card {
+  background: white;
+  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.12),
+    1px 6px 10px rgba(39, 44, 49, 0.06);
+  transition: all ease 250ms;
+  padding: 16px;
+  border-radius: 8px;
+  max-width: fit-content;
+  cursor: pointer;
+  &:hover {
+    transition: all ease 250ms;
+    box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.24),
+      1px 6px 10px rgba(39, 44, 49, 0.12);
+    transform: scale(1.0375);
+  }
+  div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: max-content;
+    column-gap: 16px;
+    svg {
+      margin: 0px;
+      padding: 0px;
+    }
+    p {
+      margin: 0px;
+      padding: 0px;
+      cursor: text;
+    }
   }
 }
