@@ -294,7 +294,7 @@ module.exports = {
         //
         // For a better stack trace and more information
         // Useful when you open a issue to report a bug
-        debug: false,
+        debug: true,
       },
     },
     {
@@ -432,6 +432,23 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-netlify-headers`,
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        // headers: {}, // option to add more headers. `Link` headers are transformed by the below criteria
+        allPageHeaders: [
+          "X-Frame-Options: SAMEORIGIN",
+          "X-Content-Type-Options: nosniff",
+          "Referrer-Policy: strict-origin-when-cross-origin",
+          "Strict-Transport-Security: max-age=31536000",
+          "Permissions-Policy: geolocation=() midi=() notifications=() microphone=() camera=() magnetometer=() gyroscope=() vibrate=() payment=() accelerometer=() ambient-light-sensor=() battery=() display-capture=()",
+        ], // option to add headers for all pages. `Link` headers are transformed by the below criteria
+        mergeSecurityHeaders: true, // boolean to turn off the default security headers
+        mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
+        mergeCachingHeaders: true, // boolean to turn off the default caching headers
+        // transformHeaders: (headers, path) => headers, // optional transform for manipulating headers under each path (e.g.sorting), etc.
+        generateMatchPathRewrites: true, // boolean to turn off automatic creation of redirect rules for client only paths
+      },
+    },
   ],
 }
