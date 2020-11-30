@@ -6,8 +6,8 @@ const GitHubUser = ({ user }) => {
       <a
         href={`https://github.com/${user.login}`}
         title={`View ${user.login}'s profile on GitHub`}
-        rel='noopener noreferrer'
-        target='_blank'
+        rel="noopener noreferrer"
+        target="_blank"
       >
         <img
           src={user.avatarUrl}
@@ -15,15 +15,14 @@ const GitHubUser = ({ user }) => {
           className="projects-author-image"
         />
       </a>
-
       <div>
         <ul>
           <h3 key={0}>
             <a
               href={`https://github.com/${user.login}`}
               title={`View ${user.login}'s profile on GitHub`}
-              rel='noopener noreferrer'
-              target='_blank'
+              rel="noopener noreferrer"
+              target="_blank"
             >
               {user.login}
             </a>
@@ -52,7 +51,6 @@ const GitHubUser = ({ user }) => {
               <strong>Repositories:</strong> {user.repositories.totalCount}
             </p>
           </li>
-
           {user.followers.totalCount > 0 && (
             <li key={5}>
               <p>{`Followers: ${user.followers.totalCount}`}</p>

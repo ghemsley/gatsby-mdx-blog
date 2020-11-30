@@ -42,14 +42,14 @@ const TagsPage = ({
           Tags
         </h1>
         <ul>
-          {tagsGroup.map(tag => (
-            <li className="tags-list" key={tag.fieldValue}>
+          {tagsGroup.map((tag, i) => (
+            <li className="tags-list" key={i}>
               <Link
                 to={`/tags/${kebabCase(tag.fieldValue)}/`}
                 title={tag.fieldValue}
               >
                 <div className="tag-link">
-                  <HiOutlineTag size="24" />
+                  <HiOutlineTag size="32" />
                   <p>{tag.fieldValue}</p>
                   <p className="tag-total-count">({tag.totalCount})</p>
                 </div>

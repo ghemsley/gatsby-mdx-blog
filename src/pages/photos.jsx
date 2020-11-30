@@ -36,6 +36,8 @@ const PhotosPage = ({ data }) => {
             <a
               href={node.photo.childImageSharp.original.src}
               title={node.filename}
+              target='_blank'
+              rel='noopener noreferrer'
             >
               <Img
                 title={node.filename}

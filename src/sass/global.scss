@@ -276,11 +276,15 @@ ul {
   text-transform: uppercase;
   margin-bottom: -8px;
   margin-top: 8px;
+  transform: perspective(1px) scale(1) translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .blog-link:hover {
   transition: all ease 250ms;
   text-shadow: 0px 0px 8px #d8ebf2;
+  transform: scale(1.025);
 }
 
 .subtitle {
@@ -357,6 +361,10 @@ li {
   position: relative;
   transition: all ease 250ms;
   border-radius: 4px;
+  will-change: transform;
+  transform: perspective(1px) scale(1) translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .nav-button:hover {
@@ -366,6 +374,7 @@ li {
   box-shadow: 0 0 10px 2px #d8ebf2;
   color: white;
   text-shadow: 0px 0px 10px #d8ebf2;
+  transform: scale(1.02);
 }
 
 .tags {
@@ -374,15 +383,17 @@ li {
   margin-top: 1em;
 }
 
-.blog,
 .author {
   transition: all ease 250ms;
+  transform: perspective(1px) scale(1) translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
-.blog:hover,
 .author:hover {
   color: white !important;
   transition: all ease 250ms;
+  transform: scale(1.02);
 }
 
 a,
@@ -456,13 +467,20 @@ a:hover {
   box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.12),
     1px 6px 10px rgba(39, 44, 49, 0.06);
   transition: all ease 250ms;
-  border-radius: 4px;
+  border-radius: 8px;
+  will-change: transform;
+  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.12),
+    1px 6px 10px rgba(39, 44, 49, 0.06);
+  transform: perspective(1px) scale(1) translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 
 .post:hover {
   transition: all ease 250ms;
   box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.24),
     1px 6px 10px rgba(39, 44, 49, 0.12);
+  transform: scale(1.01);
 }
 
 .post-info {
@@ -578,10 +596,11 @@ a:hover {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: space-between;
   align-items: center;
-  transition: all ease 250ms !important;
+  transition: all ease 250ms;
   background: #0588a6;
-  margin-bottom: 0px;
+  margin: 0px;
   padding: 0.333em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -589,21 +608,31 @@ a:hover {
   max-width: fit-content;
   border-radius: 4px;
   height: fit-content;
+  column-gap: 8px;
+  will-change: transform;
+  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.12),
+    1px 6px 10px rgba(39, 44, 49, 0.06);
+  transform: perspective(1px) scale(1) translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  &:hover {
+    transition: all ease 250ms;
+    box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.24),
+      1px 6px 10px rgba(39, 44, 49, 0.12);
+    transform: scale(1.03);
+    color: white;
+    background: #00afd7;
+  }
+  svg {
+    width: 1.75em;
+    height: 1.75em;
+  }
+  p {
+    margin: 0px;
+    padding: 0px;
+  }
 }
 
-.tag-link svg {
-  margin-right: 4px;
-}
-
-.tag-link:hover {
-  color: white;
-  background: #00afd7 !important;
-  transition: all ease 250ms !important;
-}
-
-.tag-link .tag-total-count {
-  margin-left: 0.5em;
-}
 .author-link {
   vertical-align: baseline;
   margin-top: auto;
@@ -679,6 +708,24 @@ a:hover {
 
 .tags-list {
   list-style: none;
+  max-width: fit-content;
+  margin-bottom: 24px;
+  padding: 0px;
+  transition: all ease 250ms;
+}
+
+.blog-post-content .gatsby-resp-image-wrapper {
+  will-change: transform;
+  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.12),
+    1px 6px 10px rgba(39, 44, 49, 0.06);
+
+  transition: all ease 250ms;
+  &:hover {
+    box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.24),
+      1px 6px 10px rgba(39, 44, 49, 0.12);
+    transition: all ease 250ms;
+    transform: scale(1.01);
+  }
 }
 
 .blog-post-meta-date {
@@ -714,8 +761,9 @@ a:hover {
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.12),
-    1px 6px 10px rgba(39, 44, 49, 0.06);
+  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.24),
+    1px 6px 10px rgba(39, 44, 49, 0.12);
+
 }
 
 .social-links {
@@ -743,6 +791,7 @@ a:hover {
     svg:hover {
       filter: drop-shadow(0px 0px 8px #d8ebf2);
       transition: all ease 250ms;
+      transform: scale(1.05);
     }
   }
 }
@@ -795,10 +844,6 @@ a:hover {
   }
 }
 
-.tags-list p {
-  margin-bottom: 0px;
-}
-
 @media (min-width: 1080px) {
   .blog-post-tags-container {
     margin-top: 0px;
@@ -825,10 +870,6 @@ a:hover {
 
 ul {
   margin-bottom: 0px;
-}
-
-.tags-list {
-  margin-bottom: 1em;
 }
 
 .leancloud-visitors {

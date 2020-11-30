@@ -20,19 +20,33 @@ const Nav = () => {
     <>
       <nav className="nav">
         <ul style={{ margin: "0", padding: "0", listStyle: "none" }}>
-          <li key='home'>
+          <li key="home">
             <Link className="nav-button" to="/" title="Home">
               Home
             </Link>
           </li>
           {data.allFile.edges.map((page, i) => {
-            return (
-              <li key={page.node.name}>
+            return page.node.name === "contact" ? (
+              <li key={i}>
+                <a
+                  href={`/${page.node.name}`}
+                  className="nav-button"
+                  title={
+                    page.node.name.charAt(0).toUpperCase() +
+                    page.node.name.slice(1)
+                  }
+                >
+                  {page.node.name}
+                </a>
+              </li>
+            ) : (
+              <li key={i}>
                 <Link
                   to={`/${page.node.name}`}
                   className="nav-button"
                   title={
-                    page.node.name.charAt(0).toUpperCase() + page.node.name.slice(1)
+                    page.node.name.charAt(0).toUpperCase() +
+                    page.node.name.slice(1)
                   }
                 >
                   {page.node.name}
