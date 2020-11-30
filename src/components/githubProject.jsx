@@ -4,7 +4,7 @@ const GitHubProject = ({ project }) => {
   return (
     <div className="project-card">
       <h4>
-        <a href={project.node.url} title={project.node.name}>
+        <a href={project.node.url} title={project.node.name} rel='noopener noreferrer' target='_blank'>
           {project.node.name}
         </a>
       </h4>
