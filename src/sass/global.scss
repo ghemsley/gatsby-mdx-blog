@@ -1142,13 +1142,13 @@ div.projects {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 512px) {
   .photos-container {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (min-width: 1080px) {
+@media (min-width: 1024px) {
   .photos-container {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -1175,7 +1175,7 @@ div.projects {
   }
   img {
     width: 100%;
-    height: auto;
+    height: 100%;
     margin: auto;
     flex: 1;
   }

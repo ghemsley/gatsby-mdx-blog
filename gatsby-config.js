@@ -289,7 +289,7 @@ module.exports = {
       options: {
         albumsTitles: ["Random"],
         photosMaxWidth: 1920,
-        photosMaxHeight: 1920,
+        photosMaxHeight: 1280,
         photosCrop: false,
         //
         // For a better stack trace and more information
