@@ -8,7 +8,7 @@ tags:
 - name: Programming
 - name: Ruby
 - name: Education
-date: 2020-11-23
+date: 2020-12-05
 ---
 
 ## When finding coffee gets complex
@@ -48,7 +48,7 @@ Here are the steps involved in using the program once it's installed:
 
 ![Business detail view](../assets/images/posts/when-finding-coffee-gets-complex/business-details.png)
 
-At any point the user can quit or go back to the main menu to do another search.
+At any point the user can quit or go back to the main menu to do another search. Businesses can also be saved to a persistent favorites menu for easy lookup later.
 
 ### How does it work?
 
@@ -161,7 +161,7 @@ What a friendly library! 😌
 
 All of these technologies (and a few more) have been employed together to create my app. Certainly it was a lot of work, but it was really a joy for me. And I hope the result is satisfactory to whoever finds themselves using my app. But my biggest takeaway from building it all was that learning to manage complexity is incredibly important when creating an app of this scope (which is to say, a fairly small scope in the grand scheme!), or especially anything larger. I had to spend several days and nights refactoring, testing, and refactoring some more to get the code into something of a presentable state, and even then it still spans 7 classes, 3 modules and over 800 lines. Trying to keep track of everything going on is certainly difficult if you aren't being careful to modularize and encapsulate your code. Even then, it strains my working memory to update the codebase substantially.
 
-Case in point, I have a new feature in the works on a separate branch on GitHub that stores favorite businesses for later retrieval, and while I successfully got the feature working, I think I see ahead many more nights of refactoring before I will consider the feature ready to merge to the main branch.
+Case in point, I have a new feature I've been working on in a separate branch on GitHub that stores favorite businesses for later retrieval, and while I successfully got the feature working and have it basically where I'd like it to be, it took quite a lot of brain-exercise to add it given everything else the program already does, involving several days of refactoring to have the code make some sense and be worth merging on top of 'simply' getting it to work.
 
 ### Parts of the project that I am proud of
 
@@ -185,7 +185,7 @@ end
 
 I am also proud of a few solutions I came up with. One of the problems I faced was that I needed a way to display only the businesses that were returned from the most recent Yelp API query. Otherwise, the list of businesses to display would grow, and grow, and grow even if you searched different addresses. That would quickly become confusing for the user. So I came up with a couple steps to solve the problem.
 
-In the program's `Business` class (which stores information about business listings fetched from Yelp) I have these methods which find or instantiate `Business` objects and keep track of all of them using an array:
+In the program's `Business` class (which stores information about business listings fetched from Yelp in the form of a custom object) I have these methods which find or instantiate `Business` objects and keep track of all of them using an array:
 
 ```ruby
 @@all = []
@@ -211,20 +211,20 @@ So every instance of a business is kept track of by the `Business` class, and th
 
 ```ruby
 def searches_to_business_instances
-  last_search_businesses = []
+  last_search_business_results = []
   searches.each do |search|
-    search.business.each do |business|
-      last_search_businesses.push(business)
+    search.business.each do |business_result|
+      last_search_business_results.push(business_result)
     end
   end
-  self.businesses = last_search_businesses.collect do |business|
-    Business.find_or_create_by_id(business)
+  self.businesses = last_search_business_results.collect do |business_result|
+    Business.find_or_create_by_id(business_result)
   end
   businesses
 end
 ```
 
-This method is accessing the array of search results and adding to it every business object returned from my GraphQL query that came from the last search, then either finding or instantiating my own `Business` class instances based on the objects in that array.
+This method is accessing the array of search results and adding to a new array every business object returned from my GraphQL query that came from the last search, then either finding or instantiating my own `Business` class instances based on the objects in that new array.
 
 The previous method relies on the following methods in the `Yelp` Class being called throughout the program's lifespan to work:
 
@@ -240,7 +240,7 @@ def clear_searches
 end
 ```
 
-These methods are what store the search results I obtain so that I can access those results later, or get rid of them when the user starts a new search. All of this basically prevents the search results from accumulating to an unmanageable size, and I am proud of the fact that I was able to come up with a reasonably simple and concise solution.
+These methods are what store the search results I obtain so that I can access those results later, or get rid of them when the user starts a new search. All of this basically prevents the search results from accumulating to an unmanageable size, and I am proud of the fact that I was able to come up with a reasonably simple solution.
 
 ### Things to improve on
 
