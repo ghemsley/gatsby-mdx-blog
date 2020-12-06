@@ -761,9 +761,15 @@ a:hover {
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.24),
-    1px 6px 10px rgba(39, 44, 49, 0.12);
-
+  box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.12),
+    1px 6px 10px rgba(39, 44, 49, 0.06);
+  transition: all ease 250ms;
+  &:hover {
+    box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.24),
+      1px 6px 10px rgba(39, 44, 49, 0.12);
+    transition: all ease 250ms;
+    transform: scale(1.01);
+  }
 }
 
 .social-links {
@@ -1023,6 +1029,11 @@ div.projects-user-info {
   border-radius: 8px;
   flex: 1;
   margin-bottom: 32px;
+
+  will-change: transform, box-shadow;
+  transform: perspective(1px) scale(1) translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
   &:hover {
     transition: all ease 250ms;
     box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.24),
@@ -1190,6 +1201,10 @@ div.projects {
   border-radius: 8px;
   max-width: fit-content;
   cursor: pointer;
+  will-change: transform, box-shadow;
+  transform: perspective(1px) scale(1) translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
   &:hover {
     transition: all ease 250ms;
     box-shadow: 6px 12px 20px rgba(39, 44, 49, 0.24),

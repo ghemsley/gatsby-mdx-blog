@@ -1,6 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 import { HiOutlineTag } from "react-icons/hi"
+import { Link } from "gatsby"
 
 const PostsListItem = ({ post }) => {
   return (
@@ -18,8 +19,8 @@ const PostsListItem = ({ post }) => {
                 {post.frontmatter.tags &&
                   post.frontmatter.tags.map((tag, i) => {
                     return (
-                      <a
-                        href={`/tags/${tag.name}`.toLowerCase()}
+                      <Link
+                        to={`/tags/${tag.name}`.toLowerCase()}
                         key={tag.name}
                         title={tag.name}
                       >
@@ -27,7 +28,7 @@ const PostsListItem = ({ post }) => {
                           <HiOutlineTag size="24" />
                           {tag.name}
                         </div>
-                      </a>
+                      </Link>
                     )
                   })}
               </div>

@@ -49,14 +49,6 @@ const ContactPage = () => {
         </div>
       </div>
       <h2>Comments</h2>
-      <div
-        id='/contact'
-        className="leancloud-visitors"
-        data-flag-title='Contact'
-      >
-        <h2 className="post-meta-item-text">Visitors:</h2>
-        <h3 className="leancloud-visitors-count"> </h3>
-      </div>
       <Valine />
     </>
   )

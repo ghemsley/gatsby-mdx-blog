@@ -12,8 +12,14 @@ module.exports = {
     siteUrl: "https://www.grahamhemsley.com",
   },
   plugins: [
-    // `gatsby-plugin-remove-fingerprints`,
-    `gatsby-plugin-netlify-cache`,
+    `gatsby-plugin-remove-fingerprints`,
+    "gatsby-plugin-remove-generator",
+    {
+      resolve: "gatsby-plugin-netlify-cache",
+      options: {
+        cachePublic: true,
+      },
+    },
     `gatsby-plugin-preact`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet-async`,
@@ -70,7 +76,8 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 960,
+              maxWidth: 1200,
+              linkImagesToOriginal: false,
             },
           },
           {
@@ -138,6 +145,7 @@ module.exports = {
               escapeEntities: {},
             },
           },
+          "gatsby-remark-a11y-emoji",
         ],
       },
     },
@@ -154,7 +162,8 @@ module.exports = {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 960,
+              maxWidth: 1200,
+              linkImagesToOriginal: false,
             },
           },
           {
@@ -222,6 +231,7 @@ module.exports = {
               escapeEntities: {},
             },
           },
+          "gatsby-remark-a11y-emoji",
         ],
       },
     },

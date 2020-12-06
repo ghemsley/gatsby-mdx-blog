@@ -4,16 +4,18 @@ author: Graham Hemsley
 slug: /posts/react-social-component-tutorial
 image: ../assets/images/posts/react-social-component-tutorial/cover.jpg
 featured: false
-tags: 
-- name: Tutorial
-- name: Programming
-- name: React
+tags:
+  - name: Tutorial
+  - name: Programming
+  - name: React
 date: 2020-10-07
 ---
 
+import Social from "../components/social"
+
 ## Hello and welcome!
 
-Hey, thanks for checking out my blog! In this first post, we're gonna see one way to build a simple social widget component in React! 
+Hey, thanks for checking out my blog! In this first post, we're gonna see one way to build a simple social widget component in React!
 
 ### Why?
 
@@ -21,7 +23,7 @@ Because I need something to populate my post list, that's why! But also because 
 
 ## Getting started
 
-This component should work for pretty much any web framework that uses both React and Node.js. I built my blog with Gatsby, but this component just uses React along with some React icon libraries so it doesn't depend on Gatsby at all. Anyway, for this guide, I'll assume you have a website already set up. If you need help with that part, I recommend you [begin your quest here](https://reactjs.org/docs/create-a-new-react-app.html).  Just remember, we're assuming React is already set up from this point on.
+This component should work for pretty much any web framework that uses both React and Node.js. I built my blog with Gatsby, but this component just uses React along with some React icon libraries so it doesn't depend on Gatsby at all. Anyway, for this guide, I'll assume you have a website already set up. If you need help with that part, I recommend you [begin your quest here](https://reactjs.org/docs/create-a-new-react-app.html). Just remember, we're assuming React is already set up from this point on.
 
 ### Creating a new file
 
@@ -37,26 +39,26 @@ Once you created the file, open it in your favorite-shmavorite text editor. (Man
 
 #### Step 1: Dependencies
 
-First let's see what we'll be importing for this project. 
+First let's see what we'll be importing for this project.
 
 ##### React
 
-Duh! 
+Duh!
 
 At the top of your file, type the following.
 
 ```jsx
-import React from 'react'
+import React from "react"
 ```
 
 ##### React-icons
 
 No social widget is complete without fancy icons! I like `react-icons` because it combines many popular icon packs into one. But you can use any icon pack you are familiar with instead if you want. You can see all the icons available in `react-icons` [here](https://react-icons.github.io/react-icons/).
 
-If you like the look of those, install `react-icons` using the instructions at [its github repo](https://github.com/react-icons/react-icons), go to the link I gave you earlier to figure out which icons you'll be importing, then import them at the top of your file underneath where we imported React. For me, the import statements looked like this: 
+If you like the look of those, install `react-icons` using the instructions at [its github repo](https://github.com/react-icons/react-icons), go to the link I gave you earlier to figure out which icons you'll be importing, then import them at the top of your file underneath where we imported React. For me, the import statements looked like this:
 
 ```jsx
-import React from 'react'
+import React from "react"
 import { SiGithub, SiLinkedin } from "react-icons/si"
 import { MdMailOutline } from "react-icons/md"
 ```
@@ -65,7 +67,7 @@ Now we're done getting our dependencies ready!
 
 #### Step 2: Defining our array
 
-First let's create.a `const` that will tell our icons what size to make themselves. 
+First let's create.a `const` that will tell our icons what size to make themselves.
 
 ```jsx
 const iconSize = 32
@@ -75,22 +77,22 @@ Cool! Now on to something a tad more interesting. It's time to create an array o
 
 ```jsx
 const socialLinks = [
-    {
-      name: "Github",
-      url: "https://github.com/your-profile-here",
-      icon: <SiGithub className="social-link-icon" size={iconSize} />,
-    },
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/your-profile-here",
-      icon: <SiLinkedin className="social-link-icon" size={iconSize} />,
-    },
-    {
-      name: "Email",
-      url: "mailto:youremail@example.com?subject=Social%20Icons&body=",
-      icon: <MdMailOutline className="social-link-icon" size={iconSize} />,
-    },
-  ]
+  {
+    name: "Github",
+    url: "https://github.com/your-profile-here",
+    icon: <SiGithub className="social-link-icon" size={iconSize} />,
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/your-profile-here",
+    icon: <SiLinkedin className="social-link-icon" size={iconSize} />,
+  },
+  {
+    name: "Email",
+    url: "mailto:youremail@example.com?subject=Social%20Icons&body=",
+    icon: <MdMailOutline className="social-link-icon" size={iconSize} />,
+  },
+]
 ```
 
 ##### Whoa!
@@ -113,7 +115,7 @@ We also are setting some `props` for our icon to use, namely `className` which l
 
 ###### Bonus: the mailto URL
 
-Check out this line of our `Email` object again: 
+Check out this line of our `Email` object again:
 
 ```jsx
  url: "mailto:youremail@example.com?subject=Social%20Icons&body=",
@@ -131,7 +133,7 @@ Now we're going to define the actual component we are trying to build. We are go
 const SocialWidget = () => {
   return (
     <div className="social-links">
-      {socialLinks.map((socialObject) => {
+      {socialLinks.map(socialObject => {
         return (
           <a
             href={socialObject.url}
@@ -151,12 +153,10 @@ const SocialWidget = () => {
 
 ##### Double whoa! What the heck?
 
-It's okay! What's happening is actually pretty simple, it's just weird if you haven't seen `array.map()`or an anonymous function before. Let's dive in and see what's going on. 
+It's okay! What's happening is actually pretty simple, it's just weird if you haven't seen `array.map()`or an anonymous function before. Let's dive in and see what's going on.
 
 ```jsx
-<div className="social-links">
-  ...
-</div>
+<div className="social-links">...</div>
 ```
 
 This is our outer container for everything else to live inside. It's really important that it's a `<div>`! We'll see why when we start styling it.
@@ -164,24 +164,26 @@ This is our outer container for everything else to live inside. It's really impo
 ##### The map() method
 
 ```jsx
-{socialLinks.map((socialObject) => {
-  return (
-  	<a
-   		href={socialObject.url}
-      rel="noopener noreferrer"
-      target="_blank"
-      className="social-link"
-      title={socialObject.name}
-    >
-     	{socialObject.icon}
-    </a>
-  )
-})}
+{
+  socialLinks.map(socialObject => {
+    return (
+      <a
+        href={socialObject.url}
+        rel="noopener noreferrer"
+        target="_blank"
+        className="social-link"
+        title={socialObject.name}
+      >
+        {socialObject.icon}
+      </a>
+    )
+  })
+}
 ```
 
 If you have been using React for any length of time you have probably already come across the `map()` array method. But sometimes it can be confusing trying to figure out what the heck is going on with the above code if you're newer to React or JavaScript. Let me do my best to explain, as I understand it.
 
-1. First we enclose everything with curly braces so that the react doesn't think we're still trying to write HTML the whole time. 
+1. First we enclose everything with curly braces so that the react doesn't think we're still trying to write HTML the whole time.
 2. Then we call `socialLinks.map()` since socialLinks is just a javascript array. This means that it has access to all the usual javascript array methods, including `map()`.
 3. `map()` requires a function be passed to it as an argument because it wants to run that function for every element of our array, so we create an anonymous arrow function for `map()` to make it happy. The only argument to this anonymous function is `socialObject`, which is just our name for the current object that `map()` is runnning our anonymous function on. You can technically name that argument anything you want; just be consistent in referring to it later!
 
@@ -199,7 +201,7 @@ export default SocialWidget
 
 From now on we can import our component into any other React component file using `import SocialWidget from '/src/components/socialWidget'` or similar.
 
-See, that's not so bad! Now let's see our entire component file laid out at once to make sure we have everything right. 
+See, that's not so bad! Now let's see our entire component file laid out at once to make sure we have everything right.
 
 ```jsx
 import React from "react"
@@ -209,27 +211,27 @@ import { MdMailOutline } from "react-icons/md"
 const iconSize = 32
 
 const socialLinks = [
-    {
-      name: "Github",
-      url: "https://github.com/your-profile-here",
-      icon: <SiGithub className="social-link-icon" size={iconSize} />,
-    },
-    {
-      name: "LinkedIn",
-      url: "https://www.linkedin.com/in/your-profile-here",
-      icon: <SiLinkedin className="social-link-icon" size={iconSize} />,
-    },
-    {
-      name: "Email",
-      url: "mailto:youremail@example.com?subject=Social%20Icons&body=",
-      icon: <MdMailOutline className="social-link-icon" size={iconSize} />,
-    },
- ]
+  {
+    name: "Github",
+    url: "https://github.com/your-profile-here",
+    icon: <SiGithub className="social-link-icon" size={iconSize} />,
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/your-profile-here",
+    icon: <SiLinkedin className="social-link-icon" size={iconSize} />,
+  },
+  {
+    name: "Email",
+    url: "mailto:youremail@example.com?subject=Social%20Icons&body=",
+    icon: <MdMailOutline className="social-link-icon" size={iconSize} />,
+  },
+]
 
 const SocialWidget = () => {
   return (
     <div className="social-links">
-      {socialLinks.map((socialObject) => {
+      {socialLinks.map(socialObject => {
         return (
           <a
             href={socialObject.url}
@@ -278,9 +280,12 @@ Let's style our component with some CSS.
 
 We can use `display: flex` and related attributes to make our icons arrange themselves nicely in a line. Also, just for fun we gave it a blue glow when the user hovers over the icon using `filter: drop shadow()`. Be aware that this method of applying shadows to SVG elements only works in recent browser versions. However, what's nice about it is that it accounts for the exact shape of the icon, unlike `box-shadow`. Feel free to style your social widget component however you like now that you're a super expert on how to build one. You earned it!
 
-### The finished product
+### An example of our component
 
-![Our finished React social widget component](../assets/images/posts/react-social-component-tutorial/widget.jpg)  
+<div style={{ background: "#153259", padding: '16px', borderRadius: '8px', maxWidth: 'fit-content', margin: '32px', transform: 'scale(1.25)' }}>
+  <Social iconSize={40} />
+</div>
 
-I hope you found this helpful somehow!
-#### Thanks for reading!
+And there you have it! A nice little social widget thingy. I hope you found this helpful somehow!
+
+## Thanks for reading!
