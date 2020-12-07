@@ -4,29 +4,29 @@ author: Graham Hemsley
 slug: /posts/when-finding-coffee-gets-complex
 image: ../assets/images/posts/when-finding-coffee-gets-complex/cover.png
 featured: true
-tags: 
-- name: Programming
-- name: Ruby
-- name: Education
+tags:
+  - name: Programming
+  - name: Ruby
+  - name: Education
 date: 2020-12-05
 ---
 
 ## When finding coffee gets complex
 
-Recently at school, I was assigned the task of designing and building a [Ruby](https://www.ruby-lang.org/en/) application that meets the following requirements: 
+Recently at school, I was assigned the task of designing and building a [Ruby](https://www.ruby-lang.org/en/) application that meets the following requirements:
 
 1. It can be interacted with by the user via a [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface)
 2. It fetches data from a remote source using an [application programming interface](https://en.wikipedia.org/wiki/API)
 3. The data fetched must go more than one 'level' deep, ie. it should be able to list items and then provide a detail view about a given item as well
 4. It uses [object-oriented](https://en.wikipedia.org/wiki/Object-oriented_programming) design patterns
 
-When I heard this assignment was coming up, I was ecstatic! It sounded like a great way to practice what I have been learning, while having some freedom and flexibility to create a program of my own choosing that accomplished a useful task. In other words, it sounded like a lot of fun! I was looking forward to it so much that I just sort of jumped the gun and got started trying to figure out what to build right away. 
+When I heard this assignment was coming up, I was ecstatic! It sounded like a great way to practice what I have been learning, while having some freedom and flexibility to create a program of my own choosing that accomplished a useful task. In other words, it sounded like a lot of fun! I was looking forward to it so much that I just sort of jumped the gun and got started trying to figure out what to build right away.
 
 There were several challenging aspects of just this very first step, though. I wondered to myself for quite a while, "What task do I want it to complete? What APIs are out there that would fit the requirements? What project would be the most fun to build while still meeting all the demands of the assignment without being too large in scope?" So many questions! And nobody to answer them but me. So I deliberated for a while, and even started on several preliminary ideas before eventually settling on one that I ended up just running with.
 
 Naturally, it involves coffee. ☕️
 
-May I present to you: 
+May I present to you:
 
 ## Coffeefinder!
 
@@ -39,8 +39,8 @@ As you might surmise from the image above, it helps a user find information abou
 Here are the steps involved in using the program once it's installed:
 
 1. First, the program is launched from a terminal, potentially with some options specified using option flags.
-2. Then the user selects whether to search near the user's detected location or whether to search by address. The results can be filtered to just return coffee shops (using a loose definition of the term), or any sort of business that sells coffee at all. 
-3. Next, search results are returned in a tabular format, like so: 
+2. Then the user selects whether to search near the user's detected location or whether to search by address. The results can be filtered to just return coffee shops (using a loose definition of the term), or any sort of business that sells coffee at all.
+3. Next, search results are returned in a tabular format, like so:
 
 ![Search results display](../assets/images/posts/when-finding-coffee-gets-complex/search-results.png)
 
@@ -68,7 +68,7 @@ My program relies on a few helpful libraries to do what it does, aside from the 
 
 This API makes use of a database of location to IP address mappings to serve data on approximately where an IP originates from geographically. It's a simple API to use (I just query the JSON endpoint with no special parameters), so it was a breeze to include in my project. This is how my program guesses where the user is located at launch.
 
-Below is the entirety of the code I use to get the user's location: 
+Below is the entirety of the code I use to get the user's location:
 
 ```ruby
 self.response = Net::HTTP.get_response(URI(GEOIP_API + self.ip_address))
@@ -81,13 +81,28 @@ The first line is where I talk with IP-API and receive a response in JSON format
 
 This API, still in beta, is substantially more complex than the previous one. However, I had previous experience using GraphQL from building the site that you're reading this on using GatsbyJS, which makes heavy use of GraphQL. So it wasn't especially difficult to make use of in my project, once I had played around with the API a bit using a tool called [Insomnia Core](https://insomnia.rest/products/core/). Plus, I just love using GraphQL compared to REST for some reason, I guess I just like writing the syntax 🤓
 
-In any case, this API serves up all kinds of data on all kinds of businesses in countries around the world, and is what I use to find coffee shops near the user after I send it geolocation coordinates from the first API (or an address). 
+In any case, this API serves up all kinds of data on all kinds of businesses in countries around the world, and is what I use to find coffee shops near the user after I send it geolocation coordinates from the first API (or an address).
 
-Just because I love staring at GraphQL queries, here is an example of a query my app uses against Yelp's API: 
+Just because I love staring at GraphQL queries, here is an example of a query my app uses against Yelp's API:
 
 ```graphql
-query ($latitude: Float, $longitude: Float, $radius: Float, $limit: Int, $sort_by: String, $offset: Int) {
-  search(categories: "coffee", latitude: $latitude, longitude: $longitude, radius: $radius, limit: $limit, sort_by: $sort_by, offset: $offset) {
+query(
+  $latitude: Float
+  $longitude: Float
+  $radius: Float
+  $limit: Int
+  $sort_by: String
+  $offset: Int
+) {
+  search(
+    categories: "coffee"
+    latitude: $latitude
+    longitude: $longitude
+    radius: $radius
+    limit: $limit
+    sort_by: $sort_by
+    offset: $offset
+  ) {
     total
     business {
       id
@@ -130,7 +145,7 @@ The bits in capital letters are Ruby constants that I define elsewhere. But basi
 
 #### [Optparse](https://ruby-doc.org/stdlib-2.7.2/libdoc/optparse/rdoc/OptionParser.html)
 
-Optparse/OptionParser is a Ruby built-in library that makes creating option flags for your CLI program pretty simple. Below is an example of the code for one of the options my program accepts: 
+Optparse/OptionParser is a Ruby built-in library that makes creating option flags for your CLI program pretty simple. Below is an example of the code for one of the options my program accepts:
 
 ```ruby
 opts.on('-r', '--radius MILES', 'How big of an area to search, in miles. Default: 0.5, max 10') do |radius|
@@ -159,13 +174,13 @@ What a friendly library! 😌
 
 #### Complexity and refactoring
 
-All of these technologies (and a few more) have been employed together to create my app. Certainly it was a lot of work, but it was really a joy for me. And I hope the result is satisfactory to whoever finds themselves using my app. But my biggest takeaway from building it all was that learning to manage complexity is incredibly important when creating an app of this scope (which is to say, a fairly small scope in the grand scheme!), or especially anything larger. I had to spend several days and nights refactoring, testing, and refactoring some more to get the code into something of a presentable state, and even then it still spans 7 classes, 3 modules and over 800 lines. Trying to keep track of everything going on is certainly difficult if you aren't being careful to modularize and encapsulate your code. Even then, it strains my working memory to update the codebase substantially.
+All of these technologies (and a few more) have been employed together to create my app. Certainly it was a lot of work, but it was really a joy for me. And I hope the result is satisfactory to whoever finds themselves using my app. But my biggest takeaway from building it all was that learning to manage complexity is incredibly important when creating an app of this scope (which is to say, a fairly small scope in the grand scheme!), or especially anything larger. I had to spend several days and nights refactoring, testing, and refactoring some more to get the code into something of a presentable state, and even then it still spans 9 classes, 3 modules and over 1150 lines of code. Trying to keep track of everything going on is certainly difficult if you aren't being careful to modularize and encapsulate your code. Even then, it strains my working memory to update the codebase substantially.
 
 Case in point, I have a new feature I've been working on in a separate branch on GitHub that stores favorite businesses for later retrieval, and while I successfully got the feature working and have it basically where I'd like it to be, it took quite a lot of brain-exercise to add it given everything else the program already does, involving several days of refactoring to have the code make some sense and be worth merging on top of 'simply' getting it to work.
 
 ### Parts of the project that I am proud of
 
-I am proud of how the code for the project is nicely separated into various types of tasks and concerns. I think I did a decent job splitting up those 800 lines into manageable-enough chunks. It wasn't always that way though, especially when I first got it into a working state. It's much better now after spending some time on refactoring. For example, the CLI class is mostly just limited to a series of `case` statements that describe the flow between menus, like so:
+I am proud of how the code for the project is nicely separated into various types of tasks and concerns. I think I did a decent job splitting up those 1156 lines into manageable-enough chunks. It wasn't always that way though, especially when I first got it into a working state. It's much better now after spending some time on refactoring. For example, the CLI class is mostly just limited to a series of `case` statements that describe the flow between menus, like so:
 
 ```ruby
 def search_complete_menu
@@ -201,7 +216,7 @@ def self.find_or_create_by_id(business)
 end
 ```
 
-In its `initialize` method I have: 
+In its `initialize` method I have:
 
 ```ruby
 self.class.all.push(self)
@@ -244,17 +259,21 @@ These methods are what store the search results I obtain so that I can access th
 
 ### Things to improve on
 
-I wasn't sure how to implement some of the object relationships I have learned about throughout my course for this project. To some extent I felt like the app didn't call for a complex relationship between most of the objects, but perhaps there is a way I could refactor it to include them in the future. Also, I noticed that taking a little break from coding or getting an outside perspective really helped me come back to the long refactoring process with new ideas on how to make things more manageable. I think that as far as my coding process goes, I could improve by taking more breaks instead of doing long sprints, as it seems to help me avoid getting stuck in a sort of rut when it comes to refactoring where I can't see any ways to keep breaking things down. I am sure I will find many more ways to improve my code as I go about my studies, of course.
+One of the things I hope to improve is to find a way of looking up the user's location that is a little more reliable. The API I currently use sometimes gets the location wrong by a little bit, so maybe I can replace it with a different one someday that has better accuracy.
+Aside from that, I wasn't sure how to implement some of the object relationships I have learned about throughout my course for this project. To some extent I felt like the app didn't call for a complex relationship between most of the objects, but perhaps there is a way I could refactor it to include them in the future.
+Also, I noticed that taking a little break from coding or getting an outside perspective really helped me come back to the long refactoring process with new ideas on how to make things more manageable.
+I think that as far as my coding process goes, I could improve by taking more breaks instead of doing long sprints, as it seems to help me avoid getting stuck in a sort of rut when it comes to refactoring where I can't see any ways to keep breaking things down.
+I am sure I will find many more ways to improve my code as I go about my studies, of course.
 
 ## Final thoughts
 
 This project was actually very fun to work on. I spent long nights staying up until the early morning coding, debugging, testing, and refactoring and I enjoyed every minute of it. I feel like I thrive and learn best with assignments like these where I have some flexibility to use my creativity and interests to help shape the outcome. I am excited for the next similar project to come around so that I can have such a fun learning opportunity again!
 
-By the way, the code for this project lives at [GitHub](https://github.com/ghemsley/coffeefinder). 
+By the way, the code for this project lives at [GitHub](https://github.com/ghemsley/coffeefinder).
 
 You are very welcome to check it out and let me know what you think, or even, dare I say, fork it? 😃
 
-Here is a video of the app in action: 
+Here is a video of the app in action:
 
 `youtube: eeYOinOoiAI`
 
