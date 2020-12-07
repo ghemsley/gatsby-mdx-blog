@@ -21,8 +21,11 @@ const Home = ({ location }) => {
               author
               image {
                 childImageSharp {
-                  fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid_withWebp
+                  fluid(maxWidth: 800, traceSVG: { color: "#153259" }) {
+                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                    src
+                    srcSet
+                    tracedSVG
                   }
                 }
               }

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Img from "gatsby-image"
@@ -122,9 +122,11 @@ export const pageQuery = graphql`
         date(formatString: "MMMM D, YYYY")
         image {
           childImageSharp {
-            fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid_withWebp
+            fluid(maxWidth: 1200, traceSVG: { color: "#153259" }) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
               src
+              srcSet
+              tracedSVG
             }
           }
         }

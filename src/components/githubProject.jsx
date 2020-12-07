@@ -26,7 +26,7 @@ const GitHubProject = ({ project }) => {
           <strong>Languages:</strong>
         </p>
         {project.node.languages.nodes.map((language, index) => {
-          return <p style={{ color: language.color }}>{language.name}</p>
+          return <p style={{ color: language.color }} key={index}>{language.name}</p>
         })}
       </div>
       {project.node.forkCount > 0 && (

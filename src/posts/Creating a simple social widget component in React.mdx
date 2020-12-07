@@ -68,7 +68,7 @@ But you can use any icon pack you are familiar with instead if you want.
 [Here you can see all the icons available](https://react-icons.github.io/react-icons/) in `react-icons`.
 
 If you like the look of those, install `react-icons` using the instructions at [its github repo](https://github.com/react-icons/react-icons).
-Next, go to [the list of avaialable icons](https://react-icons.github.io/react-icons/) to figure out which icons you'll be importing.
+Next, go to [the list of available icons](https://react-icons.github.io/react-icons/) to figure out which icons you'll be importing.
 Finally, import them at the top of your file underneath where we imported React.
 For me, the import statements looked like this:
 
@@ -182,7 +182,7 @@ const SocialWidget = () => {
 
 ##### Double whoa! What the heck?
 
-It's okay! What's happening is actually pretty simple, it's just weird if you haven't seen `array.map()`or an anonymous function before.
+It's okay! What's happening is actually pretty simple, it's just weird if you haven't seen `jsx»array.map()`or an anonymous function before.
 Let's dive in and see what's going on.
 
 ##### The outer div
@@ -192,7 +192,7 @@ Let's dive in and see what's going on.
 ```
 
 This is our outer container for everything else to live inside.
-It's really important that it's a `<div>`! We'll see why when we start styling it.
+It's really important that it's a `jsx»<div>`! We'll see why when we start styling it.
 
 ##### The map() method
 
@@ -392,9 +392,9 @@ Let's style our component with some CSS.
 }
 ```
 
-We can use `display: flex` and related attributes to make our icons arrange themselves nicely in a line.
-Also, just for fun we gave it a whitish glow when the user hovers over the icon using `filter: drop shadow(0px 0px 8px #d8ebf2)`,
-and it magnifies a little bit on hover too because we added `transform: scale(1.05)`).
+We can use `css»display: flex` and related attributes to make our icons arrange themselves nicely in a line.
+Also, just for fun we gave it a whitish glow when the user hovers over the icon using `css»filter: drop-shadow(0px 0px 8px #d8ebf2)`,
+and it magnifies a little bit on hover too because we added `css»transform: scale(1.05)`).
 Be aware that this method of applying shadows to SVG elements only works in recent browser versions.
 However, what's nice about it is that it accounts for the exact shape of the icon, unlike `box-shadow`.
 Feel free to style your social widget component however you like now that you're a super expert on how to build one. You earned it!

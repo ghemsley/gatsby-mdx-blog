@@ -27,7 +27,7 @@ export default function Tag({ location, pageContext, data }) {
               url: `https://www.grahamhemsley.com/preview.jpg`,
               width: 1280,
               height: 720,
-              alt: 'A blog by Graham Hemsley',
+              alt: "A blog by Graham Hemsley",
             },
           ],
         }}
@@ -60,8 +60,11 @@ export const pageQuery = graphql`
             date(formatString: "MMMM D, YYYY")
             image {
               childImageSharp {
-                fluid(maxWidth: 960) {
-                  ...GatsbyImageSharpFluid_withWebp
+                fluid(maxWidth: 960, traceSVG: { color: "#153259" }) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                  src
+                  srcSet
+                  tracedSVG
                 }
               }
             }

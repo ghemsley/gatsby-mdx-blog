@@ -1,16 +1,16 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { CgChevronLeftO } from "react-icons/cg"
 import { CgChevronRightO } from "react-icons/cg"
 
 const PostNavigator = ({ data, location }) => {
   return (
     <div className="post-navigator">
-      {data.allMdx.edges.map(edge => {
+      {data.allMdx.edges.map((edge, i) => {
         let string1 = edge.node.frontmatter.slug.replace(/\/$/gi, "")
         let string2 = location.pathname.replace(/\/$/gi, "")
         if (string1 === string2) {
           return (
-            <>
+            <Fragment key={i}>
               {edge.previous && (
                 <a
                   href={`${edge.previous.frontmatter.slug}`}
@@ -38,7 +38,7 @@ const PostNavigator = ({ data, location }) => {
                   </div>
                 </a>
               )}
-            </>
+            </Fragment>
           )
         } else return null
       })}

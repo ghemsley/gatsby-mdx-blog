@@ -3,6 +3,7 @@ import Img from "gatsby-image"
 import { graphql } from "gatsby"
 import { GatsbySeo } from "gatsby-plugin-next-seo"
 
+// @ts-ignore
 const InstagramLogo = require("../assets/images/pages/photos/instagram-logo.png")
 
 const PhotosPage = ({ data }) => {
@@ -36,8 +37,9 @@ const PhotosPage = ({ data }) => {
             <a
               href={node.photo.childImageSharp.original.src}
               title={node.filename}
-              target='_blank'
-              rel='noopener noreferrer'
+              target="_blank"
+              rel="noopener noreferrer"
+              key={index}
             >
               <Img
                 title={node.filename}
@@ -77,8 +79,15 @@ export const pageQuery = graphql`
         filename
         photo {
           childImageSharp {
-            fluid(maxWidth: 512, maxHeight: 512, quality: 60) {
-              ...GatsbyImageSharpFluid_withWebp
+            fluid(
+              maxWidth: 512
+              maxHeight: 512
+              traceSVG: { color: "#153259" }
+            ) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              src
+              srcSet
+              tracedSVG
             }
             original {
               src

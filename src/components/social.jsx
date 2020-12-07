@@ -63,7 +63,7 @@ const Social = ({ style, iconSize }) => {
 
   return (
     <div className="social-links" style={style}>
-      {socialLinks.map(social => {
+      {socialLinks.map((social, i) => {
         return (
           <a
             href={social.url}
@@ -71,6 +71,7 @@ const Social = ({ style, iconSize }) => {
             target="_blank"
             className="social-link"
             title={social.name}
+            key={i}
           >
             {social.icon}
           </a>
