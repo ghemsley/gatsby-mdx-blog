@@ -2,7 +2,7 @@ import React from "react"
 import { SiGithub, SiLinkedin, SiInstagram, SiYoutube } from "react-icons/si"
 import { MdMailOutline } from "react-icons/md"
 
-const Social = ({iconSize}) => {
+const Social = ({ style, iconSize }) => {
   const socialLinks = [
     {
       name: "Github",
@@ -62,8 +62,8 @@ const Social = ({iconSize}) => {
   ]
 
   return (
-    <div className="social-links">
-      {socialLinks.map((social, i) => {
+    <div className="social-links" style={style}>
+      {socialLinks.map(social => {
         return (
           <a
             href={social.url}

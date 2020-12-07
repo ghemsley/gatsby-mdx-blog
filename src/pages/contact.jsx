@@ -1,12 +1,9 @@
-import React, { useState } from "react"
+import React from "react"
 import { GatsbySeo } from "gatsby-plugin-next-seo"
 import Valine from "gatsby-plugin-valine"
-import { MdMailOutline } from "react-icons/md"
+import EmailCard from "../components/emailCard"
 
 const ContactPage = () => {
-  const [showEmail, setShowEmail] = useState(false)
-  const reveal = () => setShowEmail(true)
-
   return (
     <>
       <GatsbySeo
@@ -28,26 +25,11 @@ const ContactPage = () => {
       />
       <h1 className="page-header">Contact</h1>
       <p>
-        To get in touch with the author, feel free to send an email, or just
-        leave a comment below.
+        To get in touch with the author, feel free to send an email, or you can
+        leave a public comment below.
       </p>
       <h2>Email</h2>
-      <div
-        className="contact-email-card"
-        role="button"
-        tabIndex={0}
-        onClick={reveal}
-        onKeyDown={reveal}
-      >
-        <div>
-          <MdMailOutline
-            className="contact-email-icon"
-            size={64}
-            title="Email"
-          />
-          {showEmail ? <p>ghemsley@protonmail.ch</p> : <p>Click to reveal</p>}
-        </div>
-      </div>
+      <EmailCard />
       <h2>Comments</h2>
       <Valine />
     </>

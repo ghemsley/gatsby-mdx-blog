@@ -813,6 +813,15 @@ a:hover {
   }
 }
 
+.blog-post-content {
+  .social-links {
+    .social-link-icon {
+      height: unset;
+      width: unset;
+    }
+  }
+}
+
 .post-navigator {
   display: flex;
   width: 100%;

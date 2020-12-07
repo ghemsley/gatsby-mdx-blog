@@ -2,11 +2,11 @@
 title: Creating a simple social widget component in React
 author: Graham Hemsley
 slug: /posts/react-social-component-tutorial
-image: ../assets/images/posts/react-social-component-tutorial/cover.jpg
+image: ../assets/images/posts/react-social-component-tutorial/cover.png
 featured: false
 tags:
-  - name: Tutorial
   - name: Programming
+  - name: Tutorial
   - name: React
 date: 2020-10-07
 ---
@@ -15,25 +15,35 @@ import Social from "../components/social"
 
 ## Hello and welcome!
 
-Hey, thanks for checking out my blog! In this first post, we're gonna see one way to build a simple social widget component in React!
+Hey, thanks for checking out my blog!
+In this first post, we're gonna see one way to build a simple social widget component in React!
 
 ### Why?
 
-Because I need something to populate my post list, that's why! But also because it is a fairly easy and fun thing to build, but could still be confusing if you are newer to React development. So I figured I'd share the way I built the social widget you see on this blog.
+Because I need something to populate my post list, that's why!
+But also because it is a fairly easy and fun thing to build, but could still be confusing if you are newer to React development.
+So I figured I'd share the way I built the social widget you see on this blog.
 
 ## Getting started
 
-This component should work for pretty much any web framework that uses both React and Node.js. I built my blog with Gatsby, but this component just uses React along with some React icon libraries so it doesn't depend on Gatsby at all. Anyway, for this guide, I'll assume you have a website already set up. If you need help with that part, I recommend you [begin your quest here](https://reactjs.org/docs/create-a-new-react-app.html). Just remember, we're assuming React is already set up from this point on.
+This component should work for pretty much any web framework that uses both React and Node.js.
+I built my blog with Gatsby, but this component just uses React along with some React icon libraries so it doesn't depend on Gatsby at all.
+Anyway, for this guide, I'll assume you have a website already set up.
+If you need help with that part, I recommend you [begin your quest here](https://reactjs.org/docs/create-a-new-react-app.html).
+Just remember, we're assuming React is already set up from this point on.
 
 ### Creating a new file
 
-Find the directory in your project where you store your components and create a new file in that directory. I'm going to name mine `socialWidget.jsx` but if you know what you are doing you can choose any filename you like as long as you reference it properly later. Below is the command I used to create my file, as an example (I was in the root directory of my project, and I store my files in `/src/components`).
+Find the directory in your project where you store your components and create a new file in that directory.
+I'm going to name mine `socialWidget.jsx` but if you know what you are doing you can choose any filename you like as long as you reference it properly later.
+Below is the command I used to create my file, as an example (I was in the root directory of my project, and I store my files in `/src/components`).
 
 ```bash
 touch /src/components/socialWidget.jsx
 ```
 
-Once you created the file, open it in your favorite-shmavorite text editor. (Many people recommend [VSCode](https://code.visualstudio.com/) if you don't have one, including me!)
+Once you created the file, open it in your favorite-shmavorite text editor.
+(Many people recommend [VSCode](https://code.visualstudio.com/) if you don't have one, including me!)
 
 ### Coding our component
 
@@ -53,9 +63,14 @@ import React from "react"
 
 ##### React-icons
 
-No social widget is complete without fancy icons! I like `react-icons` because it combines many popular icon packs into one. But you can use any icon pack you are familiar with instead if you want. You can see all the icons available in `react-icons` [here](https://react-icons.github.io/react-icons/).
+No social widget is complete without fancy icons! I like `react-icons` because it combines many popular icon packs into one.
+But you can use any icon pack you are familiar with instead if you want.
+[Here you can see all the icons available](https://react-icons.github.io/react-icons/) in `react-icons`.
 
-If you like the look of those, install `react-icons` using the instructions at [its github repo](https://github.com/react-icons/react-icons), go to the link I gave you earlier to figure out which icons you'll be importing, then import them at the top of your file underneath where we imported React. For me, the import statements looked like this:
+If you like the look of those, install `react-icons` using the instructions at [its github repo](https://github.com/react-icons/react-icons).
+Next, go to [the list of avaialable icons](https://react-icons.github.io/react-icons/) to figure out which icons you'll be importing.
+Finally, import them at the top of your file underneath where we imported React.
+For me, the import statements looked like this:
 
 ```jsx
 import React from "react"
@@ -70,10 +85,13 @@ Now we're done getting our dependencies ready!
 First let's create.a `const` that will tell our icons what size to make themselves.
 
 ```jsx
-const iconSize = 32
+const iconSize = 48
 ```
 
-Cool! Now on to something a tad more interesting. It's time to create an array of objects that will contain all the data we want to use to build our component. If you aren't super familiar with arrays or objects yet, that's okay! But if that's the case I recommend you check out some of the info about [arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) and [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) over on trusty MDN before proceeding.
+Cool! Now on to something a tad more interesting.
+It's time to create an array of objects that will contain all the data we want to use to build our component.
+If you aren't super familiar with arrays or objects yet, that's okay!
+But if that's the case, I recommend you check out some of the info about [arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) and [objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) over on trusty MDN before proceeding.
 
 ```jsx
 const socialLinks = [
@@ -97,7 +115,9 @@ const socialLinks = [
 
 ##### Whoa!
 
-That was a lot compared to our `iconSize` const, wasn't it? But it's not so complicated: the square brackets enclosing the whole thing indicate that our outermost datastructure is an array, whereas the pairs of curly brackets inside each denote a separate object, with key:value pairs inside corresponding to the types of data we want to use for our social icons.
+That was a lot compared to our `iconSize` const, wasn't it?
+But it's not so complicated: the square brackets enclosing the whole thing indicate that our outermost datastructure is an array, whereas the pairs of curly brackets inside each denote a separate object.
+Each object has key:value pairs inside corresponding to the types of data we want to use for our social icons.
 
 Let's look more closely at the objects inside our array.
 
@@ -109,9 +129,13 @@ Let's look more closely at the objects inside our array.
 }
 ```
 
-That last property of our first object in the array is more complicated than the other properties, which were just strings. This one is actually the React component we imported for our icon earlier. Did you know you could set a JSX React component as the property of a javascript object? Well, now you know!
+That last property of our first object in the array is more complicated than the other properties, which were just strings.
+This one is actually the React component we imported for our icon earlier.
+Did you know you could set a JSX React component as the property of a javascript object? Well, now you know!
 
-We also are setting some `props` for our icon to use, namely `className` which lets us apply CSS directly to our SVG icons later on, and `size` which is pretty self-explanatory. What's handy about using that `iconSize` constant we defined earlier is that we can update the sizes of all of our icons easily and at once if we decide to change the value. Just change the value of `iconSize` and they will all update.
+We also are setting some `props` for our icon to use, namely `className` which lets us apply CSS directly to our SVG icons later on, and `size` which is pretty self-explanatory.
+What's handy about using that `iconSize` constant we defined earlier is that we can update the sizes of all of our icons easily and at once if we decide to change the value.
+Just change the value of `iconSize` and they will all update.
 
 ###### Bonus: the mailto URL
 
@@ -121,13 +145,18 @@ Check out this line of our `Email` object again:
  url: "mailto:youremail@example.com?subject=Social%20Icons&body=",
 ```
 
-This is a special url that should open the default mail client of the user's device, setting the subject to 'Social Icons' and leaving the body blank. There is some particular formatting to this kind of `mailto` URL that you need to be aware of for it to work as intended. More info is available [here](https://developer.yoast.com/blog/guide-mailto-links/).
+This is a special url that should open the default mail client of the user's device, setting the subject to 'Social Icons' and leaving the body blank.
+There is some particular formatting to this kind of `mailto` URL that you need to be aware of for it to work as intended.
+[More info is available here](https://developer.yoast.com/blog/guide-mailto-links/).
 
-The rest of the objects in our array have the same properties and structure, and if you understand what's going on so far you can customize the array and its objects however you like. Once that's done, let's move on to the fun part!
+The rest of the objects in our array have the same properties and structure, and if you understand what's going on so far you can customize the array and its objects however you like.
+Once that's done, let's move on to the fun part!
 
 #### Step 3: Defining our function component
 
-Now we're going to define the actual component we are trying to build. We are going to use an ES6 arrow function without any `props` passed to it to keep things simple and concise. This component is so simple that it just immediately returns some JSX!
+Now we're going to define the actual component we are trying to build.
+We are going to use an ES6 arrow function without any `props` passed to it to keep things simple and concise.
+This component is so simple that it just immediately returns some JSX!
 
 ```jsx
 const SocialWidget = () => {
@@ -153,13 +182,17 @@ const SocialWidget = () => {
 
 ##### Double whoa! What the heck?
 
-It's okay! What's happening is actually pretty simple, it's just weird if you haven't seen `array.map()`or an anonymous function before. Let's dive in and see what's going on.
+It's okay! What's happening is actually pretty simple, it's just weird if you haven't seen `array.map()`or an anonymous function before.
+Let's dive in and see what's going on.
+
+##### The outer div
 
 ```jsx
 <div className="social-links">...</div>
 ```
 
-This is our outer container for everything else to live inside. It's really important that it's a `<div>`! We'll see why when we start styling it.
+This is our outer container for everything else to live inside.
+It's really important that it's a `<div>`! We'll see why when we start styling it.
 
 ##### The map() method
 
@@ -181,14 +214,81 @@ This is our outer container for everything else to live inside. It's really impo
 }
 ```
 
-If you have been using React for any length of time you have probably already come across the `map()` array method. But sometimes it can be confusing trying to figure out what the heck is going on with the above code if you're newer to React or JavaScript. Let me do my best to explain, as I understand it.
+If you have been using React for any length of time you have probably already come across the `map()` array method.
+But sometimes it can be confusing trying to figure out what the heck is going on with the above code if you're newer to React or JavaScript.
+Let me do my best to explain, as I understand it (which could totally be off, if so, please leave a comment!).
 
-1. First we enclose everything with curly braces so that the react doesn't think we're still trying to write HTML the whole time.
-2. Then we call `socialLinks.map()` since socialLinks is just a javascript array. This means that it has access to all the usual javascript array methods, including `map()`.
-3. `map()` requires a function be passed to it as an argument because it wants to run that function for every element of our array, so we create an anonymous arrow function for `map()` to make it happy. The only argument to this anonymous function is `socialObject`, which is just our name for the current object that `map()` is runnning our anonymous function on. You can technically name that argument anything you want; just be consistent in referring to it later!
+1. First we enclose everything with curly braces so that React doesn't think we're still trying to write HTML the whole time.
 
-4. Our anonymous function returns an HTML `<a>` tag, which turns everything inside it into a link. We also set some attributes of the tag to either properties of the current object that `map()` is working on, or to a plain string. (The `"noopener noreferrer" and "_blank"` values for the `rel` and `target` attributes are to preserve privacy/security and open the link in a new tab instead of leaving the current page, respectively.)
-5. Remember how we set the last property of each of the objects in our array to a React component earlier? Well now we are sticking that component inside of our `<a>` tag! That whole component will be a link, so since the component returns an icon, clicking that icon will take us to the page specified by the `href` attribute of our `<a>` tag. Pretty cool!
+```jsx
+{
+  ...
+}
+```
+
+2. Then we call `socialLinks.map()` since socialLinks is just a javascript array.
+   This means that it has access to all the usual javascript array methods, including `map()`.
+
+```jsx
+{
+  socialLinks.map(...)
+}
+```
+
+3. `map()` requires a function be passed to it as an argument because it wants to run that function for every element of our array, so we create an anonymous arrow function for `map()` to make it happy.
+   The only argument to this anonymous function is `socialObject`, which is just our name for the current object that `map()` is runnning our anonymous function on.
+   You can technically name that argument anything you want; just be consistent in referring to it later!
+
+```jsx
+{
+  socialLinks.map(socialObject => {...})
+}
+```
+
+4. Our anonymous function returns an HTML `<a>` tag, which turns everything inside it into a link.
+   We also set some attributes of the tag to either properties of the current object that `map()` is working on, or to a plain string.
+   (The `"noopener noreferrer" and "_blank"` values for the `rel` and `target` attributes are to preserve privacy/security and open the link in a new tab instead of leaving the current page, respectively.)
+
+```jsx
+{
+  socialLinks.map(socialObject => {
+    return (
+      <a
+        href={socialObject.url}
+        rel="noopener noreferrer"
+        target="_blank"
+        className="social-link"
+        title={socialObject.name}
+      >
+        ...
+      </a>
+    )
+  })
+}
+```
+
+5. Remember how we set the last property of each of the objects in our array to a React component earlier?
+   Well now we are sticking that component inside of our `<a>` tag!
+   That whole component will be wrapped with a link, so since the component returns an icon, clicking that icon will take us to the page specified by the `href` attribute of our `<a>` tag. Pretty cool!
+
+```jsx
+{
+  socialLinks.map(socialObject => {
+    return (
+      <a
+        href={socialObject.url}
+        rel="noopener noreferrer"
+        target="_blank"
+        className="social-link"
+        title={socialObject.name}
+      >
+        {socialObject.icon}
+      </a>
+    )
+  })
+}
+```
+
 6. Now we close all our tags and brackets because we are good web developers, aren't we? :)
 
 #### Step 4: Exporting our finished component
@@ -199,7 +299,15 @@ As a final step, we need to export our component now that it is completely defin
 export default SocialWidget
 ```
 
-From now on we can import our component into any other React component file using `import SocialWidget from '/src/components/socialWidget'` or similar.
+From now on we can import our component into any other React component file using
+
+```jsx
+import SocialWidget from "/src/components/socialWidget"
+```
+
+or similar.
+
+##### Almost done!
 
 See, that's not so bad! Now let's see our entire component file laid out at once to make sure we have everything right.
 
@@ -208,7 +316,7 @@ import React from "react"
 import { SiGithub, SiLinkedin } from "react-icons/si"
 import { MdMailOutline } from "react-icons/md"
 
-const iconSize = 32
+const iconSize = 48
 
 const socialLinks = [
   {
@@ -253,7 +361,7 @@ export default SocialWidget
 
 Nifty, we're all set to use it now. But first...
 
-##### Bonus: Some CSS
+#### Step 5: Some CSS
 
 Let's style our component with some CSS.
 
@@ -262,30 +370,54 @@ Let's style our component with some CSS.
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  justify-items: center;
   align-items: center;
-  align-content: center;
-  margin: auto;
-  max-width: fit-content;
+  justify-content: center;
+  flex-basis: 48px;
+  flex-grow: 0;
+  flex-shrink: 1;
+  gap: 16px;
 }
-.social-links .social-link .social-link-icon {
+.social-link {
+  line-height: 0px;
+}
+.social-link-icon {
+  color: white;
+  fill: white;
   transition: all ease 250ms;
 }
-.social-links .social-link .social-link-icon:hover {
-  filter: drop-shadow(0px 0px 8px #50b4ff);
+.social-link-icon:hover {
+  filter: drop-shadow(0px 0px 8px #d8ebf2);
   transition: all ease 250ms;
+  transform: scale(1.05);
 }
 ```
 
-We can use `display: flex` and related attributes to make our icons arrange themselves nicely in a line. Also, just for fun we gave it a blue glow when the user hovers over the icon using `filter: drop shadow()`. Be aware that this method of applying shadows to SVG elements only works in recent browser versions. However, what's nice about it is that it accounts for the exact shape of the icon, unlike `box-shadow`. Feel free to style your social widget component however you like now that you're a super expert on how to build one. You earned it!
+We can use `display: flex` and related attributes to make our icons arrange themselves nicely in a line.
+Also, just for fun we gave it a whitish glow when the user hovers over the icon using `filter: drop shadow(0px 0px 8px #d8ebf2)`,
+and it magnifies a little bit on hover too because we added `transform: scale(1.05)`).
+Be aware that this method of applying shadows to SVG elements only works in recent browser versions.
+However, what's nice about it is that it accounts for the exact shape of the icon, unlike `box-shadow`.
+Feel free to style your social widget component however you like now that you're a super expert on how to build one. You earned it!
 
-### An example of our component
+### A customized example of our component
 
-<div style={{ background: "#153259", padding: '16px', borderRadius: '8px', maxWidth: 'fit-content', margin: '32px', transform: 'scale(1.25)' }}>
-  <Social iconSize={40} />
+<div
+  style={{
+    background: "#153259",
+    padding: "16px",
+    borderRadius: "8px",
+    maxWidth: "max-content",
+    margin: "16px",
+    flexBasis: "48px",
+    flexGrow: 0,
+    flexShrink: 1,
+  }}
+>
+  <Social iconSize={48} />
 </div>
 
-And there you have it! A nice little social widget thingy. I hope you found this helpful somehow!
+And there you have it! A nice little social widget thingy 😇
+
+I hope you found this helpful somehow!
 
 ## Thanks for reading!
