@@ -33,7 +33,7 @@ module.exports = {
         avatar: `monsterid`,
         lang: "en",
         enableQQ: false,
-        requiredFields: ["nick", "mail"],
+        requiredFields: ["nick"],
         visitor: true,
         placeholder: "Leave a comment",
       },
@@ -82,7 +82,7 @@ module.exports = {
               tracedSVG: {
                 color: "#153259",
                 turnPolicy: "TURNPOLICY_MAJORITY",
-              }
+              },
             },
           },
           {
@@ -182,6 +182,8 @@ module.exports = {
             },
           },
           "gatsby-remark-a11y-emoji",
+          "gatsby-remark-external-links",
+          "gatsby-remark-unwrap-images",
         ],
       },
     },
@@ -202,7 +204,7 @@ module.exports = {
               tracedSVG: {
                 color: "#153259",
                 turnPolicy: "TURNPOLICY_MAJORITY",
-              }
+              },
             },
           },
           {
@@ -302,6 +304,8 @@ module.exports = {
             },
           },
           "gatsby-remark-a11y-emoji",
+          "gatsby-remark-external-links",
+          "gatsby-remark-unwrap-images",
         ],
       },
     },
@@ -468,6 +472,17 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-page-progress",
+      options: {
+        includePaths: ["/", "/photos", "/projects", { regex: "^/posts/" }],
+        excludePaths: [],
+        height: 4,
+        prependToBody: true,
+        color: `#04B372`,
+        footerHeight: 0,
+      },
+    },
+    {
       resolve: "gatsby-plugin-minify-html",
       options: {
         debug: false, // debug optional, default false
@@ -510,6 +525,13 @@ module.exports = {
           "object-src": "'none'",
           // you can add your directives or override defaults
         },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-sri",
+      options: {
+        hash: "sha256", // 'sha256', 'sha384' or 'sha512' ('sha512' = default)
+        // crossorigin: false // Optional
       },
     },
     {
