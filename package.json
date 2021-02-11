@@ -58,7 +58,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet-async": "^1.0.7",
-    "react-icons": "^3.11.0"
+    "react-icons": "^3.11.0",
+    "webpack": "^5.18.0"
   },
   "devDependencies": {},
   "repository": {
