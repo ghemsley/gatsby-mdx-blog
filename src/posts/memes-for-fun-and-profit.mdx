@@ -93,7 +93,7 @@ fetch(`/memes/${meme_id}`, {
 })
 ```
 
-Note that this invisible form is separate from the visible one I showed a picture of earlier. The visible form contains the input information used to generate a meme, but that information isn't sent directly to the server. Instead, a DOM node is created with that information appended and styled using CSS, and then `dom-to-image-more` lets me generate an image from that node, after which point the invisible form takes over, sending all the original input as well as the generated meme image to the server. From there, the information except for the images are stored in the database with ActiveRecord. For the images, Carrierwave stores the file in a public `uploads` directory and generates a url so that the file can be pointed to from within Sinatra later. Lots of moving parts to this project! But that's what makes it fun 😎
+Note that this invisible form is separate from the visible one I showed a picture of earlier. The visible form contains the input information used to generate a meme, but that information isn't sent directly to the server. Instead, a DOM node is created with that information appended and styled using CSS, and then `dom-to-image-more` lets me generate an image from that node, after which point the invisible form takes over, sending all the original input as well as the generated meme image to the server. From there, the information except for the images are stored in the database with ActiveRecord. For the images, Carrierwave stores the file in an AWS S3 bucket and then generates a url so that the file can be pointed to from within Sinatra later. Lots of moving parts to this project! But that's what makes it fun 😎
 
 ## Things to improve on
 
