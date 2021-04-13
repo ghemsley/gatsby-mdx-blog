@@ -486,7 +486,7 @@ def foxycart_webhook
 end
 ```
 
-This webhook finds the just-checked-out user's account on my site if it exists, and grabs their transaction information from the data FoxyCart sends to me in its request. Based on that data, I can find out what products they just purchased, then create a new `Quantity` record for each of them in my database. A given quantity is associated with the user and a product, and it also has an `amount` attribute, which happens to be user submittable! The user can specify the `quantity`'s `amount` value either before checking out when they choose how many of a given item to purchase using my app's slid-out cart widget, or during checkout before they confirm their order, again by specifying how many of an item they would like to purchase. 
+This webhook finds the just-checked-out user's account on my site if it exists, and grabs their transaction information from the data FoxyCart sends to me in its request. Based on that data, I can find out what products they just purchased, then create a new `Quantity` record for each of them in my database. A given quantity is associated with the user and a product, and it also has an `amount` attribute, which happens to be user submittable! The user can specify the `quantity`'s `amount` value either before checking out when they choose how many of a given item to purchase using my app's slide-out cart widget, or during checkout before they confirm their order, again by specifying how many of an item they would like to purchase. 
 
 But enough with the webhooks, what about that Reverse SSO thing?
 
@@ -504,7 +504,7 @@ So hopefully all of that counts somewhat towards a third-party authentication re
 
 I configured Webpacker to allow me to use React to display the products of my app. This was partially because I just enjoy using React a lot, but also because there were some nice-looking component libraries I wanted to use to enable some bits of functionality, such as [a lightbox](https://github.com/theanam/react-awesome-lightbox) and [a slider carousel widget](https://react-slick.neostack.com/). First, I'll walk through my somewhat hefty ProductCard component:
 
-```react
+```jsx
 const ProductCard = (props) => {
   const json = JSON.parse(props.dimensions_json)
   const [open, setOpen] = useState(false)
@@ -675,7 +675,7 @@ Some of it is fairly self-explanatory, but there are a few parts that maybe aren
 
 That's about it for that component, so next up is the `CategorySlider` component! 😃
 
-```react
+```jsx
 const CategorySlider = (props) => {
   let settings = {
     arrows: props.arrows,
