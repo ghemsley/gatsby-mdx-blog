@@ -368,19 +368,19 @@ module.exports = {
     //     ],
     //   },
     // },
-    {
-      resolve: "gatsby-source-google-photos",
-      options: {
-        albumsTitles: ["Random"],
-        photosMaxWidth: 1920,
-        photosMaxHeight: 1280,
-        photosCrop: false,
-        //
-        // For a better stack trace and more information
-        // Useful when you open a issue to report a bug
-        debug: true,
-      },
-    },
+    // {
+    //   resolve: "gatsby-source-google-photos",
+    //   options: {
+    //     albumsTitles: ["Random"],
+    //     photosMaxWidth: 1920,
+    //     photosMaxHeight: 1280,
+    //     photosCrop: false,
+    //     //
+    //     // For a better stack trace and more information
+    //     // Useful when you open a issue to report a bug
+    //     debug: true,
+    //   },
+    // },
     {
       resolve: `gatsby-source-github-api`,
       options: {
