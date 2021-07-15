@@ -1,0 +1,467 @@
+---
+title: React Hooks - An overview of useState and useEffect
+author: Graham Hemsley
+slug: /posts/react-hooks
+image: ../assets/images/posts/react-hooks/cover.png
+featured: true
+tags:
+  - name: React
+  - name: Education
+  - name: Programming
+date: 2021-07-13
+---
+
+import {
+  Dog,
+  FunctionalDog,
+  TitleChanger,
+  AnnoyingAlertComponent
+} from "../components/exampleComponents.jsx"
+
+# React Hooks
+
+## What are they?
+
+React Hooks are a collection of functions that can be used from within a React function component to do things like modify state, run code during lifecycle events, access context, or perform other useful actions.
+
+Hooks were first introduced in React 16.8.0, and they help allow function components to easily do things that you would previously want to use a class component for.
+
+Hooks are backwards-compatible with existing React applications. You don't have to commit to just using Hooks; instead, you can gradually introduce them to your codebase if you prefer.
+
+## Do they make class components obsolete?
+
+No. Class components are still supported as of React 17 and may be preferable depending on your needs and coding style.
+
+However, as you may see, there are many nice things about how Hooks have been implemented compared to how things are done in class components which can allow for simpler, more concise code.
+
+## Why were they created?
+
+For one, function components were much more limited in what they could do prior to the introduction of Hooks, so their addition helps make those components more versatile.
+
+Also, the React team saw ways they could try to fix certain types of problems they were encountering in React and its ecosystem, and Hooks are how they decided to try to solve some of those problems without making breaking changes to class components.
+
+## Available hooks as of React 17.0.2
+
+React Hooks are functions that begin with the prefix `use`:
+
+- `useState`
+- `useEffect`
+- `useContext`
+- `useReducer`
+- `useCallback`
+- `useMemo`
+- `useRef`
+- `useImperativeHandle`
+- `useLayoutEffect`
+- `useDebugValue`
+  <br />
+  <br />
+
+We will be focusing on just the first two, which are probably two of the most common hooks you will see or need.
+
+---
+
+### useState
+
+`useState` is a hook which lets us manage state from within a function component.
+
+The call to `useState()` accepts an argument which should be the value you want to initialize the state variable with.
+
+The convention is to assign the return of `useState` to two elements within an array, where the first element is the state variable itself, and the second element is a setter function used to subsequently update the state.
+
+#### Examples
+
+Here is an example of using `useState`:
+
+```jsx
+// If you are wondering, yes, we are using array destructuring on the return of useState (it returns an array)
+const [value, setValue] = useState(true)
+
+// The state variable will be initialized with a value of 0 here:
+const [value, setValue] = useState(0)
+
+// The argument provided to useState() can be any valid JS object or data type, so you could also do any of these:
+const [value, setValue] = useState({ isAdopted: true })
+useState([item1, item2, item3])
+useState("message")
+useState(null)
+// And so on...
+```
+
+##### Using the setter function
+
+Now let's see how we can use the setter function to update state later on within our component:
+
+```jsx
+// First we set up the state using array destructuring on the call to useState, initializing it with the boolean value 'false'
+const [activated, setActivated] = useState(false)
+console.log(activated) // => false
+
+// Then elsewhere we can make a call to the setter function, passing in the new value we want our state variable to have:
+setActivated(true)
+
+// Now if we later check the value of our state variable again...
+console.log(activated) // => true
+```
+
+##### Object merging (or lack thereof)
+
+Note that whatever you provide as an argument to the setter function will replace the contents of a given state variable entirely, as opposed to doing a shallow merge as you may be used to with `this.setState`.
+
+However, the setter function returned by `useState` can also be provided a function as an argument, which allows us to access the component's state as it exists immediately prior to being updated, similar to `this.setState`.
+With this in mind, we can replicate the shallow merge functionality ourselves:
+
+```jsx
+const [style, setStyle] = useState({ background: "blue", padding: "1em" })
+console.log(style) // => { background: 'blue', padding: '1em' }
+setStyle(previousState => ({ ...previousState, margin: "20px" }))
+console.log(style) // => { background: 'blue', padding: '1em', margin: '20px' }
+```
+
+##### Arbitrary number of calls to useState
+
+`useState` is very flexible in that we can make as many calls to it as we want to set up as much state as we need:
+
+```jsx
+const [style, setStyle] = useState({ background: "blue", padding: "1em" })
+const [taken, setTaken] = useState(false)
+const [time, setTime] = useState(0)
+```
+
+The code above would be basically equivalent to the constructor code below in a class component:
+
+```jsx
+constructor() {
+  super()
+  this.state = {
+    style: {
+      background: 'blue',
+      padding: '1em'
+    },
+    taken: false,
+    time: 0
+  }
+}
+```
+
+##### Putting it all together in a real component
+
+Let's remind ourselves of what managing state looks like in a class component with a basic example:
+
+```jsx
+class Dog extends Component {
+  constructor(props) {
+    super()
+    this.state = {
+      adopted: props.adopted,
+    }
+  }
+
+  handleButtonClick = () => {
+    this.setState(prevState => ({ adopted: !prevState.adopted }))
+  }
+
+  render() {
+    return (
+      <div>
+        <h2>{this.props.name}</h2>
+        <p>Breed: {this.props.breed}</p>
+        <p>Age: {this.props.age}</p>
+        <p>Adopted: {this.state.adopted.toString()}</p>
+        <button onClick={this.handleButtonClick}>Toggle Adoption</button>
+      </div>
+    )
+  }
+}
+```
+
+This component would produce the page content shown below:
+
+<Dog name="Fido" breed="terrier" age={5} adopted={false} />
+<br />
+
+Now let's see that same functionality transformed into a function component, with the state managed using the `useState` hook:
+
+```jsx
+const FunctionalDog = props => {
+  const [adopted, setAdopted] = useState(props.adopted)
+  const handleButtonClick = () => setAdopted(prevState => !prevState)
+
+  return (
+    <div>
+      <h2>{props.name}</h2>
+      <p>Breed: {props.breed}</p>
+      <p>Age: {props.age}</p>
+      <p>Adopted: {adopted.toString()}</p>
+      <button onClick={handleButtonClick}>Toggle adoption</button>
+    </div>
+  )
+}
+```
+
+This function component would produce the page content shown below (notice any similarities?):
+
+<FunctionalDog name="Fido" age={5} breed="terrier" adopted={false} />
+<br />
+
+For all intents and purposes, they are the same component; they are just composed differently.
+
+Note how much more concise our function component is while accomplishing the same functionality, thanks to `useState`!
+
+---
+
+### useEffect
+
+`useEffect` can be thought of as a replacement for the class component lifecycle methods `componentDidMount` and `componentDidUpdate`, as well as `componentWillUnmount`.
+
+However, there are important differences to be aware of. `useEffect` is suitable for performing actions that have side effects and which should be run after **every** render.
+
+In contrast, `componentDidMount` runs only after the _first_ render, and `componentDidUpdate` runs after _every subsequent render_ following the initial render.
+
+In this way, `useEffect` can often be used as a replacement for either of those lifecycle methods, or both.
+
+While this is an easy way to understand `useEffect` at first, perhaps an even better way to understand  `useEffect` is to think of it not in terms of performing actions upon certain lifecycle events, but instead as a way of *synchronizing* things from outside of the React tree with things inside the tree.
+
+#### Always associated with a specific render call
+
+Another important thing to understand is that calls to `useEffect` are associated with a specfic render call, and each `useEffect` call 'captures' the values in the render call it is associated with, including its values for props and state.
+
+This means that your effect will normally only 'see' values of props and state as they existed at the moment a specific render call was made.
+
+There are ways to let your effect 'see' values for props and state that came from past or future renders, but doing so usually adds complexity to your component.
+
+This is by design, as there are often ways to avoid 'swimming against the tide' like this, and it makes obvious the cases where you are doing so to help you see that there may be a better way to structure your code.
+
+#### What if running after every render isn't suitable?
+
+If there is a need to have `useEffect` run only after certain events have occurred instead of after every render, it offers a way to customize its behavior so that the effect is only run after specific changes to props or state have been made.
+
+#### Useful for asynchronous effects
+
+Note that `useEffect` performs its work _asynchronously_. It does not block the browser from updating the screen while its work is in progress.
+
+In cases where an effect must be run _synchronously_, there is another hook for that purpose which has the same API: `useLayoutEffect`.
+
+#### Only runs when rendering is necessary
+
+Calls to `useEffect` don't immediately fire. It will always fire at least once (after the initial render), but subsequent calls are not guaranteed. If nothing within the component has changed to trigger a rerender of the component, then `useEffect` will not run again.
+
+In this way, it is important to be aware of how your components props and state are (or aren't) changing and triggering new render calls if you want to make successful use of `useEffect`.
+
+#### What are some examples of when to use it?
+
+Whenever you need to fetch data, manually alter part of the DOM, or otherwise perform an action which has side effects and can be run asynchronously, `useEffect` may very well be the solution.
+
+Things like fetching data for use within a component should not occur before or during render, as it would block the progress of rendering until the work has been completed.
+
+This would contribute to a poor user experience, as we normally prefer to display _something_ as soon as possible rather than having blank screens or empty spaces where there should be content.
+
+Similarly, if you need to update the DOM manually somehow, it makes more sense for this to be done after the page has rendered so that the DOM elements you want to modify have been created and are actually available within the JS environment.
+
+Situations like these are where `useEffect` comes in handy, given that it runs _after_ the render call has updated the DOM, and since it will not block further render calls.
+
+### Examples
+
+#### How is it used?
+
+`useEffect` accepts a function as an argument. This function is what will be run when `useEffect` fires.
+
+Like so:
+
+```jsx
+const OurComponent = () => {
+  useEffect(() => {
+    // Effect code goes here
+  })
+  return <div>Hello world</div>
+}
+```
+
+##### Specifying props or state as dependencies
+
+As hinted at earlier, if we want to have `useEffect` run only after certain changes to our component have occurred, we can specify 'dependencies' for useEffect to pay attention to instead of running after every single render call by providing an array of dependencies as a second argument to our `useEffect` call:
+
+```jsx
+const OurComponent = props => {
+  const [message, setMessage] = useState(props.message)
+
+  useEffect(() => {
+    doSomething(message)
+  }, [message])
+
+  return (
+    <input
+      type="text"
+      value={message}
+      onChange={event => setMessage(event.target.value)}
+    />
+  )
+}
+```
+
+With the code above, `useEffect` will run once after the initial render, but then only after subsequent renders which were triggered by a change in the state variable `message`.
+
+Other render calls triggered by changes in props or state other than `message` will not trigger our `useEffect` hook.
+
+If we only want it to run after the first render call, then we can pass an empty array as a second argument:
+
+```jsx
+const OurComponent = () => {
+  useEffect(() => {
+    doSomethingAfterInitialRender()
+  }, [])
+
+  return <div>Hello world</div>
+}
+```
+
+Note that you should not pass an empty dependency array if `useEffect` does in fact depend upon some value coming from your component's *render scope*.
+
+It is generally not safe to just pass an empty array to have the effect run only on initial render unless it really doesn't require anything from the render scope.
+
+Ignoring this could lead to bugs. This also points out another reason why `useEffect` is not a direct translation of the component lifecycle methods: There are extra considerations if you want to use it as a replacement for `componentDidMount` which may call for a restructuring of some of your code. 
+
+###### More on specifying dependencies
+
+It is important never to 'lie' about your dependencies when using `useEffect`.
+
+Not 'lying' means that you should always include **any** and **all** variables, props, state, functions, or any other values that come from the *render scope* of your component if they will be use inside `useEffect`, or otherwise rewrite your effect code so that it doesn't depend on as many things.
+
+###### Functions as dependencies
+
+Functions can and should be specified as dependencies if necessary. However, if a function is pure or has been defined outside of the component, it is not necessary to include it in the dependency array.
+
+Also note that while you may specify functions as a dependency if needed, there may be better ways to solve those cases where a function uses some value that comes from the render scope.
+
+If you really do need to specify a function as a dependency, it should be wrapped within another hook: `useCallback`.
+
+There is more info about these concerns available at [the React FAQ found here](https://reactjs.org/docs/hooks-faq.html#is-it-safe-to-omit-functions-from-the-list-of-dependencies).
+
+###### ESLint plugin
+
+There is an `eslint` plugin available which can tip you off when you are specifying dependencies incorrectly, and it is recommmended especially if you are just getting started with `useEffect`.
+
+There is info about that plugin, as well as installation instructions, [available here](https://github.com/facebook/react/issues/14920).
+
+##### A simple example component
+
+Here is a basic example of calling `useEffect` to update the document title using a simple form:
+
+```jsx
+const TitleChanger = () => {
+  const [title, setTitle] = useState(document.title)
+  const [value, setValue] = useState("")
+
+  useEffect(() => {
+    document.title = title
+  }, [title])
+
+  const handleSubmit = event => {
+    event.preventDefault()
+    setTitle(value)
+  }
+
+  return (
+    <div>
+      <form onSubmit={event => handleSubmit(event)}>
+        <label htmlFor="Title">Change document title</label>
+        <input
+          name="Title"
+          type="text"
+          value={value}
+          onChange={event => setValue(event.target.value)}
+        />
+        <button type="submit">Submit</button>
+      </form>
+      <p>Current title: {title}</p>
+    </div>
+  )
+}
+```
+
+The code above produces the page content seen below:
+
+<TitleChanger />
+
+##### Effects that need cleanup
+
+Last but not least, there is a way to handle cleanup of effects if necessary.
+
+Simply have `useEffect` return a function that handles the necessary cleanup, and that function will be run after each call to `useEffect` has completed.
+
+Here is an example of using an effect with cleanup:
+
+```jsx
+const AnnoyingAlertComponent = () => {
+  const [active, setActive] = useState(false)
+
+  const handleButtonClick = () => {
+    setActive(prevState => !prevState)
+  }
+
+  useEffect(() => {
+    let interval = null
+    if (active) {
+      alert('Hello!')
+      interval = setInterval(() => {
+        alert("Hello again!")
+      }, 3000)
+    }
+    return () => { // Here we return a function that handles our cleanup
+      if (interval) {
+        clearInterval(interval)
+      }
+    }
+  }, [active])
+
+  return (
+    <div>
+      <p>Alert button</p>
+      <p>Active: {active ? 'Yes' : 'No'}</p>
+      <button onClick={handleButtonClick}>Activate</button>
+    </div>
+  )
+}
+```
+
+That code produces the following (very annoying) page content:
+
+<AnnoyingAlertComponent/>
+
+#### More in-depth info on these concepts and more
+
+There is an excellent guide to the concepts above, and to `useEffect` in general, that goes into much more detail available [here](https://overreacted.io/a-complete-guide-to-useeffect/).
+
+Consider that guide recommended reading if you want to gain a complete understanding of `useEffect`, which is beyond the scope of this quick lesson.
+
+***
+
+### Other things to note about React Hooks
+
+There are a couple things to keep in mind about Hooks in React. 
+
+#### Only call hooks at the top level of your function
+
+Hooks should only be called at the top level of your function. You should not call them from within the function's return statement, from within a conditional, inside of a loop, etc.
+
+This is because React wants to call hooks in the same order each time a component renders in order to properly maintain their state between multiple calls to `useState` and `useEffect`.
+
+In other words, React relies on the order in which the hooks were called to keep track of which state belongs to which hook call, as when using multiple calls to `useState`.
+
+#### Only call hooks from within a React function
+
+Normally, you will want to only call hooks from within a React function component.
+
+The exception to this is if you want to create a custom hook. In that case, it is fine and normal to call hooks from within your custom hook function.
+
+You should not try to use hooks from inside of a class component! This will not work. The same rule applies for standard JS functions; those are not the right place to use Hooks. 
+
+Keep them inside of your React functions at the top level, and you should be okay.
+
+## Wrapping up
+
+I hope this lesson has helped you get started with using React Hooks.
+
+Please let me know if you have any feedback or questions!
+
+## Thank you!
