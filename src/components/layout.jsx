@@ -2,8 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import Nav from "./nav"
 import Social from "./social"
-import "../css/compiled/sakura.css"
-import "../css/compiled/global.css"
+import "../sass/sakura.scss"
+import "../sass/global.scss"
 
 const Layout = ({ children }) => {
   return (
