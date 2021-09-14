@@ -372,9 +372,8 @@ Finally, you use `createSelector`, passing in those earlier functions as argumen
 Here is how I used my final selector creator within my `Dropzone` component:
 
 ```jsx
-const selectChildCoordinates = useCallback(makeSelectChildCoordinates, [props])
 const childCoordinates = useSelector(state =>
-  selectChildCoordinates(state, props)
+  makeSelectChildCoordinates(state, props)
 )
 ```
 
